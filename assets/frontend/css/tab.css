@@ -1,0 +1,35 @@
+.tab_li {
+    display: block;
+    float: left;
+    width: 200px;
+    /* adjust */
+    height: 50px;
+    /* adjust */
+    padding: 5px;
+    /*adjust*/
+}
+
+.tab-group {
+    justify-content: center;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 -8px 0;
+}
+
+.tab.active a {
+    background: #3FC979;
+    padding: 15px;
+    color: white;
+}
+
+
+
+/* .tab-content>div:last-child {
+    display: none;
+} */
+
+.tab-content > div:nth-last-child(-n+3) {
+    display:none;
+}
+/* More than two child */
