@@ -10,6 +10,7 @@ $( document ).ready(function() {
 
 
 
+
 });
 
 function get_homepage_section(){
@@ -39,6 +40,8 @@ function get_product()
         }
     })
 }
+
+
 
 
 

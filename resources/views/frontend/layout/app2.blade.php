@@ -13,7 +13,7 @@
     {{-- <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content=""> --}}
-    <title>XiT Ecommerce</title>
+    <title>Urbor</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/fonts/Linearicons/Font/demo-files/demo.css">
 
@@ -25,6 +25,11 @@
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/slick/slick.css">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/lightGallery/dist/css/lightgallery.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/css/style.css?{{ time() }}">
+    <style>
+        .ps-header--center .header-inner {
+            padding: 6px 0;
+        }
+    </style>
     @yield('page_css')
 </head>
 
@@ -88,7 +93,7 @@
                     <div class="header-inner__left">
                         <button class="navbar-toggler"><i class="icon-menu"></i></button>
                     </div>
-                    <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}">XiT<span class="text-black"> Ecommerce.</span></a></div>
+                    <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png" style="height: 60px"></div>
                     <div class="header-inner__right">
                         <button class="button-icon icon-sm search-mobile"><i class="icon-magnifier"></i></button>
                     </div>
@@ -98,7 +103,7 @@
         <section class="ps-header--center header-desktop">
             <div class="container">
                 <div class="header-inner">
-                    <div class="header-inner__left"><a class="logo" href="{{ url('/') }}">XiT<span class="text-black"> Ecommerce</span></a>
+                    <div class="header-inner__left"><a class="logo" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png" style="height: 60px"></a>
                         <ul class="menu">
                             <li class="menu-item-has-children has-mega-menu">
                                 <button class="category-toggler"><i class="icon-menu"></i></button>

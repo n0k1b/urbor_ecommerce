@@ -53,5 +53,7 @@
    var type= "{{ $type }}";
 
 </script>
+
 <script src="{{asset('assets')}}/frontend/js/view_all.js?{{ time() }}"></script>
+{{-- <script src="{{asset('assets')}}/frontend/js/frontend.js?{{ time() }}"></script> --}}
 @endsection

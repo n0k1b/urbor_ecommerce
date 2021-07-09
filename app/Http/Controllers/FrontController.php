@@ -597,7 +597,7 @@ class FrontController extends Controller
         foreach($section_category as $category)
         {
             $data.=' <div class="ps-category__item">
-            <a href="shop-categories.html"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="shop-categories.html">'.$category->section_name.'</a>
+            <a href="view_all/section_prodcut-'.$category->id.'"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/section_prodcut-'.$category->id.'">'.$category->section_name.'</a>
         </div>';
         }
         $data.=' </div>';
@@ -615,11 +615,12 @@ class FrontController extends Controller
         foreach( $sub_category as $category)
         {
             $data.=' <div class="ps-category__item">
-            <a href="shop-categories.html"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="shop-categories.html">'.$category->name.'</a>
+            <a href="view_all/sub_category-'.$category->id.'"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/sub_category-'.$category->id.'">'.$category->name.'</a>
         </div>';
         }
         $data.=' </div>';
-        $data.='<script src="assets/frontend/js/main.js?'.time().'"></script>';
+        $data.='<script src="assets/frontend/js/main.js?'.time().'"></script>
+        <script src="assets/frontend/js/frontend.js?'.time().'"></script>';
     }
 
     if (strpos($type, 'sub_category') !== false) {
@@ -635,11 +636,11 @@ class FrontController extends Controller
         foreach( $sub_category as $category)
         {
             $data.=' <div class="ps-category__item">
-            <a href="shop-categories.html"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="shop-categories.html">'.$category->name.'</a>
+            <a href="view_all/sub_category-'.$category->id.'"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/sub_category-'.$category->id.'">'.$category->name.'</a>
         </div>';
         }
         $data.=' </div>';
-        $data.='<script src="assets/frontend/js/main.js?'.time().'"></script>';
+        $data.='<script src="assets/frontend/js/main2.js?'.time().'"></script>';
     }
 
         echo $data;

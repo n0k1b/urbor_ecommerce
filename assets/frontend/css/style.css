@@ -2613,6 +2613,7 @@ label:hover:before {
     -webkit-box-orient: vertical;
     overflow: hidden;
     font-weight: bold;
+    padding-bottom: 25px;
 }
 
 .ps-product--standard .ps-product__sale {
@@ -2659,6 +2660,46 @@ label:hover:before {
     font-weight: bold;
     color: #222;
     font-size: 15px;
+}
+
+@media screen and (orientation: portrait) {
+    .ps-product--standard .ps-product__name {
+        padding-bottom: 30px;
+        font-size: 30px;
+        overflow: unset;
+    }
+    body>main>section:nth-child(3)>div>div.component__content>div>div.owl-stage-outer>div {
+        box-sizing: unset !important;
+    }
+    .ps-product--standard *,
+     ::after,
+     ::before {
+        box-sizing: unset !important;
+    }
+    .ps-product--standard .ps-product__sale {
+        font-size: 23px;
+    }
+    .ps-product--standard .ps-product__off {
+        font-size: 21px;
+    }
+    .ps-product--standard .ps-product__price {
+        font-size: 21px;
+    }
+    .ps-product--standard .ps-product__type i {
+        margin-right: 15px;
+    }
+    .ps-product--standard .ps-product__rating span {
+        margin-left: 14px;
+    }
+    .ps-product--standard .ps-product__rating a {
+        font-size: 23px;
+    }
+    .ps-product--standard .ps-product__price-default {
+        font-size: 25px;
+    }
+    .ps-product--standard .quickview-carousel {
+        pointer-events: none;
+    }
 }
 
 .ps-product--standard .progress {
@@ -4207,6 +4248,14 @@ label:hover:before {
     width: 100%;
     height: 62vh;
     position: relative;
+}
+
+@media only screen and (orientation: portrait) {
+    .section-slide--default .ps-banner {
+        width: 100%;
+        height: 20vh;
+        position: relative;
+    }
 }
 
 .section-slide--default .ps-banner a {
