@@ -344,13 +344,8 @@ class FrontController extends Controller
         $user_id = auth()->user()->id;
         $order_no = 'GG'.$user_id.mt_rand(10000,99999);
         $area_id = user_address::where('id',$address_id)->first()->area_id;
-        $courier_man =$this->search_courier_man($area_id);
-        if($courier_man == 0)
-        {
-        //$response = ['status_code'=>414,];
-       // return response($response, 200);
-       return back()->with('error','No courier man available at this time. Please try again after sometimes');
-        }
+       // $courier_man = 1;//$this->search_courier_man($area_id);
+
 
 
         foreach( $cart as $id => $details)
@@ -359,7 +354,7 @@ class FrontController extends Controller
            order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price']]);
         }
         $delivery_fee = 60;
-        $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'courier_man'=>$courier_man,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee]);
+        $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee]);
 
         $status = $order->status;
         $order_no = $order->order_no;

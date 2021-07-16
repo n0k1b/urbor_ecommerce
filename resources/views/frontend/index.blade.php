@@ -101,8 +101,8 @@
 
     <section class="ps-component--register">
         <div class="container">
-            <h3 class="component__title">Get started to XiT Ecommerce! Your first delivery is free</h3>
-            <p>Join other shoppers in your area, and try XiT Ecommerce today.</p><a class="ps-button" href="#">Register An Account</a>
+            <h3 class="component__title">Get started to Urbor</h3>
+            <p>Join other shoppers in your area, and try Urbor today.</p><a class="ps-button" href="#">Register An Account</a>
         </div>
     </section>
 </main>

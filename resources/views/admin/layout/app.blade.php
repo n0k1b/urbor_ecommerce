@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>XiT Ecommerce Admin </title>
+    <title>Urbor Admin </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets')}}/admin/images/logo.png">
 	<link rel="stylesheet" href="{{asset('assets')}}/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css?{{time()}}">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/skin.css?{{time()}}">
     @yield('page_css')
 </head>
-<body>
+<body></body>
 
     <!--*******************
         Preloader start
