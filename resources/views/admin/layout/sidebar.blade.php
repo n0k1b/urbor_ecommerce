@@ -153,6 +153,21 @@
                 </a>
                 </li>
 
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <i class="la la-shopping-cart"></i>
+                    <span class="nav-text">Report</span>
+                    </a>
+                    <ul aria-expanded="false">
+
+                        <li><a href="{{url('admin/report/order')}}">Order Report</a></li>
+                        <li><a href="#">Purchase Report</a></li>
+                        <li><a href="#">Exense Report</a></li>
+
+
+
+                    </ul>
+                </li>
+
 
 
 

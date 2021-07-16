@@ -24,14 +24,14 @@
 				<div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>All category</h4>
+                            <h4>New Order</h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('admin') }}">Home</a></li>
 
-                            <li class="breadcrumb-item active"><a href="javascript:void(0);">category List</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0);">New Order</a></li>
                         </ol>
                     </div>
                 </div>
@@ -44,47 +44,39 @@
 								<div class="card">
 									<div class="card-header">
 										<h4 class="card-title"></h4>
-										<a href="{{ route('add-category') }}" class="btn btn-primary">+ Add new</a>
+
 									</div>
 									<div class="card-body">
 										<div class="table-responsive">
 											<table id="example3" class="display" style="min-width: 845px">
-												<thead>
+    											<thead>
 													<tr>
 														<th>#</th>
-														<th>Category Name</th>
+														<th>Order No</th>
 
 
-														<th>Image</th>
-														<th>Active Status</th>
+														<th>User Name</th>
+														<th>Delivery Address</th>
 
-                                                        <th>Action</th>
-                                                        <th>Image Edit</th>
+                                                        <th>Contact No</th>
+                                                         <th>Order Date</th>
+                                                        <th></th>
 													</tr>
 												</thead>
 												<tbody>
 
                                                     @foreach($datas as $data)
-													<tr>
-													<?php
-													$checked = $data->status=='1'?'checked':'';
-													?>
+
 														<td><strong>{{$data->sl_no}}</strong></td>
-														<td>{{$data->name}}</td>
+														<td>{{$data->order_no}}</td>
+														<td>{{$data->user->name}}</td>
+														<td>{{$data->address->address}}</td>
+														<td>{{$data->address->contact_no}}</td>
+														<td>{{$data->created_at}}</td>
 
 
-
-                                                        <td><img  width="100" src="../{{$data->image}}"  alt="Not Available"></td>
-														<td> <label class="switch">
-															<input type="checkbox"  onclick="category_active_status({{$data->id}})" {{$checked}}>
-																<span class="slider round"></span>
-															</label></td>
-														<td>
-															<a href="edit_category_content/{{$data->id}}" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
-															<a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="category_content_delete({{$data->id}})"><i class="la la-trash-o"></i></a>
-                                                        </td>
                                                         <td>
-															<a href="edit_category_image/{{$data->id}}" class="btn btn-sm btn-info"><i class="la la-pencil"></i></a>
+															<a href="show-order-product/{{$data->order_no}}" class="btn btn-sm btn-info">Show Product</a>
 
 														</td>
 													</tr>

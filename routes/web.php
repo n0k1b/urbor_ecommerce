@@ -26,6 +26,8 @@ Route::get('/clear-cache', function() {
     $exitCode = Artisan::call('cache:clear');
     // return what you want
 });
+// Route::view('abc'');
+// Route::get('abc','FrontController@abc_func');
 Route::get('/','FrontController@index');
 Route::get('get_all_category','FrontController@get_all_category')->name('get_all_category');
 Route::post('cart_add','FrontController@cart_add')->name('cart_add');
@@ -92,7 +94,12 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
     Route::get('logout_admin','AdminController@logout')->name('logout_admin');
 
+    //Report Start
+    Route::get('report/{type}','AdminController@report_view');
+    Route::get('show_order_report','AdminController@show_order_report')->name('show_order_report');
+    Route::post('show_all_report','AdminController@show_all_report')->name('show_all_report');
 
+    //
 
     //domain start
     Route::get('show-all-domain','AdminController@show_all_domain')->name('show-all-domain');

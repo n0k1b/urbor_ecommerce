@@ -50,7 +50,7 @@
             <div class="modal-content" id="product_content">
 
 
-
+                <a hre="get_all_cateogry">ABC</a>
 
             </div>
         </div>

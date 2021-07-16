@@ -51,7 +51,7 @@
                         <div class="card-header">
                             <h4 class="card-title"></h4>
                             @if(in_array('sub_category_add',$role_permission))
-                            <a href="{{ route('add-sub_category') }}" class="btn btn-primary">+ Add new</a>
+                            <a href="{{ route('add-purchase') }}" class="btn btn-primary">+ Add new</a>
                             @else
                             <a href="javascript:void(0);" onclick="access_alert()" class="btn btn-primary">+ Add new</a>
                             @endif

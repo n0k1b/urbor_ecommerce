@@ -37,6 +37,7 @@ use Illuminate\Support\Facades\Validator;
 use DB;
 use DataTables;
 use Auth;
+use Session;
 
 
 use App\Models\product_required_filed;
@@ -2806,16 +2807,25 @@ class AdminController extends Controller
                 {
                     //$checked = $datas->status=='1'?'checked':'';
                     $datas['sl_no'] = $i++;
-                    $datas['supplier'] = 'XiT Bangladesh';
-                    $datas['product'] = 'Chinigura Rice';
+                    $datas->supplier = $datas->supplier->supplier_name;
+                    $datas->product = $datas->product->name;
+                    //file_put_contents('test.txt',$datas->product->name);
 
                    // $datas['checked'] =$checked;
 
                 }
 
+
             return Datatables::of($data)
                     ->addIndexColumn()
-
+                    ->addColumn('supplier',function($data)
+                    {
+                        return $data->supplier;
+                    })
+                    ->addColumn('product',function($data)
+                    {
+                        return $data->product;
+                    })
                     ->addColumn('action', function($data){
 
                         $permission = $this->permission();
@@ -2840,6 +2850,150 @@ class AdminController extends Controller
         return view('admin.purchase.all');
 
     }
+
+    public function show_all_report(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = order::where('status','delivered')->where('delete_status',0)->get();
+            $i=1;
+                foreach($data as $datas)
+                {
+                    //$checked = $datas->status=='1'?'checked':'';
+                    $datas['sl_no'] = $i++;
+
+                }
+
+
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('customer_name',function($data)
+                    {
+                        return $data->user->name;
+                    })
+                    ->addColumn('address',function($data)
+                    {
+                        return $data->address->address;
+                    })
+                    ->addColumn('contact_no',function($data)
+                    {
+                        return $data->address->contact_no;
+                    })
+                    ->addColumn('action', function($data){
+
+                        $permission = $this->permission();
+                        $button = '';
+                        if(in_array('category_edit',$permission))
+                        $button .= ' <a href="edit_category_content/'.$data->id.'" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
+                        else
+                        $button .= ' <a href="javascript:void(0);" onclick="access_alert()" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
+                        $button .= '&nbsp;&nbsp;';
+                        if(in_array('category_delete',$permission))
+                        $button .= ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="category_content_delete('.$data->id.')"><i class="la la-trash-o"></i></a>';
+                        else
+                        $button .= ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="access_alert()"><i class="la la-trash-o"></i></a>';
+                        return $button;
+                 })
+
+
+                    ->rawColumns(['customer_name,address,contact_no,action'])
+                    ->make(true);
+        }
+
+        return view('admin.report.show');
+    }
+
+    public function show_order_report(Request $request)
+    {
+
+        if(!$request->ajax())
+        {
+
+
+
+        $from_date = $request->from_date;
+        $from_date =  date("Y-m-d", strtotime($from_date));
+        Session::put('from_date',$from_date);
+        $to_date = $request->to_date;
+        $to_date =  date("Y-m-d", strtotime($to_date."+1 days"));
+        Session::put('to_date',$to_date);
+
+
+        }
+
+
+
+
+        if ($request->ajax()) {
+
+           $from_date = Session::get('from_date');
+           $to_date = Session::get('to_date');
+           //file_put_contents('test2.txt',$from_date." ".$to_date);
+            $data = order::whereDate('created_at','>=',$from_date)->whereDate('created_at','<=',$to_date)->get();
+           // file_put_contents('test.txt',json_encode($data));
+
+            $i=1;
+                foreach($data as $datas)
+                {
+                    //$checked = $datas->status=='1'?'checked':'';
+                    $datas['sl_no'] = $i++;
+
+                }
+
+
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('customer_name',function($data)
+                    {
+                        return $data->user->name;
+                    })
+                    ->addColumn('address',function($data)
+                    {
+                        return $data->address->address;
+                    })
+                    ->addColumn('contact_no',function($data)
+                    {
+                        return $data->address->contact_no;
+                    })
+                    ->addColumn('order_date',function($data)
+                    {
+                        $date =  date("Y-m-d h:i:s", strtotime($data->created_at));
+                        return $date;
+
+                    })
+                    ->addColumn('action', function($data){
+
+                        $permission = $this->permission();
+                        $button = '';
+                        if(in_array('category_edit',$permission))
+                        $button .= ' <a href="edit_category_content/'.$data->id.'" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
+                        else
+                        $button .= ' <a href="javascript:void(0);" onclick="access_alert()" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
+                        $button .= '&nbsp;&nbsp;';
+                        if(in_array('category_delete',$permission))
+                        $button .= ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="category_content_delete('.$data->id.')"><i class="la la-trash-o"></i></a>';
+                        else
+                        $button .= ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="access_alert()"><i class="la la-trash-o"></i></a>';
+                        return $button;
+                 })
+
+
+                    ->rawColumns(['customer_name,address,contact_no,action'])
+                    ->make(true);
+        }
+        return view('admin.report.order_report');
+
+
+
+
+        return view('admin.report.show');
+
+       // file_put_contents('test.txt',$from_date." ".$to_date);
+    }
+    public function report_view($type)
+    {
+        return view('admin.report.date_view',['type'=>$type]);
+    }
+
     public function add_purchase_ui()
     {
         $products = product::where('delete_status',0)->get();

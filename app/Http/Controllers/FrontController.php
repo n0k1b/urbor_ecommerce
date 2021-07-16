@@ -95,7 +95,11 @@ class FrontController extends Controller
 
         return view('frontend.order_list',compact('all_order','delivered','picked','pending'));
     }
+    public function abc_func()
 
+    {
+        return view('welcome');
+    }
     public function get_all_category()
 
 
