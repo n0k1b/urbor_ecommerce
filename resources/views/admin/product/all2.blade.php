@@ -191,48 +191,48 @@
 
       var table = $('#product').DataTable({
         //dom: '<"row"lfB>rtip',
-       dom: 'Blfrtip',
-        buttons: [
-                {
-                    extend: 'pdf',
-                    text: 'PDF',
-                    exportOptions: {
-                        columns: ':visible:not(.not-exported)',
-                        rows: ':visible',
+       //dom: 'Blfrtip',
+        // buttons: [
+        //         {
+        //             extend: 'pdf',
+        //             text: 'PDF',
+        //             exportOptions: {
+        //                 columns: ':visible:not(.not-exported)',
+        //                 rows: ':visible',
 
-                    },
+        //             },
 
-                },
-                // {
-                //     extend: 'csv',
-                //     text: 'CSV',
-                //     exportOptions: {
-                //         columns: ':visible:not(.not-exported)',
-                //         rows: ':visible',
-                //         stripHtml: true,
-                //         format: {
-                //             body: function ( data, row, column, node ) {
-                //                 if (column === 0 && (data.toString().indexOf('<img src=') !== -1)) {
-                //                     var regex = /<img.*?src=['"](.*?)['"]/;
-                //                     data = regex.exec(data)[1];
-                //                 }
-                //                 return data;
-                //             }
-                //         }
-                //     }
-                // },
-                {
-                    extend: 'print',
-                    text: 'Print',
-                    exportOptions: {
-                        columns: ':visible:not(.not-exported)',
-                        rows: ':visible',
-                        stripHtml: false,
-                    },
+        //         },
+        //         // {
+        //         //     extend: 'csv',
+        //         //     text: 'CSV',
+        //         //     exportOptions: {
+        //         //         columns: ':visible:not(.not-exported)',
+        //         //         rows: ':visible',
+        //         //         stripHtml: true,
+        //         //         format: {
+        //         //             body: function ( data, row, column, node ) {
+        //         //                 if (column === 0 && (data.toString().indexOf('<img src=') !== -1)) {
+        //         //                     var regex = /<img.*?src=['"](.*?)['"]/;
+        //         //                     data = regex.exec(data)[1];
+        //         //                 }
+        //         //                 return data;
+        //         //             }
+        //         //         }
+        //         //     }
+        //         // },
+        //         {
+        //             extend: 'print',
+        //             text: 'Print',
+        //             exportOptions: {
+        //                 columns: ':visible:not(.not-exported)',
+        //                 rows: ':visible',
+        //                 stripHtml: false,
+        //             },
 
-                },
+        //         },
 
-            ],
+        //     ],
 
           pageLength: 20,
           processing: true,

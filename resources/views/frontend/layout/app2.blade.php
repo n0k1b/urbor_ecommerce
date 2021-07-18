@@ -52,7 +52,7 @@
 
                           @if(auth()->check())
                           <li class="nav-top-item"><a class="nav-top-link" href="{{ url('order_list') }}">Order Tracking</a></li>
-                            <li class="nav-top-item account"><a class="nav-top-link" href="javascript:void(0);"> <i class="icon-user"></i>Hi! <span class="font-bold">User</span></a>
+                            <li class="nav-top-item account"><a class="nav-top-link" href="javascript:void(0);"> <i class="icon-user"></i>Hi! <span class="font-bold">{{ auth()->user()->name }}</span></a>
                                 <div class="account--dropdown">
                                     <div class="account-anchor">
                                         <div class="triangle"></div>

@@ -66,7 +66,7 @@
 						<span class="nav-text">Product</span>
 					</a>
 					<ul aria-expanded="false">
-						<li><a href="{{ route('show-all-product-field')}}">Product Field</a></li>
+						{{-- <li><a href="{{ route('show-all-product-field')}}">Product Field</a></li> --}}
 						<li><a href="{{ route('get_all_product')}}">All Products</a></li>
                         <li><a href="{{ route('add-product')}}">Add Product</a></li>
 
@@ -116,20 +116,20 @@
 
                         </ul>
 			    	</li>
-                    @if(in_array('courier_man_view',$role_permission))
+                    {{-- @if(in_array('courier_man_view',$role_permission))
                     <li><a class="ai-icon" href="{{ route('show-all-courier') }}" aria-expanded="false">
                         <i class="la la-motorcycle"></i>
                         <span class="nav-text">Courier Man</span>
                           </a>
                       </li>
-                      @endif
+                      @endif --}}
 
                       @if(in_array('area_view',$role_permission))
-                    <li><a class="ai-icon" href="{{ route('show-all-area') }}" aria-expanded="false">
+                    {{-- <li><a class="ai-icon" href="{{ route('show-all-area') }}" aria-expanded="false">
                         <i class="la la-area-chart"></i>
                         <span class="nav-text">Area</span>
                     </a>
-                 </li>
+                 </li> --}}
                  @endif
 
                  @if(in_array('warehouse_view',$role_permission))
@@ -140,11 +140,11 @@
                 </li>
                 @endif
 
-                <li><a class="ai-icon" href="{{ route('show-all-deposit') }}" aria-expanded="false">
+                {{-- <li><a class="ai-icon" href="{{ route('show-all-deposit') }}" aria-expanded="false">
                     <i class="la la-bank"></i>
                     <span class="nav-text">Deposit</span>
                 </a>
-                </li>
+                </li> --}}
 
 
                 <li><a class="ai-icon" href="{{ route('show-all-expense') }}" aria-expanded="false">
@@ -160,8 +160,8 @@
                     <ul aria-expanded="false">
 
                         <li><a href="{{url('admin/report/order')}}">Order Report</a></li>
-                        <li><a href="#">Purchase Report</a></li>
-                        <li><a href="#">Exense Report</a></li>
+                        {{-- <li><a href="#">Purchase Report</a></li>
+                        <li><a href="#">Exense Report</a></li> --}}
 
 
 

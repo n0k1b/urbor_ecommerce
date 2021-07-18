@@ -9,7 +9,7 @@
     <meta name="description" content="Authentication forms">
     <meta name="author" content="Arasari Studio">
 
-    <title>GOGO Shop</title>
+    <title>Urbor</title>
     <link href="{{asset('assets')}}/auth/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('assets')}}/auth/css/common.css" rel="stylesheet">
 
@@ -25,19 +25,14 @@
 <div class="forny-inner">
     <div class="forny-form">
         <div class="mb-1 text-center forny-logo">
-            <img src="{{ asset('assets')}}/admin/images/logo.png" height="100px" width="100px">
+            <img src="{{ asset('image')}}/logo2.png?{{time()}}" height="100px" width="100px">
         </div>
         <div class="text-center">
-            @if(count($errors)>0)
-
-            @foreach($errors->all() as $error)
-
-               <p class="alert alert-danger" >{{$error}}</p>
-            @endforeach
-          @endif
-   @if(!empty($error))
-       <div class="alert alert-danger"> {{ $error }}</div>
-      @endif
+            @if(!empty($error))
+            <div class="alert alert-danger"> {{ $error }}</div>
+            @endif
+            
+           
 
        @if (Session::has('success'))
                   <div class="alert alert-success">{{ Session::get('success') }}</div>

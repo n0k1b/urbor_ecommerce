@@ -47,7 +47,7 @@
     <div class="ps-breadcrumb">
         <div class="container">
             <ul class="ps-breadcrumb__list">
-                <li class="active"><a href="index.html">Home</a></li>
+                <li class="active"><a href="#">Home</a></li>
                 <li><a href="javascript:void(0);">My Account</a></li>
             </ul>
         </div>

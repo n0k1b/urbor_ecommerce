@@ -338,10 +338,15 @@ class AdminController extends Controller
         ->image
         ->move(public_path('../image/category_image') , $image);
     $image = "image/category_image/" . $image;
+    category::create(['name'=>$request->name,'image'=>$image]);
+        }
+        else
+        {
+            category::create(['name'=>$request->name,'image'=>$image]);
         }
        //file_put_contents('test.txt',$request->name." ".$request->image);
 
-        category::create(['name'=>$request->name,'image'=>$image]);
+
         return redirect()->route('show-all-category')->with('success','category Added Successfully');
 
 
@@ -2039,7 +2044,7 @@ class AdminController extends Controller
                     ->addIndexColumn()
                     ->addColumn('status', function($datas){
 
-                           $switch = "<label class='switch'> <input onclick='category_active_status(".$datas->id.")' type='checkbox'".$datas->checked."  /> <span class='slider round'></span> </label>";
+                           $switch = "<label class='switch'> <input onclick='product_active_status(".$datas->id.")' type='checkbox'".$datas->checked."  /> <span class='slider round'></span> </label>";
 
                             return $switch;
                     })
@@ -2140,7 +2145,7 @@ class AdminController extends Controller
                     $permission = $this->permission();
 
                     if(in_array('product_edit',$permission))
-                    $column = '<p onclick='.'edit('. $datas->id.',"produc_stock_amount")'.'>'. $datas->stock->stock_amount .'</p>';
+                    $column = '<p >'. $datas->stock->stock_amount .'</p>';
                     else
                     $column = '<p >'. $datas->stock->stock_amount .'</p>';
                      return $column;
@@ -2269,7 +2274,7 @@ class AdminController extends Controller
                  'thumbnail_image'=>'required',
                  'unit_type'=>'required',
                  'unit_quantity'=>'required',
-                 'unit_stock'=>'required',
+                
                  'net_weight'=>'required',
 
             ];
@@ -2281,7 +2286,7 @@ class AdminController extends Controller
             'thumbnail_image.required' => 'Product image field is required.',
             'unit_type.required' => 'Product unit type field is required.',
             'unit_quantity.required' => 'Product unit quantity field is required.',
-            'unit_stock.required' => 'Product unit stock field is required.',
+          
             'net_weight.required' => 'Product net weight field is required.',
 
 
@@ -2333,7 +2338,7 @@ class AdminController extends Controller
        product_size::create(['product_id'=>$product_id,'size'=>$request->size]);
        }
        product_unit::create(['product_id'=>$product_id,'unit_quantity'=>$request->unit_quantity,'unit_type'=>$request->unit_type]);
-       product_stock::create(['product_id'=>$product_id,'stock_amount'=>$request->unit_stock]);
+      product_stock::create(['product_id'=>$product_id,'stock_amount'=>'0']);
        warehouse_product::create(['product_id'=>$product_id,'warehouse_id'=>$request->warehouse_id]);
 
 
@@ -2381,6 +2386,7 @@ class AdminController extends Controller
         if ($status == 1)
         {
             product::where('id', $id)->update(['status' => 0]);
+            homepage_product_list::where('product_list',$id)->update(['status'=>0]);
         }
         else
         {

@@ -19,7 +19,7 @@ use App\Models\homepage_product_list;
 use App\Models\banner;
 use Session;
 use App\Models\user_otp;
-use App\Models\user;
+use App\Models\User as user;
 use App\Models\area;
 use App\Models\user_address;
 use App\Models\courier_man;
@@ -159,8 +159,10 @@ class FrontController extends Controller
     {
         $banners = banner::where('status',1)->orderBy('order')->get();
         $categories = category::get();
-        $homepage_section_content = homepage_section::where('status',1)->orderBy('section_order')->get();
+        $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
         $company_info = company_info::first();
+
+
 
 
         return view ('frontend.index',compact('banners','categories','homepage_section_content','company_info'));
@@ -951,7 +953,8 @@ class FrontController extends Controller
         }
         else
         {
-            return redirect()->back()->with('error','Otp Not Matched');
+            return view('auth.otp',['error'=>'Otp Not Matched','mobile_number'=>$mobile_number]);
+           /// return redirect()->back()->with('error','Otp Not Matched');
         }
 
         //return response($response, 200);
@@ -1075,7 +1078,7 @@ class FrontController extends Controller
     "type" => "text",
     "contacts" => $mobile_number,
     "senderid" => "8809601001329",
-    "msg" => "Your GOGO SHO OTP is ".$otp,
+    "msg" => "Your Urpor OTP is ".$otp,
   ];
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);

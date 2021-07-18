@@ -18,7 +18,7 @@ class IsAdmin
     {
       if (auth()->check()) {
 
-            if(auth()->user()->role == 'admin' || auth()->user()->role == 'Product Editor' ){
+            if(auth()->user()->role != 'customer'){
                 return $next($request);
             }
 

@@ -2,12 +2,14 @@
 <html lang="en">
 
 
-<!-- Mirrored from edumin.dexignlab.com/xhtml/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Dec 2020 15:51:24 GMT -->
+
 <head>
 
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta name="description" content="Urrbor Admin?{{time()}}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Urbor Admin </title>
     <!-- Favicon icon -->
