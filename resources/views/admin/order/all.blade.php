@@ -54,7 +54,7 @@
 														<th>#</th>
 														<th>Order No</th>
 
-
+                                                        <th>Order Status</th>
 														<th>User Name</th>
 														<th>Delivery Address</th>
 
@@ -69,6 +69,11 @@
 
 														<td><strong>{{$data->sl_no}}</strong></td>
 														<td>{{$data->order_no}}</td>
+                                                        @if($data->status == 'canceled')
+                                                        <td style="color:#D70F0F; font-weight:bold" >{{strtoupper($data->status)}}</td>
+                                                        @else
+                                                        <td style="color:#4AB50B; font-weight:bold">{{ strtoupper($data->status) }}</td>
+                                                        @endif
 														<td>{{$data->user->name}}</td>
 														<td>{{$data->address->address}}</td>
 														<td>{{$data->address->contact_no}}</td>

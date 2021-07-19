@@ -2665,7 +2665,7 @@ label:hover:before {
 @media screen and (orientation: portrait) {
     .ps-product--standard .ps-product__name {
         padding-bottom: 30px;
-        font-size: 30px;
+        font-size: 18px;
         overflow: unset;
     }
     body>main>section:nth-child(3)>div>div.component__content>div>div.owl-stage-outer>div {
@@ -2677,13 +2677,13 @@ label:hover:before {
         box-sizing: unset !important;
     }
     .ps-product--standard .ps-product__sale {
-        font-size: 23px;
+        font-size: 18px;
     }
     .ps-product--standard .ps-product__off {
-        font-size: 21px;
+        font-size: 18px;
     }
     .ps-product--standard .ps-product__price {
-        font-size: 21px;
+        font-size: 18px;
     }
     .ps-product--standard .ps-product__type i {
         margin-right: 15px;
@@ -2695,7 +2695,7 @@ label:hover:before {
         font-size: 23px;
     }
     .ps-product--standard .ps-product__price-default {
-        font-size: 25px;
+        font-size: 18px;
     }
     .ps-product--standard .quickview-carousel {
         pointer-events: none;
@@ -3513,6 +3513,8 @@ label:hover:before {
 .ps-product--mini-cart {
     display: flex;
     position: relative;
+    font-size:20px!important;
+    padding:10px;
 }
 
 .ps-product--mini-cart:hover .ps-product__name,
@@ -9832,7 +9834,8 @@ label:hover:before {
     height: -moz-max-content;
     height: max-content;
     overflow: auto;
-    padding: 0 20px 20px;
+    padding: 24px 20px 20px;
+
 }
 
 .mobile-search--slidebar .mobile-search__result h5 {
@@ -9862,7 +9865,7 @@ label:hover:before {
 
 .navigation--mobile .navigation__header {
     background-color: #26901b;
-    height: 150px;
+    height: 82px;
     padding: 20px;
     display: flex;
     align-items: flex-end;

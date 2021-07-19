@@ -73,22 +73,24 @@
     }
     function cart_add(id)
     {
-       var quantity = $("#quantity-"+id).val()
-       var formdata = new FormData();
-       formdata.append('id',id);
-       formdata.append('quantity',quantity);
-        $.ajax({
-        processData: false,
-        contentType: false,
-        type: 'POST',
-        url: 'cart_add',
-        data:formdata,
-        success: function (data) {
-            get_cart_count();
-             get_cart_box();
+        alert('hello')
+        console.log('h')
+    //    var quantity = $("#quantity-"+id).val()
+    //    var formdata = new FormData();
+    //    formdata.append('id',id);
+    //    formdata.append('quantity',quantity);
+    //     $.ajax({
+    //     processData: false,
+    //     contentType: false,
+    //     type: 'POST',
+    //     url: 'cart_add',
+    //     data:formdata,
+    //     success: function (data) {
+    //         get_cart_count();
+    //          get_cart_box();
 
-        }
-    })
+    //     }
+    // })
     }
 
     function inc(product_id)

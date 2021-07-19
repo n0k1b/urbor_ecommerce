@@ -69,7 +69,7 @@
 														<td><strong>{{$data->sl_no}}</strong></td>
 														<td>{{$data->id}}</td>
 														<td>{{$data->product->name}}</td>
-														<td>{{$data->unit_quantity}}</td>
+														<td>{{ $data->count }} x {{$data->unit_quantity}}</td>
 
 
 

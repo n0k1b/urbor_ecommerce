@@ -53,13 +53,14 @@
 													<tr>
 														<th>#</th>
 														<th>Order No</th>
-
+                                                        <th>Order Status</th>
 
 														<th>User Name</th>
 														<th>Delivery Address</th>
 
                                                         <th>Contact No</th>
                                                          <th>Order Date</th>
+                                                        <th></th>
                                                         <th></th>
 													</tr>
 												</thead>
@@ -68,15 +69,26 @@
                                                     @foreach($datas as $data)
 
 														<td><strong>{{$data->sl_no}}</strong></td>
-														<td>{{$data->order_no}}</td>
+                                                        <td>{{$data->order_no}}</td>
+                                                        @if($data->status == 'pending')
+                                                        <td style="color:#D70F0F; font-weight:bold" >{{strtoupper($data->status)}}</td>
+                                                        @else
+                                                        <td style="color:#4AB50B; font-weight:bold">{{ strtoupper($data->status) }}</td>
+                                                        @endif
 														<td>{{$data->user->name}}</td>
 														<td>{{$data->address->address}}</td>
 														<td>{{$data->address->contact_no}}</td>
 														<td>{{$data->created_at}}</td>
 
 
+
                                                         <td>
 															<a href="show-order-product/{{$data->order_no}}" class="btn btn-sm btn-info">Show Product</a>
+
+														</td>
+
+                                                        <td>
+															<a href="change-order-status/{{$data->id}}" class="btn btn-sm btn-primary">Change Order Status</a>
 
 														</td>
 													</tr>

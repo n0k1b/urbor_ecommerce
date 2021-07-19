@@ -2274,7 +2274,7 @@ class AdminController extends Controller
                  'thumbnail_image'=>'required',
                  'unit_type'=>'required',
                  'unit_quantity'=>'required',
-                
+
                  'net_weight'=>'required',
 
             ];
@@ -2286,7 +2286,7 @@ class AdminController extends Controller
             'thumbnail_image.required' => 'Product image field is required.',
             'unit_type.required' => 'Product unit type field is required.',
             'unit_quantity.required' => 'Product unit quantity field is required.',
-          
+
             'net_weight.required' => 'Product net weight field is required.',
 
 
@@ -3491,7 +3491,7 @@ class AdminController extends Controller
     //order start
     public function new_order()
     {
-        $order = order::where('status','!=','delivered')->get();
+        $order = order::where('status','!=','delivered')->where('status','!=','canceled')->orderBy(DB::raw('case when status= "pending" then 1 when status= "picked" then 2 end'))->get();
         $i=1;
 
          foreach($order as $data)
@@ -3522,7 +3522,7 @@ class AdminController extends Controller
 
        public function all_order()
     {
-        $order = order::where('status','delivered')->where('delete_status',0)->get();
+        $order = order::where('status','!=','pending')->where('status','!=','picked')->where('delete_status',0)->orderBy(DB::raw('case when status= "delivered" then 1 when status= "canceled" then 2 end'))->get();
         $i=1;
 
          foreach($order as $data)
@@ -3561,8 +3561,28 @@ class AdminController extends Controller
         {
             $data['sl_no'] = $i++;
         }
-        file_put_contents('test.txt',$order_no." ".json_encode($order_details));
+       // file_put_contents('test.txt',$order_no." ".json_encode($order_details));
         return view('admin.order.show_product',['datas'=>$order_details]);
+    }
+    public function update_order_status(Request $request)
+    {
+        $order_id = $request->order_id;
+        $order_status = $request->order_status;
+        file_put_contents('test.txt',$order_id." ".$order_status);
+        order::where('id',$order_id)->update(['status'=>$order_status]);
+        return redirect()
+        ->route('new-order')
+        ->with('success', "Data Updated Successfully");
+    }
+
+    public function change_order_status(Request $request)
+    {
+        $order_id = $request->id;
+
+        //$order = order::where('id',$order_id)->get();
+
+       // file_put_contents('test.txt',$order_no." ".json_encode($order_details));
+        return view('admin.order.update_order_status',['order_id'=>$order_id]);
     }
 
 

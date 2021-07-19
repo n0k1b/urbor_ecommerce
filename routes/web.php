@@ -30,6 +30,7 @@ Route::get('/clear-cache', function() {
 // Route::get('abc','FrontController@abc_func');
 Route::get('/','FrontController@index');
 Route::get('get_all_category','FrontController@get_all_category')->name('get_all_category');
+Route::get('get_all_category_mobile','FrontController@get_all_category_mobile')->name('get_all_category_mobile');
 Route::post('cart_add','FrontController@cart_add')->name('cart_add');
 Route::get('get_cart_count','FrontController@get_cart_count')->name('get_cart_count');
 Route::get('get_cart_box','FrontController@get_cart_box')->name('get_cart_box');
@@ -241,6 +242,8 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
     Route::get('new-order','AdminController@new_order')->name('new-order');
     Route::get('all-order','AdminController@all_order')->name('all-order');
     Route::get('show-order-product/{order_no}','AdminController@show_order_product');
+    Route::get('change-order-status/{id}','AdminController@change_order_status');
+    Route::post('update_order_status','AdminController@update_order_status')->name('update_order_status');
 
     //order end
 

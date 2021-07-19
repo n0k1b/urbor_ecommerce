@@ -100,6 +100,67 @@ class FrontController extends Controller
     {
         return view('welcome');
     }
+    public function get_all_category_mobile()
+
+
+    {
+
+
+        $data = '';
+        $category = category::where('status',1)->get();
+      // return $category[1]->sub_category;
+
+        foreach($category as $cat)
+           {
+              $sub_cat_avail = sub_category::where('category_id',$cat->id)->first();
+              if($sub_cat_avail)
+              {
+            $data.='
+            <li class="menu-item-has-children category-item"><a href="#">'.$cat->name.'</a><span class="sub-toggle"><i class="icon-chevron-down"></i></span>
+                <ul class="sub-menu">';
+            $data_sub_category = array();
+               foreach($cat->sub_category as $sub_category)
+               {
+                $data.='<li> <a href="view_all/sub_category-'.$sub_category->id.'">'.$sub_category->name.'</a></li>';
+                   //array_push($data_sub_category,['id'=>$sub_category->id,'name'=>$sub_category->name,'image'=>$this->base_url.$sub_category->image]);
+               }
+               $data.='
+
+               </ul>
+
+   </li>';
+            }
+            else
+            {
+                $data.='
+                <li class="has-mega-menu category-item"><a href="view_all/category_prodcut-'.$cat->id.'">'.$cat->name.'</a><span class="sub-toggle"><i class="icon-chevron-down"></i></span>
+
+             </li>';
+            }
+              // array_push($data_category,['id'=>$cat->id,'name'=>$cat->name,'image'=>$this->base_url.$cat->image,'sub_category'=>$data_sub_category]);
+           }
+
+           $data.='<script>
+           $(function() {
+               $(".menu--mobile .menu-item-has-children > .sub-toggle").on("click", function(e) {
+                   e.preventDefault();
+                   var current = $(this).parent(".menu-item-has-children")
+                   $(this).toggleClass("active");
+                   current.siblings().find(".sub-toggle").removeClass("active");
+                   current.children(".sub-menu").slideToggle(350);
+                   current.siblings().find(".sub-menu").slideUp(350);
+                   $(this).parent().find("a").toggleClass("active");
+               });
+           });
+
+
+
+           </script>';
+//           // return response($response, 200);
+//            $data2 = "";
+      echo $data;
+
+    }
     public function get_all_category()
 
 
@@ -261,12 +322,13 @@ class FrontController extends Controller
     public function search_product(Request $request)
     {
         $input_value = $request->input_value;
+       // file_put_contents('test.txt',$input_value);
         $products = product::where('name','LIKE','%'.$input_value.'%')->get();
         $data='';
         if(sizeof($products)>0){
         foreach($products as $product)
         {
-            $data.='<li class="cart-item">
+            $data.='<li class="cart-item" onclick="show_cart_modal('.$product->id.')" ">
             <div class="ps-product--mini-cart"><a href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')" "><img class="ps-product__thumbnail" src="'.$product->thumbnail_image.'" alt="alt" /></a>
                 <div class="ps-product__content"><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')">'.$product->name.'</a>
                     <p class="ps-product__meta">Tk  <span class="ps-product__price">'.$product->price.'</span>
@@ -290,6 +352,7 @@ class FrontController extends Controller
                 </div>
             </div>
         </li>';
+
         echo $data;
     }
 

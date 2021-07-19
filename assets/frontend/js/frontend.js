@@ -6,6 +6,7 @@ $( document ).ready(function() {
         }
     });
      get_all_category();
+     get_all_category_mobile();
     get_cart_count();
     get_cart_box();
 
@@ -22,7 +23,22 @@ function get_all_category() {
         type: 'GET',
         url: 'get_all_category',
         success: function (data) {
-            $("#category_list").html(data);
+            $(".category_list").html(data);
+
+        }
+    })
+
+
+}
+function get_all_category_mobile() {
+
+    $.ajax({
+        processData: false,
+        contentType: false,
+        type: 'GET',
+        url: 'get_all_category_mobile',
+        success: function (data) {
+            $(".category_list_mobile").html(data);
 
         }
     })
@@ -63,9 +79,9 @@ function search_product()
 
 function search_product_mobile()
 {
-    //alert('hello')
+   // alert('hello')
 
-    var input_value =  $('#search_input_mobile').val();
+    var input_value =  $('.search_input_mobile').val();
 
     var formdata = new FormData();
 
@@ -77,18 +93,23 @@ function search_product_mobile()
      url: 'search_product',
      data:formdata,
      success: function (data) {
-        $("#search_result_mobile").html(data)
+         //alert(data);
+       $(".search_result_mobile").html(data)
 
      }
  })
    // alert(input_value);
 
-    var toggle_state = $("#toggle_state").val();
-    if(toggle_state == 'close')
-    {
-   $('.result-search').toggleClass('open');
-   $("#toggle_state").val('open');
-    }
+//     var toggle_state = $("#toggle_state").val();
+//     if(toggle_state == 'close')
+//     {
+//    $('.mobile-search__result').toggleClass('open');
+//    $("#toggle_state").val('open');
+//     }
+
+
+
+
 
 }
 
@@ -155,13 +176,14 @@ function get_cart_count()
     url: 'get_cart_count',
     success: function (data) {
 
-        $("#cart_itemt_count").text(data);
+        $(".cart_itemt_count").text(data);
     }
 })
 }
 
 function cart_add(id)
 {
+
    var quantity = $("#quantity-"+id).val()
    var formdata = new FormData();
    formdata.append('id',id);
@@ -175,7 +197,7 @@ function cart_add(id)
     success: function (data) {
         get_cart_count();
          get_cart_box();
-         $("#cart_modal").modal('hide');
+        // $("#cart_modal").modal('hide');
 
     }
 })

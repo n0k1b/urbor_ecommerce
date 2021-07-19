@@ -13,7 +13,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Urbor Admin </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets')}}/admin/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('image')}}/logo2.jpg?{{ time() }}">
 	<link rel="stylesheet" href="{{asset('assets')}}/admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css?{{time()}}">
     <link href="{{asset('assets')}}/admin/vendor/datatables/css/jquery.dataTables.min.css?{{time()}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/style.css?{{time()}}">

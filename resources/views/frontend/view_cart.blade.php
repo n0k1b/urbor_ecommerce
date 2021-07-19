@@ -34,7 +34,7 @@
 
                                 </div>
                             </div>
-                            <div class="shopping-cart__step"><a class="button left" href="shop-view-grid.html"><i class="icon-arrow-left"></i>Continue Shopping</a></div>
+                            <div class="shopping-cart__step"><a class="button left" href="{{ url('/') }}"><i class="icon-arrow-left"></i>Continue Shopping</a></div>
 
                         </div>
                     </div>

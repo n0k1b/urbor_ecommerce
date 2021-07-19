@@ -14,6 +14,7 @@
     <meta name="keywords" content="">
     <meta name="description" content=""> --}}
     <title>Urbor</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('image')}}/logo2.jpg?{{ time() }}">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/fonts/Linearicons/Font/demo-files/demo.css">
 
@@ -93,7 +94,7 @@
                     <div class="header-inner__left">
                         <button class="navbar-toggler"><i class="icon-menu"></i></button>
                     </div>
-                    <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}" style="height: 70px"></div>
+                    <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}" style="height: 70px"></a></div>
                     <div class="header-inner__right">
                         <button class="button-icon icon-sm search-mobile"><i class="icon-magnifier"></i></button>
                     </div>
@@ -146,7 +147,7 @@
                     {{-- cart start --}}
                     <div class="header-inner__right">
                       <a class="button-icon icon-md" href="#"><i class="icon-heart"></i><span class="badge bg-warning">2</span></a>
-                        <div class="button-icon btn-cart-header"><i class="icon-cart icon-Ecommerce5"></i><span class="badge bg-warning" id="cart_itemt_count"></span>
+                        <div class="button-icon btn-cart-header"><i class="icon-cart icon-Ecommerce5"></i><span class="badge bg-warning cart_itemt_count" id="cart_itemt_count"></span>
                             <div class="mini-cart">
                                 <div class="mini-cart--content">
                                     <div class="mini-cart--overlay"></div>
@@ -176,7 +177,7 @@
                 <div class="mobile-search__header">
                     <div class="mobile-search-box">
                         <div class="input-group">
-                            <input class="form-control input-search" id="search_input_mobile" onkeyup="search_product_mobile()" placeholder="I'm searchching for...">
+                            <input class="form-control input-search search_input_mobile" id="inputSearchMobile" onkeyup="search_product_mobile()" placeholder="I'm searchching for...">
                             {{-- <input class="form-control" placeholder="I'm Ecommerceping for..." id="inputSearchMobile"> --}}
                             <div class="input-group-append">
                                 <button class="btn"> <i class="icon-magnifier"></i></button>
@@ -188,8 +189,8 @@
 
 
                 <div class="mobile-search__result">
-                    <h5> <span class="number-result">5</span>search result</h5>
-                    <ul class="list-result"  id="search_result_mobile" >
+
+                    <ul class="list-result search_result_mobile" >
 
 
                     </ul>
@@ -198,7 +199,7 @@
         </div>
     </header>
    @yield('main_content')
-    <div class="modal fade" id="cart_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal fade cart_modal" id="cart_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
     </div>
     <footer class="ps-footer">
@@ -275,9 +276,9 @@
     <div class="ps-footer-mobile">
         <div class="menu__content">
             <ul class="menu--footer">
-                <li class="nav-item"><a class="nav-link" href="#"><i class="icon-home3"></i><span>Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url('/') }}"><i class="icon-home3"></i><span>Home</span></a></li>
                 <li class="nav-item"><a class="nav-link footer-category" href="javascript:void(0);"><i class="icon-list"></i><span>Category</span></a></li>
-                <li class="nav-item"><a class="nav-link footer-cart" href="#"><i class="icon-cart"></i><span class="badge bg-warning">3</span><span>Cart</span></a></li>
+                <li class="nav-item"><a class="nav-link footer-cart" href="{{ url('view_cart') }}"><i class="icon-cart"></i><span class="badge bg-warning cart_itemt_count" id="cart_itemt_count" ></span><span>Cart</span></a></li>
 
                 <li class="nav-item"><a class="nav-link" href="#"><i class="icon-user"></i><span>Account</span></a></li>
             </ul>
@@ -293,30 +294,10 @@
             <div class="category__title">All Departments</div><span class="category__close"><i class="icon-cross"></i></span>
         </div>
         <div class="category__content">
-            <ul class="menu--mobile">
+            <ul class="menu--mobile category_list_mobile">
 
 
-                <li class="menu-item-has-children category-item"><a href="#">Category 2</a><span class="sub-toggle"><i class="icon-chevron-down"></i></span>
-                    <ul class="sub-menu">
-                        <li> <a href="#">Sub Category 1</a>
-                        </li>
-                        <li> <a href="#">Sub Category 2</a>
-                        </li>
-                        <li> <a href="#">Sub Category 3</a>
-                        </li>
-                        <li> <a href="#">Sub Category 4</a>
-                        </li>
-                        <li> <a href="#">Sub Category 5</a>
-                        </li>
-                        <li> <a href="#">Sub Category 6</a>
-                        </li>
-                        <li> <a href="#">Sub Category 7</a>
-                        </li>
-                        <li> <a href="#">Sub Category 8</a>
-                        </li>
 
-                    </ul>
-                </li>
 
 
 
@@ -325,123 +306,37 @@
         </div>
     </div>
     <nav class="navigation--mobile">
+
         <div class="navigation__header">
-            <div class="navigation__select">
-                <div class="languages"><a class="nav-top-link" href="javascript:void(0);"> <span class="current-languages">English</span><i class="icon-chevron-down"></i></a>
-                    <div class="select--dropdown">
-                        <ul class="select-languages">
-                            <li class="active language-item" data-value="English"><a href="javascript:void(0);">English</a></li>
-                            <li class="language-item" data-value="Brunei"><a href="javascript:void(0);">Brunei</a></li>
-                            <li class="language-item" data-value="Armenia"><a href="javascript:void(0);">Armenia</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="currency"><a class="nav-top-link" href="javascript:void(0);"> <span class="current-currency">USD</span><i class="icon-chevron-down"></i></a>
-                    <div class="select--dropdown">
-                        <ul class="select-currency">
-                            <li class="active currency-item" data-value="USD"><a href="javascript:void(0);">USD</a></li>
-                            <li class="currency-item" data-value="VND"><a href="javascript:void(0);">VND</a></li>
-                            <li class="currency-item" data-value="EUR"><a href="javascript:void(0);">EUR</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
             <div class="navigation-title">
                 <button class="close-navbar-slide"><i class="icon-arrow-left"></i></button>
-                <div><span> <i class="icon-user"></i>Hi, </span><span class="account">Morgan Averill</span><a class="dropdown-user" href="#" id="dropdownAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-chevron-down"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownAccount"><a class="dropdown-item" href="#"><b>My Account</b></a><a class="dropdown-item" href="#">Dashboard</a><a class="dropdown-item" href="#">Account Setting</a><a class="dropdown-item" href="#">Orders</a><a class="dropdown-item" href="#">Wishlist</a><a class="dropdown-item" href="#">Shipping Address</a><a class="dropdown-item" href="#"><i class="icon-exit-left"></i>Log out</a></div>
+                @if(auth()->check())
+                <div><span> <i class="icon-user"></i>Hi, </span><span class="account">{{ auth()->user()->name }}</span>
+                @endif
+
                 </div>
             </div>
         </div>
         <div class="navigation__content">
+            @if(auth()->check())
             <ul class="menu--mobile">
-                <li class="menu-item-has-children"><a href="#">Home</a><span class="sub-toggle"><i class="icon-chevron-down"></i></span>
-                    <ul class="sub-menu">
-                        <li> <a href="#">Home Supermarket</a>
-                        </li>
-                        <li> <a href="#">Home Supermarket Full Width</a>
-                        </li>
-                        <li> <a href="#">Home Local Store</a>
-                        </li>
-                        <li> <a href="#">Home Sidebar</a>
-                        </li>
-                        <li> <a href="#">Home Business</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Ecommerce</a><span class="sub-toggle"><i class="icon-chevron-down"></i></span>
-                    <ul class="sub-menu">
-                        <li> <a href="#">Ecommerce Default View Grid</a>
-                        </li>
-                        <li> <a href="#">Ecommerce Default View Listing</a>
-                        </li>
-                        <li> <a href="#">Ecommerce Default View Products</a>
-                        </li>
-                        <li> <a href="#">Ecommerce Categories</a>
-                        </li>
-                        <li> <a href="#">Ecommerce With Banner</a>
-                        </li>
-                        <li> <a href="#">Ecommerce All Brands</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Pages</a><span class="sub-toggle"><i class="icon-chevron-down"></i></span>
-                    <ul class="sub-menu">
-                        <li> <a href="#">Vendor Register</a>
-                        </li>
-                        <li> <a href="#">Become a Vendor</a>
-                        </li>
-                        <li> <a href="#">Dokan Store List</a>
-                        </li>
-                        <li> <a href="#">Dokan Vendor Store</a>
-                        </li>
-                        <li> <a href="#">Flash Sale</a>
-                        </li>
-                        <li> <a href="#">About Us</a>
-                        </li>
-                        <li> <a href="#">Contact</a>
-                        </li>
-                        <li> <a href="#">FAQs</a>
-                        </li>
-                        <li> <a href="#">404 Not Found</a>
-                        </li>
-                        <li> <a href="#l">Coming Soon</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"><a href="#">Blog</a><span class="sub-toggle"><i class="icon-chevron-down"></i></span>
-                    <ul class="sub-menu">
-                        <li> <a href="#">01 Blog-Default</a>
-                        </li>
-                        <li> <a href="#">Blog Small Thumbnail</a>
-                        </li>
-                        <li> <a href="#">Blog Gird</a>
-                        </li>
-                        <li> <a href="#">Blog Listing</a>
-                        </li>
-                        <li> <a href="#">Single Post without Sidebar</a>
-                        </li>
-                        <li> <a href="#">Single Post with Sidebar</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="menu-item-has-children"> <a href="#">Brand</a>
-                </li>
-                <li class="menu-item-has-children"> <a href="#">Flash Sale</a>
-                </li>
+                <li class="menu-item-has-children"><a href="{{ url('order_list') }}">Order Tracking</a></li>
+                <li class="menu-item-has-children"><a href="#">Dasdboard</a></li>
+                <li class="menu-item-has-children"><a href="#">Wishlist</a></li>
+                <li class="menu-item-has-children"><a href="#">Shipping Address</a></li>
+                <li class="menu-item-has-children"><a href="{{ route('logout') }}">Log out</a></li>
             </ul>
+            @else
             <ul class="menu--mobile">
-                <li class="daily-deals"><a>daily deals</a></li>
+                <li class="menu-item-has-children"><a href="{{ url('login') }}">Login</a></li>
+
             </ul>
+
+             @endif
+
         </div>
-        <div class="navigation__footer">
-            <ul class="menu--icon">
-                <li class="footer-item"><a class="footer-link" href="#"><i class="icon-history2"></i><span>Recent viewed product</span></a></li>
-                <li class="footer-item"><a class="footer-link" href="#"><i class="icon-cube"></i><span>Become a vendor</span></a></li>
-                <li class="footer-item"><a class="footer-link" href="#"><i class="icon-question-circle"></i><span>Help & Contact</span></a></li>
-                <li class="footer-item"><a class="footer-link" href="#"><i class="icon-telephone"></i><span>HOTLINE: <span class='text-success'>{{ $company_info->contact_no1 }}</span></span></a></li>
-            </ul>
-        </div>
+
     </nav>
     <script src="{{asset('assets')}}/frontend/plugins/jquery.min.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/popper.min.js"></script>
