@@ -3513,8 +3513,6 @@ label:hover:before {
 .ps-product--mini-cart {
     display: flex;
     position: relative;
-    font-size:20px!important;
-    padding:10px;
 }
 
 .ps-product--mini-cart:hover .ps-product__name,
@@ -9834,8 +9832,7 @@ label:hover:before {
     height: -moz-max-content;
     height: max-content;
     overflow: auto;
-    padding: 24px 20px 20px;
-
+    padding: 0 20px 20px;
 }
 
 .mobile-search--slidebar .mobile-search__result h5 {
@@ -9865,7 +9862,7 @@ label:hover:before {
 
 .navigation--mobile .navigation__header {
     background-color: #26901b;
-    height: 82px;
+    height: 83px;
     padding: 20px;
     display: flex;
     align-items: flex-end;

@@ -9,7 +9,7 @@
     <meta name="description" content="Authentication forms">
     <meta name="author" content="Arasari Studio">
 
-    <title>GOGO SHOP</title>
+    <title>Urbor</title>
     <link href="{{asset('assets')}}/auth/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('assets')}}/auth/css/common.css" rel="stylesheet">
 
@@ -25,7 +25,7 @@
 <div class="forny-inner">
     <div class="forny-form">
         <div class="mb-1 text-center forny-logo">
-            <img src="{{ asset('assets')}}/admin/images/logo.png" height="100px" width="100px">
+            <img src="{{ asset('image')}}/logo2.png?{{time()}}" height="100px" width="100px">
         </div>
         <div class="text-center">
             <p>Enter your information</p>
