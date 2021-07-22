@@ -94,7 +94,7 @@
                     <div class="header-inner__left">
                         <button class="navbar-toggler"><i class="icon-menu"></i></button>
                     </div>
-                    <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}" style="height: 70px"></a></div>
+                    <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}" style="height: 150px"></a></div>
                     <div class="header-inner__right">
                         <button class="button-icon icon-sm search-mobile"><i class="icon-magnifier"></i></button>
                     </div>
@@ -109,7 +109,7 @@
                             <li class="menu-item-has-children has-mega-menu">
                                 <button class="category-toggler"><i class="icon-menu"></i></button>
                                 <div class="mega-menu mega-menu-category">
-                                    <ul class="menu--mobile menu--horizontal" id="category_list">
+                                    <ul class="menu--mobile menu--horizontal category_list" id="category_list">
 
 
 
@@ -206,39 +206,15 @@
         <div class="container">
             <div class="ps-footer--contact">
                 <div class="row">
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-4 col-md-6">
                         <p class="contact__title">Contact Us</p>
                         <p><b><i class="icon-telephone"> </i>Hotline: </b></p>
                         <p class="telephone">{{ $company_info->contact_no1 }}<br><p>{{ $company_info->contact_no1 }}</p>
                         <p> <b>Head office: </b>{{ $company_info->address }}</p>
                         <p> <b>Email us: </b><a href="http://nouthemes.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fa898f8a8a95888eba9c9b88979b888ed4999597">{{ $company_info->email }}</a></p>
                     </div>
-                    <div class="col-12 col-lg-4">
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                <p class="contact__title">Help & Info<span class="footer-toggle"><i class="icon-chevron-down"></i></span></p>
-                                <ul class="footer-list">
-                                    <li> <a href="#">About Us</a>
-                                    </li>
-                                    <li> <a href="#">Contact</a>
-                                    </li>
-                                    <li> <a href="#">Sore Locations</a>
-                                    </li>
-                                    <li> <a href="#">Terms of Use</a>
-                                    </li>
-                                    <li> <a href="#">Policy</a>
-                                    </li>
-                                    <li> <a href="#">Flash Sale</a>
-                                    </li>
-                                    <li> <a href="#">FAQs</a>
-                                    </li>
-                                </ul>
-                                <hr>
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-4">
+                    <div class="col-12 col-lg-4 col-md-6">
                         <p class="contact__title">Newsletter Subscription</p>
                         <p>Join our email subscription now to get updates on <b>promotions </b>and <b>coupons.</b></p>
                         <div class="input-group">
@@ -272,6 +248,12 @@
 
 
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
     </footer>
     <div class="ps-footer-mobile">
         <div class="menu__content">
@@ -354,6 +336,7 @@
     <script src="{{asset('assets')}}/frontend/js/main.js?{{ time() }}"></script>
     <script src="{{asset('assets')}}/frontend/js/custom.js"></script>
     <script src="{{asset('assets')}}/frontend/js/frontend.js?{{ time() }}"></script>
+
     {{-- <script src="{{asset('assets')}}/frontend/js/cart.js?{{ time() }}"></script> --}}
     @yield('page_js')
 

@@ -118,6 +118,7 @@ function updateValue(obj, delta) {
     var newValue = parseInt(item.val(), 10) + delta;
     item.val(Math.max(newValue, 0));
     var product_id = $('#input_quantity').val();
+    // alert(product_id)
     $(".quantity-"+product_id).val(newValue);
 
 

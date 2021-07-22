@@ -84,7 +84,7 @@
                 <button class="btn btn-primary btn-block" type="submit">Login</button>
             </div>
 
-            <div class="line mt-10 mb-6">
+            {{-- <div class="line mt-10 mb-6">
                 <span>or </span>
             </div>
 
@@ -140,7 +140,7 @@
     </button>
 
                 </div>
-            </div>
+            </div> --}}
 
 
         </form>

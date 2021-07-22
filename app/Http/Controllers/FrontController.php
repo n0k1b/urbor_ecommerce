@@ -218,6 +218,7 @@ class FrontController extends Controller
     }
     public function index()
     {
+       session()->forget('cart');
         $banners = banner::where('status',1)->orderBy('order')->get();
         $categories = category::get();
         $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
@@ -393,6 +394,8 @@ class FrontController extends Controller
 
     public function place_order(Request $request)
     {
+        //session()->forget('cart');
+
              $validator = Validator::make($request->all(), [
             'address_id' => ['required'],
          ]);
@@ -510,9 +513,11 @@ class FrontController extends Controller
 
                             <p class="ps-product__meta">Price: <span class="ps-product__price">TK '.$details['price'].'</span></p>
                             <div class="def-number-input number-input safari_only">
-                                <button class="minus" onclick=""><i class="icon-minus"></i></button>
-                                <input class="quantity" min="0" name="quantity" value="1" type="number" />
-                                <button class="plus" onclick=""><i class="icon-plus"></i></button>
+                                <button class="minus dec" onclick="dec('.$id.')"><i class="icon-minus"></i></button>
+                                <input type="hidden"  class="input_quantity">
+
+                                <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'" />
+                                <button class="plus inc" onclick="inc('.$id.')"><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
                         <div class="ps-product__remove"><i class="icon-trash2"></i></div>
@@ -523,9 +528,9 @@ class FrontController extends Controller
                 <div class="cart-quantity">
                     <div class="def-number-input number-input safari_only">
                         <button class="minus dec" onclick="dec('.$id.')"><i class="icon-minus"></i></button>
-                        <input type="hidden" id="input_quantity">
+                        <input type="hidden" class="input_quantity">
 
-                        <input class="quantity" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'"/>
+                        <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'"/>
                         <button class="plus inc" onclick="inc('.$id.')"><i class="icon-plus"></i></button>
                     </div>
                 </div>

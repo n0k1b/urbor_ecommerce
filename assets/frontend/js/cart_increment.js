@@ -59,7 +59,7 @@
     }
     function cart_add(id)
     {
-       var quantity = $("#quantity-"+id).val()
+       var quantity = $(".quantity-"+id).val()
        var formdata = new FormData();
        formdata.append('id',id);
        formdata.append('quantity',quantity);
@@ -81,7 +81,7 @@
 {
 
 
-    $("#input_quantity").val(product_id);
+    $(".input_quantity").val(product_id);
 
 
 
@@ -90,7 +90,7 @@
 function dec(product_id)
 {
 
-    $("#input_quantity").val(product_id);
+    $(".input_quantity").val(product_id);
 
 
 
@@ -104,12 +104,15 @@ $(".dec").click(function() {
 
 
 function updateValue(obj, delta) {
-    var item = $(obj).parent().find("input[type=number]");
+    var product_id = $('.input_quantity').val();
+
+    var item = $(obj).parent().find(".quantity");
     var newValue = parseInt(item.val(), 10) + delta;
     item.val(Math.max(newValue, 0));
-    var product_id = $('#input_quantity').val();
-    $("#quantity-"+product_id).val(newValue);
-    var quantity = $("#quantity-"+product_id).val()
+   // alert(newValue);
+    //alert(product_id)
+    $(".quantity-"+product_id).val(newValue);
+    var quantity = $(".quantity-"+product_id).val()
        var formdata = new FormData();
        formdata.append('id',product_id);
        formdata.append('quantity',quantity);
@@ -121,7 +124,7 @@ function updateValue(obj, delta) {
         data:formdata,
         success: function (data) {
 
-            get_all_cart_info();
+          get_all_cart_info();
         }
     })
 

@@ -2663,9 +2663,296 @@ label:hover:before {
 }
 
 @media screen and (orientation: portrait) {
+    @media (min-width: 768px){
+        .container, .container-md, .container-sm {
+            max-width: 98% ;
+        }
+    }
+    .section--checkout .container{
+        max-width: 780px !important;
+    }
+    .section--checkout .checkout__order{
+        font-size:31px !important;
+    }
+    .form-group--block input{
+        height: 62px !important;
+    }
+    #address_list .btn{
+        font-size:30px !important;
+    }
+    input[type=checkbox], input[type=radio] {
+        box-sizing: border-box;
+        //margin-left: 8px !important;
+        width: 27px;
+        border: 0;
+        left: -14px;
+        //font-size: 90px;
+    }
+    .section--checkout .checkout__money{
+        font-size:32px !important;
+    }
+    .section--checkout .checkout-price{
+        font-size: 29px !important;
+    }
+    .section--checkout .product__unit{
+        font-size: 27px !important;
+    }
+    .section--checkout .product__name{
+        font-size:28px !important;
+    }
+    .section--checkout .checkout__total{
+        font-size:34px !important;
+    }
+    .section--checkout .checkout__label{
+        font-size:31px !important;
+    }
+    .form-group--block label {
+        font-weight: bold;
+        font-size:30px !important;
+    }
+    .section--checkout p{
+        font-size: 31px !important;
+    }
+    .section--checkout .checkout__title{
+        font-size: 36px !important;
+    }
+    .section--shopping-cart .shopping-cart__checkout{
+        font-size: 35px !important;
+    }
+    .section--shopping-cart .shopping-cart__block button{
+        font-size: 34px !important;
+    }
+    .section--shopping-cart .shopping-cart__block input{
+        font-size: 30px !important;
+        height: 80px !important;
+    }
+    .section--shopping-cart .shopping-cart__block .block__title{
+        font-size: 30px !important;
+    }
+    .section--shopping-cart .shopping-cart__subtotal .price-total{
+        font-size:33px !important;
+    }
+    .section--shopping-cart .shopping-cart__shipping {
+        font-size: 33px !important;
+    }
+    .section--shopping-cart .shopping-cart__subtotal {
+        font-size: 33px !important;
+    }
+    .section--shopping-cart .shopping-cart__step .button i{
+        font-size: 34px !important;
+    }
+    .section--shopping-cart .shopping-cart__step .button{
+        font-size: 38px !important;
+    }
+    .ps-product--mini-cart .ps-product__total span{
+        font-size: 28px !important;
+    }
+    .ps-product--mini-cart .ps-product__total{
+        font-size: 28px !important;
+    }
+    .ps-product--mini-cart .ps-product__unit{
+        font-size: 28px !important;
+    }
+    .ps-quickview .product__title{
+        font-size: 40px !important;
+    }
+    .modal-header .close{
+        font-size: 88px !important;
+    }
+    .ps-quickview .product__action .number-input{
+        width: 250px !important;
+    }
+    .ps-quickview .product__action .product__addcart{
+        font-size: 30px !important;
+    }
+    .alert__success span, .alert__success i, .alert__success a{
+        font-size:30px !important;
+    }
+    .ps-quickview .product__unit{
+        font-size: 30px !important;
+    }
+    .ps-quickview .product__action label{
+        font-size:30px !important;
+    }
+    .number-input input[type="number"]{
+        font-size:26px !important;
+    }
+    .number-input button{
+        font-size: 30px !important;
+    }
+
+    .ps-quickview .alert__success{
+        font-size:30px !important;
+    }
+    .ps-quickview .product__price .sale{
+        font-size: 40px !important;
+    }
+    .ps-quickview .product__unit{
+        font-size: 30px;
+    }
+    .modal-dialog {
+        font-size: 40px !important;
+    }
+    .modal-dialog {
+        max-width: 750px !important;
+    }
+    .ps-footer--contact button {
+        font-size: 22px !important;
+    }
+    .input-group-prepend{
+        font-size: 30px;
+    }
+
+    .ps-footer--contact .form-control i {
+
+        font-size: 28px !important;
+    }
+    .ps-footer--contact .form-control {
+
+        font-size: 28px !important;
+    }
+    .ps-footer--contact .input-group {
+
+
+        height: 100px !important;
+        margin-top: 47px !important;
+
+    }
+    .footer_fixed{
+        position: relative !important;
+    }
+    .menu--footer li span{
+        font-size:31px !important;
+    }
+    .menu--footer li i {
+
+        font-size:53px !important;
+    }
+    .ps-product--standard{
+        padding: 6px 6px 15px !important;
+    }
+    .owl-carousel .owl-item img{
+        width: 100% !important;
+        height: 280px !important;
+    }
+    .ps-component .component__view i{
+        font-size: 30px !important;
+    }
+    .ps-component--category .ps-category__item .ps-categories__thumbnail{
+        width: 90% !important;
+        height: 250px !important;
+    }
+    .ps-component--category .ps-category__item .ps-categories__name{
+        font-size: 38px !important;
+        font-weight:600;
+    }
+    .ps-component .component__view
+    {
+        font-size: 35px !important;
+    }
+    .ps-component .component__title{
+        font-size: 42px !important;
+    }
+    .no-main{
+        padding-top:185px !important ;
+    }
+
+    .ps-header--center .button-icon{
+        font-size: 68px !important;
+    }
+    .section--flashSale .flashSale__product .col-lg-2dot4{
+        height: 531px !important;
+    }
+
+    .menu--mobile>li.menu-item-has-children:not(.has-mega-menu) .sub-toggle
+    {
+        font-size: 33px !important;
+    }
+    .navigation--mobile .navigation__header{
+        height: 127px !important;
+    }
+    .navigation--mobile .navigation-title button{
+        font-size: 52px !important;
+    }
+    .navigation--mobile .navigation-title span{
+        font-size: 34px !important;
+    }
+    .menu--mobile .sub-menu>li>a
+    {
+        font-size: 32px !important;
+    }
+
+    .ps-header--center .header-inner .navbar-toggler, .ps-header--center .header-inner .category-toggler
+    {
+        font-size: 68px !important;
+    }
+    .ps-product--mini-cart .ps-product__meta span
+    {
+        font-size: 34px!important;
+
+    }
+    .mobile-search--slidebar .mobile-search__header button i{
+        font-size: 40px !important;
+    }
+    .ps-category--mobile .category__close i{
+        font-size: 46px !important;
+    }
+    .menu--mobile>li>a{
+        font-size: 33px !important;
+        line-height: 41px !important;
+    }
+    .mobile-search--slidebar .mobile-search__header .input-group .form-control {
+        height: 74px !important;
+        font-size: 43px !important;
+    }
+    .ps-category--mobile .category__title{
+        font-size: 36px !important;
+    }
+    .ps-product--mini-cart .ps-product__meta {
+        font-size: 30px !important;
+        font-weight: bolder;
+    }
+
+    .ps-product--mini-cart .ps-product__thumbnail{
+        width: 150px !important;
+        height: 150px !important ;
+    }
+    .ps-product--mini-cart .ps-product__name
+    {
+        font-size: 38px!important;
+    }
+    .ps-product--standard .ps-product__content p{
+        font-size: 30px;
+        margin-bottom: 5px;
+        color: black;
+        font-weight: 600;
+    }
+    .ps-product--standard .ps-product__sale{
+        font-size:35px !important;
+    }
+    .ps-footer p, .ps-footer a {
+        font-size: 31px !important;
+        margin-bottom: 22px !important;
+        line-height: 33px !important;
+    }
+    .ps-footer--contact .contact__title {
+        padding-bottom:21px !important;
+    }
+    .ps-component--register{
+        padding: 150px 0 80px !important;
+    }
+    .ps-button{
+        font-size:29px !important
+    }
+    .ps-component--register p{
+        font-size:29px !important;
+    }
+    .ps-component--register .component__title{
+        font-size: 47px !important;
+    }
     .ps-product--standard .ps-product__name {
-        padding-bottom: 30px;
-        font-size: 18px;
+        padding-bottom: 72px;
+        font-size: 30px;
         overflow: unset;
     }
     body>main>section:nth-child(3)>div>div.component__content>div>div.owl-stage-outer>div {
@@ -3560,7 +3847,7 @@ label:hover:before {
 
 .ps-product--mini-cart .ps-product__meta span {
     position: inherit !important;
-    font-size: 16px !important;
+    font-size: 16px;
     margin-right: 5px;
     color: #737373 !important;
     font-weight: bold;
@@ -4715,6 +5002,10 @@ label:hover:before {
 .ps-table--oriented.is-mobile thead tr .ps-table__th-empty {
     display: none;
 }
+
+
+
+
 
 @media (min-width: 768px) {
     .ps-table--oriented .ps-table__list {
@@ -14857,7 +15148,7 @@ label:hover:before {
 }
 
 .ps-home--dark .ps-component--flash .owl-carousel {
-    height: 390px;
+    height: auto;
     z-index: 1;
 }
 
