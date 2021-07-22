@@ -2669,7 +2669,7 @@ label:hover:before {
         }
     }
     .section--checkout .container{
-        max-width: 780px !important;
+        max-width: 940px !important;
     }
     .section--checkout .checkout__order{
         font-size:31px !important;
@@ -2680,6 +2680,16 @@ label:hover:before {
     #address_list .btn{
         font-size:30px !important;
     }
+    .d-flex .flex-column p{
+        font-size: 26px !important;
+    }
+    .icon-content{
+
+        width: 29% !important;
+    }
+    .checkout__content .container{
+        max-width: 100% !important;
+    }
     input[type=checkbox], input[type=radio] {
         box-sizing: border-box;
         //margin-left: 8px !important;
@@ -2687,6 +2697,16 @@ label:hover:before {
         border: 0;
         left: -14px;
         //font-size: 90px;
+    }
+    .order_list_details{
+        font-size: 34px !important;
+    }
+    .section--checkout .checkout__title h5
+    {
+        font-size: 30px !important;
+    }
+    .section--checkout .alert-danger{
+        font-size:32px !important;
     }
     .section--checkout .checkout__money{
         font-size:32px !important;

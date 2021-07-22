@@ -162,7 +162,7 @@
 
             <div class="checkout__content">
                 <div class="row">
-                    <div class="col-12 col-md-8 col-sm-12 col-lg-8">
+                    <div class="col-12 col-sm-12 col-lg-8">
                         <h3 class="checkout__title">Order Status</h3>
 
 
@@ -230,7 +230,7 @@
                 </div>
 
                     </div>
-                    <div class="col-12 col-md-4 col-sm-12 col-lg-4">
+                    <div class="col-12 col-sm-12 col-lg-4">
                         <h3 class="checkout__title">Your Order</h3>
                         <div class="checkout__products">
                             <div class="row">

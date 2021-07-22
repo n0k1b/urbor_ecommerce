@@ -140,7 +140,7 @@
             <h2 class="page__title">Order Tracking</h2>
             <div class="checkout__content">
                 <div class="row">
-                    <div class="col-12 col-md-8 col-sm-12 col-lg-8">
+                    <div class="col-12 col-sm-12 col-lg-8">
                         <h3 class="checkout__title">Order Status</h3>
 
                 <div class="container mx-auto">
@@ -148,9 +148,9 @@
                         <div class="row d-flex justify-content-between px-3 top">
 
                             <div class="d-flex flex-column text-sm-left">
-                                <h5>Order No: <span class="text-primary font-weight-bold">#{{ $order_no }}</span></h5>
-                                <h5>Order Date: <span class="text-primary font-weight-bold">{{ $order_date }}</span></h5>
-                                <h5>Delivery Address: <span class="text-primary font-weight-bold">{{ $delivery_address }}</span></h5>
+                                <h5 class="order_list_details">Order No: <span class="text-primary font-weight-bold">#{{ $order_no }}</span></h5>
+                                <h5  class="order_list_details">Order Date: <span class="text-primary font-weight-bold">{{ $order_date }}</span></h5>
+                                <h5 class="order_list_details">Delivery Address: <span class="text-primary font-weight-bold">{{ $delivery_address }}</span></h5>
 
                             </div>
                         </div> <!-- Add class 'active' to progress -->
@@ -184,22 +184,22 @@
                         <div class="row justify-content-between top" style="padding-top:5px;margin-left:-8px ">
                             <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Order<br>Confirmed</p>
+                                    <p class="font-weight-bold">Confirmed</p>
                                 </div>
                             </div>
                             <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Order<br>Picking</p>
+                                    <p class="font-weight-bold">Picked</p>
                                 </div>
                             </div>
                             <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Order<br>On the way</p>
+                                    <p class="font-weight-bold">On the way</p>
                                 </div>
                             </div>
                             <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/HdsziHP.png">
                                 <div class="d-flex flex-column">
-                                    <p class="font-weight-bold">Order<br>Delivered</p>
+                                    <p class="font-weight-bold">Delivered</p>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +207,7 @@
                 </div>
 
                     </div>
-                    <div class="col-12 col-md-4 col-sm-12 col-lg-4">
+                    <div class="col-12 col-sm-12 col-lg-4">
                         <h3 class="checkout__title">Your Order</h3>
                         <div class="checkout__products">
                             <div class="row">
