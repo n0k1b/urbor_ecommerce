@@ -7,9 +7,19 @@ $( document ).ready(function() {
     });
      get_all_address();
 
+$('#area_id').select2({
+      minimumResultsForSearch: -1
+  });
 
+//   $('select').on('select2:open', function() {
+// //       if (Modernizr.touch) {
+// //     $('.select2-search input').prop('focus', false);
+// //   }
+//       $('.select2-search input').prop('focus', false);
+//     });
 
 });
+
 
 function get_all_address()
 {
@@ -76,6 +86,7 @@ function delete_address(id)
     })
 }
 }
+
 
 function edit_address()
 {

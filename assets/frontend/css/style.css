@@ -828,6 +828,7 @@ button.ps-btn:active.ps-btn--black {
 .form-group--block label {
     font-size: 14px;
     margin-top: 15px;
+    font-weight: bold;
 }
 
 .form-group--block label span {
@@ -878,6 +879,7 @@ button.ps-btn:active.ps-btn--black {
 .select2 .select2-selection--single .select2-selection__rendered {
     line-height: 20px;
     padding: 10px 20px;
+    font-size:16px;
 }
 
 .select2 .select2-selection--single .select2-selection__arrow {
@@ -2668,6 +2670,27 @@ label:hover:before {
             max-width: 98% ;
         }
     }
+    @media (min-width: 576px)
+    {
+.modal-dialog {
+    max-width: 946px !important;
+    margin: 1.75rem auto;
+}
+}
+    .select2-container .select2-results li{
+        font-size:32px !important;
+        padding: 11px 16px !important;
+    }
+    .select2-search--dropdown .select2-search__field{
+        padding:30px !important;
+    }
+    .select2 .select2-selection--single .select2-selection__rendered {
+        padding: 25px 20px !important;
+        padding-bottom: 30px !important;
+    }
+    .form-group--block input{
+        font-size: 35px !important;
+    }
     .section--checkout .container{
         max-width: 940px !important;
     }
@@ -2687,6 +2710,11 @@ label:hover:before {
 
         width: 29% !important;
     }
+     @media (min-width: 576px)
+.modal-dialog {
+    max-width: 924px !important;
+    margin: 1.75rem auto;
+}
     .checkout__content .container{
         max-width: 100% !important;
     }
@@ -2728,7 +2756,10 @@ label:hover:before {
     }
     .form-group--block label {
         font-weight: bold;
-        font-size:30px !important;
+        font-size:34px !important;
+    }
+    .product__content .btn{
+        font-size: 3rem !important;
     }
     .section--checkout p{
         font-size: 31px !important;
@@ -4564,7 +4595,12 @@ label:hover:before {
         position: relative;
     }
 }
-
+.ps-quickview .quickview__product{
+    padding: 63px 0 !important;
+}
+.modal-dialog {
+    max-width:850px !important;
+}
 .section-slide--default .ps-banner a {
     display: block;
     position: relative;
@@ -11328,6 +11364,7 @@ label:hover:before {
 
 .section--checkout p {
     font-size: 14px;
+    padding-left:14px;
 }
 
 .section--checkout hr {

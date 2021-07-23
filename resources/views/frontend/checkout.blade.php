@@ -1,7 +1,8 @@
 @extends('frontend.layout.app2')
 @section('page_css')
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
 <style>
+
     .radio-label{
         margin-left: 21px;
         margin-top:11px !important;
@@ -176,7 +177,7 @@
 
                 <div class="row">
                     <div class="col-12 col-lg-7">
-                        <h3 class="checkout__title">Delivery Address</h3>
+                        <h3 class="checkout__title">Delivery Address<span style="float: right;"><button type="button"  onclick="show_address_modal()" class="btn btn-lg btn-primary">Add New</button></span> </h3>
                         <div class="checkout__form">
 
                                 <p>Select an Address</p>
@@ -201,12 +202,17 @@
 
 
                                     </div>
-                                    <button type="button" style="padding: 10px 0" class="checkout__order" onclick="show_address_modal()">Add New Address</button>
+
                                     </div>
 
                                 </div>
 
                         </div>
+                    </div>
+                    <div class="col-12 col-lg-7">
+                        <h3 class="checkout__title">Pick a delivery date and time </h3>
+
+
                     </div>
                     <div class="col-12 col-lg-5">
                         <h3 class="checkout__title">Your Order</h3>
@@ -284,4 +290,10 @@
 @section('page_js')
 
 <script src="{{asset('assets')}}/frontend/js/checkout.js?{{ time() }}"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+ </script>
+
 @endsection

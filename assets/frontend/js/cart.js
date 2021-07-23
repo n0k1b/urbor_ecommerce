@@ -73,6 +73,7 @@
     }
     function cart_add(id)
     {
+        alert('hello');
        var quantity = $("#quantity-"+id).val()
        var formdata = new FormData();
        formdata.append('id',id);

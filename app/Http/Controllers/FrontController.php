@@ -218,7 +218,7 @@ class FrontController extends Controller
     }
     public function index()
     {
-       session()->forget('cart');
+      // session()->forget('cart');
         $banners = banner::where('status',1)->orderBy('order')->get();
         $categories = category::get();
         $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
@@ -351,7 +351,9 @@ class FrontController extends Controller
                     </p>
                 </div>
             </div>
-        </li>';
+        </li>
+        <script src="assets/frontend/js/frontend.js?{{ time() }}"></script>
+        ';
         echo $data;
     }
 
@@ -906,7 +908,7 @@ class FrontController extends Controller
         <div class="modal-dialog modal-dialog-centered modal-xl ps-quickview">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button class="close" type="button" data-dismiss="modal" onclick="modal_close();" aria-label="close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class="container-fluid quickview-body">
@@ -946,6 +948,7 @@ class FrontController extends Controller
                                         <button class="minus dec" onclick="dec('.$product->id.')"><i class="icon-minus"></i></button>
                                         <input class="quantity" min="0" name="quantity" value="1" type="number" id="quantity-'.$product->id.'">
                                         <input type="hidden" id="input_quantity">
+                                        <input type="hidden" name="hidden_product_id" value="'.$product->id.'">
                                         <button class="plus inc" onclick="inc('.$product->id.')"><i class="icon-plus"></i></button>
                                     </div>
                                     <button class="btn product__addcart"  onclick="cart_add('.$product->id.')"> <i class="icon-cart"></i>Add to cart</button>
@@ -961,7 +964,8 @@ class FrontController extends Controller
         </div>
     </div>
 
-    <script src="assets/frontend/js/frontend.js?{{ time() }}"></script>
+    <script type="text/javascript" src="assets/frontend/js/frontend.js?'.time().'"></script>
+    <script src="assets/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 
 
@@ -1066,9 +1070,9 @@ class FrontController extends Controller
         <button type="button" class="btn btn-success" onclick="edit_address_modal('.$datas[0]->id.')"><i class="icon-pencil icon-shop5" style="color:white;font-weight:bold; font-family: Linearicons, Bangla634, sans-serif;"></i></button>
         <button  type="button" class="btn btn-danger" onclick="delete_address('.$datas[0]->id.')" style="background-color:#f10000"><i class="icon-trash2 icon-shop5" style="color:white;font-weight:bold;font-family: Linearicons, Bangla634, sans-serif;"></i></button>
         </label>
-        <p>'.$datas[0]->area->name.'<span>,&nbsp'.$datas[0]->address.'</span></p>
+        <p><i class="icon-home4"></i>&nbsp'.$datas[0]->area->name.'<span>,&nbsp'.$datas[0]->address.'</span></p>
 
-        <p>'.$datas[0]->contact_no.'</p>
+        <p><i class="icon-telephone"></i>&nbsp'.$datas[0]->contact_no.'</p>
     </div>';
 
         }

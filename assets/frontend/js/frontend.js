@@ -180,11 +180,21 @@ function get_cart_count()
     }
 })
 }
+function modal_close()
+{
+
+    // $(".cart_modal").removeClass("in");
+    // $(".modal-backdrop").remove();
+    // $(".cart_modal").hide();;
+    //$(".cart_modal").modal('hide');
+}
 
 function cart_add(id)
 {
 
+
    var quantity = $("#quantity-"+id).val()
+   //alert(quantity)
    var formdata = new FormData();
    formdata.append('id',id);
    formdata.append('quantity',quantity);
@@ -197,7 +207,7 @@ function cart_add(id)
     success: function (data) {
         get_cart_count();
          get_cart_box();
-        // $("#cart_modal").modal('hide');
+      $(".cart_modal").modal('hide');
 
     }
 })

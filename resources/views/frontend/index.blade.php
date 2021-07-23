@@ -73,7 +73,6 @@
                                 <div class="def-number-input number-input safari_only">
                                     <button class="minus dec" onclick="dec({{$product_list->product->id  }})" ><i class="icon-minus"></i></button>
                                     <input class="quantity quantity-{{ $product_list->product->id }}" value="1" min="0" name="quantity" type="number" id="quantity-{{ $product_list->product->id }}"   />
-                                    <input type="hidden" id="input_quantity-{{$product_list->product->id}}">
                                     <input type="hidden" name="hidden_product_id" value={{  $product_list->product->id}}>
                                     <button class="plus inc"><i class="icon-plus"></i></button>
                                 </div>

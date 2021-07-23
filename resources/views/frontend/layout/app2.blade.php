@@ -199,7 +199,7 @@
         </div>
     </header>
    @yield('main_content')
-    <div class="modal fade cart_modal" id="cart_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal cart_modal" id="cart_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
     </div>
     <footer class="ps-footer">
@@ -322,7 +322,9 @@
     </nav>
     <script src="{{asset('assets')}}/frontend/plugins/jquery.min.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/owl-carousel/owl.carousel.min.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/jquery.matchHeight-min.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
