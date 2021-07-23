@@ -211,6 +211,11 @@
                     </div>
                     <div class="col-12 col-lg-7">
                         <h3 class="checkout__title">Pick a delivery date and time </h3>
+                        <div class="row">
+                            <div class='col-sm-6'>
+                                <input type='text' class="form-control" id='datetimepicker4' />
+                             </div>
+                        </div>
 
 
                     </div>
@@ -292,7 +297,7 @@
 <script src="{{asset('assets')}}/frontend/js/checkout.js?{{ time() }}"></script>
 <script type="text/javascript">
     $(function () {
-        $('#datetimepicker1').datetimepicker();
+        $('#datetimepicker4').datetimepicker();
     });
  </script>
 

@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/fonts/Linearicons/Font/demo-files/demo.css">
 
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/bootstrap/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/select2/dist/css/select2.min.css">
@@ -322,9 +323,9 @@
     </nav>
     <script src="{{asset('assets')}}/frontend/plugins/jquery.min.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+
     <script src="{{asset('assets')}}/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="http://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/a549aa8780dbda16f6cff545aeabc3d71073911e/src/js/bootstrap-datetimepicker.js"></script>
+
     <script src="{{asset('assets')}}/frontend/plugins/owl-carousel/owl.carousel.min.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/jquery.matchHeight-min.js"></script>
     <script src="{{asset('assets')}}/frontend/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
