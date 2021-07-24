@@ -2681,11 +2681,44 @@ label:hover:before {
     }
     @media (min-width: 576px)
     {
+.col-sm-12 {
+    -ms-flex: 0 0 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+}
+}
+    @media (min-width: 576px)
+    {
 .modal-dialog {
     max-width: 946px !important;
     margin: 1.75rem auto;
 }
 }
+.ui-timepicker-container
+{
+    height: 377px !important;
+}
+.ui-timepicker, .ui-timepicker-viewport{
+    height: 369px !important;
+}
+.ui-menu .ui-menu-item a{
+    font-size:31px !important
+}
+.ui-datepicker{
+    font-size:34px !important;
+}
+.section--checkout .form-control{
+    font-size: 31px !important;
+}
+.section--checkout label {
+    font-size:30px !important;
+}
+    .checkout__form{
+        padding:24px !important;
+    }
+    .btn-group-lg>.btn, .btn-lg {
+        font-size:29px;
+    }
     .select2-container .select2-results li{
         font-size:32px !important;
         padding: 11px 16px !important;
@@ -2707,7 +2740,7 @@ label:hover:before {
         font-size:31px !important;
     }
     .form-group--block input{
-        height: 62px !important;
+        height: 74px !important;
     }
     #address_list .btn{
         font-size:30px !important;
@@ -2719,11 +2752,7 @@ label:hover:before {
 
         width: 29% !important;
     }
-     @media (min-width: 576px)
-.modal-dialog {
-    max-width: 924px !important;
-    margin: 1.75rem auto;
-}
+
     .checkout__content .container{
         max-width: 100% !important;
     }

@@ -2,6 +2,10 @@
 @section('page_css')
 
 <style>
+    .ui-icon-circle-triangle-e
+    {
+        font-size: 50px !important
+    }
     .ui-menu .ui-menu-item a:hover{
         color:black;
     }
@@ -190,7 +194,7 @@
     border-color: #dd0505;font-weight:bold">
         <ul>
             @foreach($errors->all() as $error)
-                <li style="display: list-item;list-style-type:disc;font-size: 16px;color:white;font-weight:bold">{{ $error }}</li>
+                <li style="display: list-item;list-style-type:disc;font-size: 15px;color:white;font-weight:bold">{{ $error }}</li>
             @endforeach
         </ul>
     </div>
@@ -206,7 +210,7 @@
             <div class="checkout__content">
 
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col col-6 col-md-6 col-sm-12">
                         <h3 class="checkout__title">Delivery Address<span style="float: right;"><button type="button"  onclick="show_address_modal()" class="btn btn-lg btn-primary">Add New</button></span> </h3>
                         <div class="col-12 col-lg-12" style="background-color:#F7F9F9;padding:17px">
 
@@ -242,7 +246,7 @@
                             </div>
                         </div>
                         <h3 class="checkout__title">Pick a delivery date & time </h3>
-                        <div class="col-12 col-lg-12" style="background-color:#F7F9F9; margin-top:25px;padding-bottom:30px;padding:17px">
+                        <div class="col col-12 col-lg-12" style="background-color:#F7F9F9; margin-top:25px;padding-bottom:30px;padding:17px">
 
 
                             <div class="row">
@@ -262,7 +266,7 @@
 
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6 col-md-6 col-sm-12">
                         <div class="col-12">
                             <h3 class="checkout__title">Your Order</h3>
                             <div class="checkout__products">
