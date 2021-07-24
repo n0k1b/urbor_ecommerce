@@ -216,7 +216,7 @@
 
                             <div class="checkout__form">
 
-                                    <p>Select a Address</p>
+                                    <p>Select an Address</p>
                                     <div class="form-row">
 
                                         {{-- <div class="col-12 form-group--block">
