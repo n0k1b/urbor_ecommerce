@@ -2,7 +2,26 @@
 @section('page_css')
 
 <style>
-
+    .ui-menu .ui-menu-item a:hover{
+        color:black;
+    }
+    .ui-menu-item{
+        background:#026D6D !important;
+        color:white;
+    }
+    .ui-datepicker-month
+    {
+        color:white !important;
+        font-size: bold;
+    }
+    .ui-datepicker-year
+    {
+        color:white !important;
+        font-size: bold;
+    }
+.ui-widget-header{
+    background: #026D6D !important;
+}
     .radio-label{
         margin-left: 21px;
         margin-top:11px !important;
@@ -166,143 +185,156 @@
 
 
         <div class="container">
-            @if(Session::has('error'))
+            @if (count($errors)>0)
+    <div class="col-md-10 col-sm-10 col-10 offset-md-1 offset-sm-10 alert alert-danger mt-4" style="background: #dd0505;
+    border-color: #dd0505;font-weight:bold">
+        <ul>
+            @foreach($errors->all() as $error)
+                <li style="display: list-item;list-style-type:disc;font-size: 16px;color:white;font-weight:bold">{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+            {{-- @if(Session::has('error'))
             <div class="col-md-10 col-sm-10 col-10 offset-md-1 offset-sm-10 alert alert-danger mt-4" style="font-size: 14px;color:white;background: #dd0505;
             border-color: #dd0505;font-weight:bold">
                 {{Session::get('error')}}
             </div>
-            @endif
+            @endif --}}
             <h2 class="page__title">Checkout</h2>
             <div class="checkout__content">
 
                 <div class="row">
-                    <div class="col-12 col-lg-7">
+                    <div class="col-6">
                         <h3 class="checkout__title">Delivery Address<span style="float: right;"><button type="button"  onclick="show_address_modal()" class="btn btn-lg btn-primary">Add New</button></span> </h3>
-                        <div class="checkout__form">
+                        <div class="col-12 col-lg-12" style="background-color:#F7F9F9;padding:17px">
 
-                                <p>Select Timing</p>
-                                <div class="form-row">
+                            <div class="checkout__form">
 
-                                    {{-- <div class="col-12 form-group--block">
-                                        <label>Name</label>
-                                        <input class="form-control" type="text">
+                                    <p>Select a Address</p>
+                                    <div class="form-row">
+
+                                        {{-- <div class="col-12 form-group--block">
+                                            <label>Name</label>
+                                            <input class="form-control" type="text">
+                                        </div>
+
+                                        <div class="col-12 form-group--block">
+                                            <label>Phone</label>
+                                            <input class="form-control" type="text" required>
+                                        </div> --}}
+
+
+
+                                        <div class="col-12 form-group--block">
+                                            <form action="{{ route('place_order') }}" method="POST">
+                                                @csrf
+                                         <div id="address_list">
+
+
+                                        </div>
+
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-12 form-group--block">
-                                        <label>Phone</label>
-                                        <input class="form-control" type="text" required>
-                                    </div> --}}
+                            </div>
+                        </div>
+                        <h3 class="checkout__title">Pick a delivery date & time </h3>
+                        <div class="col-12 col-lg-12" style="background-color:#F7F9F9; margin-top:25px;padding-bottom:30px;padding:17px">
 
 
-
-                                    <div class="col-12 form-group--block">
-                                        <form action="{{ route('place_order') }}" method="POST">
-                                            @csrf
-                                     <div id="address_list">
-
-
-                                    </div>
-
-                                    </div>
-
+                            <div class="row">
+                                <div class="col">
+                                    <label>Select Date</label>
+                                    <input type='text' placeholder="Delivery Date" name="delivery_date" class="form-control" id="datepicker" />
+                                </div>
+                                <div class="col">
+                                    <label>Select Time</label>
+                                    <input type='text' placeholder="Delivery Time" name="delivery_time" class="form-control" id='timepicker' />
                                 </div>
 
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-7">
-                        {{-- <h3 class="checkout__title">Pick a delivery date </h3>
-                        <div class="row">
-                            <div class='col-sm-6'>
-                                
-                             </div>
-                        </div>
-                        <h3 class="checkout__title">Pick a delivery time </h3>
-                        <div class="row">
-                            <div class='col-sm-6'>
-                                
-                             </div>
-                        </div> --}}
-                        <div class="row">
-                            <div class="col">
-                                <input type='text' placeholder="Delivery Date" class="form-control" id="datepicker" />
                             </div>
-                            <div class="col">
-                                <input type='text' placeholder="Delivery Time" class="form-control" id='timepicker' />
-                            </div>
-                            <div class="col">
-                                <button id="timingAlert" class="btn btn-primary">View</button>
-                            </div>
-                        </div>
 
+
+                        </div>
 
                     </div>
-                    <div class="col-12 col-lg-5">
-                        <h3 class="checkout__title">Your Order</h3>
-                        <div class="checkout__products">
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="checkout__label">PRODUCT</div>
-                                </div>
-                                <div class="col-4 text-right">
-                                    <div class="checkout__label">TOTAL</div>
-                                </div>
-                            </div>
-                            <div class="checkout__list">
-                                @foreach($cart as $id =>$details)
 
-                                <div class="checkout__product__item">
-                                    <div class="checkout-product">
-                                        <div class="product__name">{{ $details['name'] }}<span>(x{{ $details['quantity'] }})</span></div>
-                                        <div class="product__unit">{{ $details['unit'] }}</div>
+                    <div class="col-6">
+                        <div class="col-12">
+                            <h3 class="checkout__title">Your Order</h3>
+                            <div class="checkout__products">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="checkout__label">PRODUCT</div>
                                     </div>
-                                    <div class="checkout-price">{{ $details['price']*$details['quantity'] }}</div>
+                                    <div class="col-4 text-right">
+                                        <div class="checkout__label">TOTAL</div>
+                                    </div>
                                 </div>
-                                @endforeach
-                            </div>
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="checkout__label">Subtotal</div>
-                                </div>
-                                <div class="col-4 text-right">
-                                    <div class="checkout__label">{{ $sub_total }}</div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="checkout__label">Delivery Charge</div>
-                                </div>
-                                <div class="col-4 text-right">
-                                    <div class="checkout__label">{{ $delivery_charge }}</div>
-                                </div>
-                            </div>
-                            <br>
+                                <div class="checkout__list">
+                                    @foreach($cart as $id =>$details)
 
-                            <div class="row">
-                                <div class="col-8">
-                                    <div class="checkout__total">Total</div>
+                                    <div class="checkout__product__item">
+                                        <div class="checkout-product">
+                                            <div class="product__name">{{ $details['name'] }}<span>(x{{ $details['quantity'] }})</span></div>
+                                            <div class="product__unit">{{ $details['unit'] }}</div>
+                                        </div>
+                                        <div class="checkout-price">{{ $details['price']*$details['quantity'] }}</div>
+                                    </div>
+                                    @endforeach
                                 </div>
-                                <div class="col-4 text-right">
-                                    <div class="checkout__money">{{ $total }}</div>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="checkout__label">Subtotal</div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <div class="checkout__label">{{ $sub_total }}</div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="checkout__label">Delivery Charge</div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <div class="checkout__label">{{ $delivery_charge }}</div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <div class="row">
+                                    <div class="col-8">
+                                        <div class="checkout__total">Total</div>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <div class="checkout__money">{{ $total }}</div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="checkout__payment">
-                            <div class="checkout__label mb-3">SELECT PAYMENT</div>
+                            <div class="checkout__payment">
+                                <div class="checkout__label mb-3">SELECT PAYMENT</div>
+                                <div class="form-group--block">
+                                    <input class="form-check-input" type="checkbox" id="checkboxBank" value="bank">
+                                    <label class="label-checkbox" for="checkboxBank"><b class="text-heading">Cash on Delivery</b></label>
+                                </div>
+
+
+                            </div>
+
                             <div class="form-group--block">
-                                <input class="form-check-input" type="checkbox" id="checkboxBank" value="bank">
-                                <label class="label-checkbox" for="checkboxBank"><b class="text-heading">Cash on Delivery</b></label>
-                            </div>
+                                <input class="form-check-input" type="checkbox" id="checkboxAgree" value="agree">
 
-
+                            </div><button class="checkout__order" type="submit" >Place an order</button>
+                        </form>
                         </div>
-
-                        <div class="form-group--block">
-                            <input class="form-check-input" type="checkbox" id="checkboxAgree" value="agree">
-
-                        </div><button class="checkout__order" type="submit" >Place an order</button>
-                    </form>
                     </div>
+
+
+
+
                 </div>
             </div>
         </div>
@@ -313,7 +345,7 @@
 <script src="{{asset('assets')}}/frontend/js/checkout.js?{{ time() }}"></script>
 <script>
     $(function() {
-        $( "#datepicker" ).datepicker({ 
+        $( "#datepicker" ).datepicker({
             minDate: 0,
             dateFormat: 'dd/mm/yy'
         });

@@ -300,10 +300,14 @@ figure {
     color: #fcb800 !important;
 }
 
+
 .bg-orange {
     background-color: #fcb800 !important;
 }
+.section--checkout .form-control {
+    font-size: 14px !important;
 
+}
 .text-white {
     color: white !important;
 }
@@ -824,11 +828,16 @@ button.ps-btn:active.ps-btn--black {
         display: block;
     }
 }
+.section--checkout label{
+    color:black;
+    font-weight: bolder;
+}
 
 .form-group--block label {
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 15px;
     font-weight: bold;
+    color:#079696;
 }
 
 .form-group--block label span {
@@ -842,7 +851,7 @@ button.ps-btn:active.ps-btn--black {
 }
 
 .form-group--block input {
-    height: 40px;
+    height: 46px;
     font-size: 14px;
 }
 
@@ -11365,6 +11374,8 @@ label:hover:before {
 .section--checkout p {
     font-size: 14px;
     padding-left:14px;
+    color:black;
+    font-weight: bolder;
 }
 
 .section--checkout hr {

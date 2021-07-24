@@ -60,6 +60,7 @@
 
                                                         <th>Contact No</th>
                                                          <th>Order Date</th>
+                                                         <th>Delivery Date & Time</th>
                                                         <th></th>
                                                         <th></th>
 													</tr>
@@ -78,7 +79,8 @@
 														<td>{{$data->user->name}}</td>
 														<td>{{$data->address->address}}</td>
 														<td>{{$data->address->contact_no}}</td>
-														<td>{{$data->created_at}}</td>
+														<td>{{date('d/m/Y h:i A',strtotime($data->created_at))}}</td>
+                                                        <td>{{$data->delivery_date." ".$data->delivery_time}}</td>
 
 
 
