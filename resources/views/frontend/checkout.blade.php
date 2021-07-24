@@ -180,7 +180,7 @@
                         <h3 class="checkout__title">Delivery Address<span style="float: right;"><button type="button"  onclick="show_address_modal()" class="btn btn-lg btn-primary">Add New</button></span> </h3>
                         <div class="checkout__form">
 
-                                <p>Select an Address</p>
+                                <p>Select Timing</p>
                                 <div class="form-row">
 
                                     {{-- <div class="col-12 form-group--block">
@@ -210,17 +210,28 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-7">
-                        <h3 class="checkout__title">Pick a delivery date </h3>
+                        {{-- <h3 class="checkout__title">Pick a delivery date </h3>
                         <div class="row">
                             <div class='col-sm-6'>
-                                <input type='text' class="form-control" id="datepicker" />
+                                
                              </div>
                         </div>
                         <h3 class="checkout__title">Pick a delivery time </h3>
                         <div class="row">
                             <div class='col-sm-6'>
-                                <input type='time' class="form-control" id='timepicker' />
+                                
                              </div>
+                        </div> --}}
+                        <div class="row">
+                            <div class="col">
+                                <input type='text' placeholder="Delivery Date" class="form-control" id="datepicker" />
+                            </div>
+                            <div class="col">
+                                <input type='text' placeholder="Delivery Time" class="form-control" id='timepicker' />
+                            </div>
+                            <div class="col">
+                                <button id="timingAlert" class="btn btn-primary">View</button>
+                            </div>
                         </div>
 
 
@@ -306,6 +317,14 @@
             minDate: 0,
             dateFormat: 'dd/mm/yy'
         });
+        $('#timepicker').timepicker({});
+        $('#timingAlert').click(function(e) {
+            e.preventDefault();
+            alert(`
+                Date: ${$("#datepicker").val()}
+                Time: ${$( "#timepicker" ).val()}
+            `)
+        })
     });
  </script>
 

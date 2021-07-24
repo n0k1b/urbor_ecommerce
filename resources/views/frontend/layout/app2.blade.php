@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/fonts/Linearicons/Font/demo-files/demo.css">
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/bootstrap/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/font-awesome/css/font-awesome.min.css">
@@ -323,6 +324,8 @@
     </nav>
     <script src="{{asset('assets')}}/frontend/plugins/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    
     <script src="{{asset('assets')}}/frontend/plugins/popper.min.js"></script>
 
     <script src="{{asset('assets')}}/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
