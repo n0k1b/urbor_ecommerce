@@ -22,10 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //frontend start
-Route::get('/clear-cache', function() {
-    $exitCode = Artisan::call('cache:clear');
-    // return what you want
-});
+
 // Route::view('abc'');
 // Route::get('abc','FrontController@abc_func');
 Route::get('/','FrontController@index');
