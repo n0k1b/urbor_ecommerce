@@ -160,18 +160,25 @@
                             </div> <!-- Add class 'active' to progress -->
                             <div class="row d-flex justify-content-center">
                                 <div class="col-12">
-
+                                    @if($status!='canceled')
                                     <ul id="progressbar" class="text-center">
                                         @if($status == 'pending')
                                         <li class="active step0"></li>
                                         <li class="active step1 "></li>
                                         <li class="step0"></li>
                                         <li class="step0"></li>
-                                        @elseif($status == 'picked')
+                                        @elseif($status == 'confirmed')
                                         <li class="active step0"></li>
                                         <li class="active step0 "></li>
                                         <li class="active step1"></li>
                                         <li class="step0"></li>
+
+                                        @elseif($status == 'picked')
+                                        <li class="active step0"></li>
+                                        <li class="active step0 "></li>
+                                        <li class="active step0"></li>
+                                        <li class="active step1"></li>
+
 
                                         @elseif($status == 'delivered')
                                         <li class="active step0"></li>
@@ -180,25 +187,32 @@
                                         <li class="active step0"></li>
                                         @endif
 
-
                                     </ul>
+
+                                    @else
+                                    <div class="text-center">
+                                        <h4 style="color:#E31C19">Ordered Canceled</h4>
+                                        <img src="{{ asset('image') }}/cross.png?{{ time() }}" width="9%">
+                                    </div>
+                                    @endif
 
                                 </div>
                             </div>
+                            @if($status !='canceled')
                             <div class="row justify-content-between top" style="padding-top:5px;margin-left:-8px ">
                                 <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Confirmed</p>
+                                        <p class="font-weight-bold">Pending</p>
                                     </div>
                                 </div>
                                 <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">Picked</p>
+                                        <p class="font-weight-bold">Confirmed</p>
                                     </div>
                                 </div>
                                 <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/TkPm63y.png">
                                     <div class="d-flex flex-column">
-                                        <p class="font-weight-bold">On the way</p>
+                                        <p class="font-weight-bold">Picked</p>
                                     </div>
                                 </div>
                                 <div class="row d-flex icon-content"> <img class="icon" src="https://i.imgur.com/HdsziHP.png">
@@ -207,6 +221,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
 
 
@@ -214,10 +229,12 @@
 
 
                         </div>
+                        @if($status=="pending")
                         <div class="text-center">
                             <h5>Would you like to cancel the order?</h5>
                             <button type="button" class="btn btn-danger btn-lg" onclick="cancel_order('{{ $order_no }}')">Cacnel</button>
                         </div>
+                        @endif
                     </div>
 
                     <div class="col-4 col-md-4 col-sm-12">
