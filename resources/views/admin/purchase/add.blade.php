@@ -1,11 +1,10 @@
 @extends('admin.layout.app')
  @section('page_css')
 
-<link rel="stylesheet" href="{{asset('assets')}}/admin/css/single_and_multiple_image_preview.css?{{time()}}" />
-<link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2.min.css?{{time()}}" />
-<link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2_custom.css?{{time()}}" />
 
 
+ <link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2.min.css?{{time()}}" />
+ <link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2_custom.css?{{time()}}" />
 
 @endsection
  @section('content')
@@ -135,11 +134,9 @@
     </div>
 </div>
 @endsection @section('page_js')
-<script src="{{asset('assets')}}/admin/js/single_and_multiple_image_preview.js?{{time()}}"></script>
-{{-- <script src="{{asset('assets')}}/admin/js/bootstrap-select.js"></script> --}}
+
 <script src="{{asset('assets')}}/admin/js/select2.full.js"></script>
 <script src="{{asset('assets')}}/admin/js/advanced-form-element.js"></script>
-
-<script src="{{asset('assets')}}/admin/js/admin.js?{{time()}}"></script>
+{{-- <script src="{{asset('assets')}}/admin/js/admin.js?{{time()}}"></script> --}}
 
 @endsection

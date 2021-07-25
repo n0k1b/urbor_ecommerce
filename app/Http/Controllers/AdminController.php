@@ -2850,7 +2850,7 @@ class AdminController extends Controller
                         $permission = $this->permission();
                         $button = '';
                         if(in_array('category_edit',$permission))
-                        $button .= ' <a href="test/7" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
+                        $button .= ' <a href="edit_purchase_content/'.$data->id.'" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
                         else
                         $button .= ' <a href="javascript:void(0);" onclick="access_alert()" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
                         $button .= '&nbsp;&nbsp;';
@@ -2872,14 +2872,23 @@ class AdminController extends Controller
     }
     public function edit_purchase_content_ui(Request $request)
     {
-        file_put_contents('test.txt',$request);
-        $id = $request->type;
-        $data = purchase::where('id',$id)->first();
+
+        $id = $request->id;
+
+        $datas = purchase::where('id',$id)->first();
+        file_put_contents('test.txt',json_encode($datas));
 
         $suppliers = supplier::get();
         $products = product::where('delete_status',0)->get();
-        return view('admin.purchase.edit',compact('data','products','suppliers'));
+        return view('admin.purchase.edit',compact('datas','products','suppliers'));
 
+    }
+    public function update_purchase(Request $request)
+    {
+        purchase::where('id',$request->id)->update($request->except('_token'));
+        return redirect()
+        ->route('show-all-purchase')
+        ->with('success', "Data Updated Successfully");
     }
 
     public function add_purchase_ui()

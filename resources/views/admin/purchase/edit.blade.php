@@ -1,11 +1,7 @@
 @extends('admin.layout.app')
  @section('page_css')
-
-<link rel="stylesheet" href="{{asset('assets')}}/admin/css/single_and_multiple_image_preview.css?{{time()}}" />
-<link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2.min.css?{{time()}}" />
-<link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2_custom.css?{{time()}}" />
-
-
+ <link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2.min.css?{{time()}}" />
+ <link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2_custom.css?{{time()}}" />
 
 @endsection
  @section('content')
@@ -43,7 +39,7 @@
         <div class="col-xl-12 col-xxl-12 col-sm-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{route('add-purchase')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{route('update_purchase')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -74,14 +70,14 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">Purchase Quantity</label>
-                                    <input type="number" class="form-control" name="product_quantity" placeholder="Purchase Quantity" value="{{ $data->product_quantity }}"/>
+                                    <input type="number" class="form-control" name="product_quantity" placeholder="Purchase Quantity" value="{{ $datas->product_quantity }}"/>
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">Product Unit Purchasing Price</label>
-                                    <input type="number" class="form-control" name="unit_purchasing_price" placeholder="Unit Purchasing Price" value="{{ $data->unit_purchasing_price }}" />
+                                    <input type="number" class="form-control" name="unit_purchasing_price" placeholder="Unit Purchasing Price" value="{{ $datas->unit_purchasing_price }}" />
                                 </div>
                             </div>
 
@@ -89,34 +85,34 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">Discount(%)</label>
-                                    <input type="number" class="form-control" name="discount" placeholder="10" value="{{ $data->discount }}" />
+                                    <input type="number" class="form-control" name="discount" placeholder="10" value="{{ $datas->discount }}" />
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">Vat(%)</label>
-                                    <input type="number" class="form-control" name="vat" placeholder="10" value="{{ $data->vat }}" />
+                                    <input type="number" class="form-control" name="vat" placeholder="10" value="{{ $datas->vat }}" />
                                 </div>
                             </div>
 
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <label class="form-label">Shipping Cost</label>
-                                    <input type="number" class="form-control" name="shipping_cost" placeholder="60" value="{{ $data->shipping_cost }}" />
+                                    <input type="number" class="form-control" name="shipping_cost" placeholder="60" value="{{ $datas->shipping_cost }}" />
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <label class="form-label">Purchase Note</label>
-                                    <textarea class="form-control" rows="4" id="purchase_note" name="purchase_note">{{ $data->purchase_note }}</textarea>
+                                    <textarea class="form-control" rows="4" id="purchase_note" name="purchase_note">{{ $datas->purchase_note }}</textarea>
                                 </div>
                             </div>
 
 
 
-
+                            <input type="hidden" name='id' value="{{ $datas->id }}">
 
 
 
@@ -135,11 +131,9 @@
     </div>
 </div>
 @endsection @section('page_js')
-<script src="{{asset('assets')}}/admin/js/single_and_multiple_image_preview.js?{{time()}}"></script>
-{{-- <script src="{{asset('assets')}}/admin/js/bootstrap-select.js"></script> --}}
 <script src="{{asset('assets')}}/admin/js/select2.full.js"></script>
 <script src="{{asset('assets')}}/admin/js/advanced-form-element.js"></script>
 
-<script src="{{asset('assets')}}/admin/js/admin.js?{{time()}}"></script>
+{{-- <script src="{{asset('assets')}}/admin/js/admin.js?{{time()}}"></script> --}}
 
 @endsection

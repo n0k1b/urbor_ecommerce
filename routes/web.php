@@ -183,7 +183,8 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
       Route::post('add-purchase','AdminController@add_purchase')->name('add-purchase');
       Route::get('add-purchase','AdminController@add_purchase_ui');
       Route::get('show-all-purchase','AdminController@show_all_purchase')->name('show-all-purchase');
-      Route::get('testt/{type}','AdminController@edit_purchase_content_ui');
+      Route::get('edit_purchase_content/{id}','AdminController@edit_purchase_content_ui');
+      Route::post('update_purchase','AdminController@update_purchase')->name('update_purchase');
 
       //purchase end
 
@@ -366,4 +367,4 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
 
 Route::view('error','error');
-Route::get('test','AdminController@test');
+

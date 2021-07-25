@@ -1,18 +1,1 @@
-GET /urbor_ecommerce/admin/testt/get_category HTTP/1.1
-Accept:           application/json
-Accept-Encoding:  gzip, deflate, br
-Accept-Language:  en-US,en;q=0.9
-Connection:       close
-Cookie:           XSRF-TOKEN=eyJpdiI6IlNBLzJMVTNBQ244Vlh0aXExMnd6Unc9PSIsInZhbHVlIjoiUTBvVi9EVTQvOTg4Y0xPN1FPZjNHekRNcmJjSEREMmZ0blJYa0taUkJjb3BLanl4QnhQTjB3MUg3ekdxeXhyZ2o2Q2VTdkVkTkY2VEJXMlp5aTFXVE9MTzhyaWJnbVdkQzFDRG1HOFRFbGxQMlFFWlplZGpTNU1IdkMxZ3gycmIiLCJtYWMiOiJmODRiYTllYTQ2MjM0NDRiYWM2YTgzNmIxMTJkMTIyOGJkODU4MWI1YThiY2E4YWUzMzBlOWU0ZWZiODVlM2Y3In0%3D; laravel_session=eyJpdiI6IjhWaFB1K3hFS3lZZ3QwT2VkNU5SM1E9PSIsInZhbHVlIjoiUDBKRHdsdm5ITzdEWlZTZENRdllYRFpSWlBPS3o3S0lNK2g5TFhnMGFZVm94VDZpOWRtemdxM2FMWnhwSEorUVh6UFd5UTZCQ0Vwc2kyMlNFUDF2YmhidUFmNC8xZGNja0FjZGNJWis3SlBSSjB0MG1Hb0tKdzc4dVExenVLdnUiLCJtYWMiOiI5OGIwYTM3MzQwODg4ZmI3YjIyN2Y5ODM1OTAyZGJhZDVmMjU3ZDkwZmE4Y2JjODk3YzUxYWRiNTg1YmJjODBhIn0%3D
-Host:             localhost
-Referer:          http://localhost/urbor_ecommerce/admin/testt/7
-Sec-Ch-Ua:        " Not;A Brand";v="99", "Google Chrome";v="91", "Chromium";v="91"
-Sec-Ch-Ua-Mobile: ?0
-Sec-Fetch-Dest:   empty
-Sec-Fetch-Mode:   cors
-Sec-Fetch-Site:   same-origin
-User-Agent:       Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36
-X-Csrf-Token:     hW4qBHdX8WMJ4AmnitGlVsPrvDyx4VPb2WaL5Gj7
-X-Requested-With: XMLHttpRequest
-Cookie: XSRF-TOKEN=hW4qBHdX8WMJ4AmnitGlVsPrvDyx4VPb2WaL5Gj7; laravel_session=Y6GysFepq1hz7cTNywnMbrPu27RoDbVegtZeqe1g
-
+{"id":6,"supplier_id":1,"product_id":1077,"product_quantity":1002,"unit_purchasing_price":28,"net_price":2800,"discount":0,"vat":10,"shipping_cost":0,"purchase_note":"Test Purchase2","total_price":3080,"created_at":"2021-07-16T15:48:53.000000Z","updated_at":"2021-07-25T20:39:32.000000Z"}
