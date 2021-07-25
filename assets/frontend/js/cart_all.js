@@ -108,13 +108,13 @@
 //     $("#input_quantity").val(product_id);
 
 // }
-$(".inc").click(function() {
+$(document).on("click", '.inc', function(event) {
     updateValue(this, 1);
 });
-$(".dec").click(function() {
+
+$(document).on("click", '.dec', function(event) {
     updateValue(this, -1);
 });
-
 
 function updateValue(obj, delta) {
     var item = $(obj).parent().find("input[type=number]");

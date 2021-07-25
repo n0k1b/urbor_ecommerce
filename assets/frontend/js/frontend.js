@@ -10,8 +10,18 @@ $( document ).ready(function() {
     get_cart_count();
     get_cart_box();
 
+    // $(".inc").click(function() {
+    //     updateValue(this, 1);
+    // });
+    // $(".dec").click(function() {
+    //     updateValue(this, -1);
+    // });
+
+
 
 });
+
+
 
 
 
@@ -120,10 +130,11 @@ function show_cart_modal(id) {
     $.ajax({
         processData: false,
         contentType: false,
+        dataType : 'html',
         type: 'GET',
         url: 'show_cart_modal/'+id,
         success: function (data) {
-            $("#cart_modal").html(data);
+            $("#cart_modal").append(data);
             $("#cart_modal").modal('show');
 
         }
@@ -260,25 +271,27 @@ function cart_add(id)
 
 // }
 
-function dec(product_id)
-{
-    updateValue(this, -1);
-    $("#input_quantity").val(product_id);
+// function dec(product_id)
+// {
+//     updateValue(this, -1);
+//     $("#input_quantity").val(product_id);
 
-}
-$(".inc").click(function() {
+// }
+
+$(document).on("click", '.inc', function(event) {
     updateValue(this, 1);
 });
-$(".dec").click(function() {
+
+$(document).on("click", '.dec', function(event) {
     updateValue(this, -1);
 });
-
 
 function updateValue(obj, delta) {
     var item = $(obj).parent().find("input[type=number]");
     var product_id = $(obj).parent().find("input[name='hidden_product_id']");
 
     var newValue = parseInt(item.val(), 10) + delta;
+    //alert(newValue)
     item.val(Math.max(newValue, 0));
     //var product_id = $('#input_quantity').val();
     $("#quantity-"+product_id.val()).val(newValue);

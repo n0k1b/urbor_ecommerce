@@ -964,11 +964,11 @@ class FrontController extends Controller
                                 <div class="product__action">
                                     <label>Quantity: </label>
                                     <div class="def-number-input number-input safari_only">
-                                        <button class="minus dec" onclick="dec('.$product->id.')"><i class="icon-minus"></i></button>
+                                        <button class="minus dec" ><i class="icon-minus"></i></button>
                                         <input class="quantity" min="0" name="quantity" value="1" type="number" id="quantity-'.$product->id.'">
                                         <input type="hidden" id="input_quantity">
                                         <input type="hidden" name="hidden_product_id" value="'.$product->id.'">
-                                        <button class="plus inc" onclick="inc('.$product->id.')"><i class="icon-plus"></i></button>
+                                        <button class="plus inc"><i class="icon-plus"></i></button>
                                     </div>
                                     <button class="btn product__addcart"  onclick="cart_add('.$product->id.')"> <i class="icon-cart"></i>Add to cart</button>
 
@@ -983,13 +983,14 @@ class FrontController extends Controller
         </div>
     </div>
 
-    <script type="text/javascript" src="assets/frontend/js/frontend.js?'.time().'"></script>
+
     <script src="assets/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 
 
         ';
         echo $data;
+        exit;
     }
 
     function str_random($length = 16)

@@ -105,11 +105,11 @@ function dec(product_id)
     $("#input_quantity").val(product_id);
 
 }
-$(".inc").click(function() {
+$(document).on("click", '.inc', function(event) {
     updateValue(this, 1);
-
 });
-$(".dec").click(function() {
+
+$(document).on("click", '.dec', function(event) {
     updateValue(this, -1);
 });
 

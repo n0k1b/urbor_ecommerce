@@ -343,7 +343,7 @@
     <script src="{{asset('assets')}}/frontend/js/main.js?{{ time() }}"></script>
     <script src="{{asset('assets')}}/frontend/js/sweetalert.js?{{ time() }}"></script>
     <script src="{{asset('assets')}}/frontend/js/custom.js"></script>
-    <script src="{{asset('assets')}}/frontend/js/frontend.js?{{ time() }}"></script>
+    <script src="{{asset('assets')}}/frontend/js/frontend.js?{{ time() }}" async></script>
 
     {{-- <script src="{{asset('assets')}}/frontend/js/cart.js?{{ time() }}"></script> --}}
     @yield('page_js')
