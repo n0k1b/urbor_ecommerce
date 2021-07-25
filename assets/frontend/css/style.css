@@ -17575,3 +17575,48 @@ html .bg--parallax {
     -webkit-animation-name: zoomOut;
     animation-name: zoomOut;
 }
+#datepicker {
+    font-size: 1.5rem;
+}
+#timepicker {
+    font-size: 1.5rem;
+}
+#timingAlert {
+    font-size: 1.5rem !important;
+}
+@media screen and (orientation: portrait){
+    #datepicker {
+        font-size: 3rem;
+    }
+    #timepicker {
+        font-size: 3rem;
+    }
+    #timingAlert {
+        font-size: 3rem !important;
+    }
+    #ui-datepicker-div {
+        width: 80vw;
+        height: 80vw;
+    }
+    div.ui-datepicker{
+        font-size: 40px;
+    }
+    .ui-icon {
+        
+        -ms-transform: scale(3); /* IE 9 */
+        -webkit-transform: scale(3); /* Chrome, Safari, Opera */
+        transform: scale(3);
+    }
+    /* .ui-icon-circle-triangle-e {
+        background-image: url("assets/frontend/img/icons/right-arrow.png");
+    }
+    .ui-icon-circle-triangle-w {
+        background-image: url(assets/frontend/img/icons/left-arrow.png);
+    } */
+    #ui-datepicker-calendar {
+        height: 100% !important;
+    }
+    .ui-state-default {
+        height: 100px;
+    }
+}

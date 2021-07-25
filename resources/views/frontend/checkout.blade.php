@@ -223,13 +223,13 @@
                              </div>
                         </div> --}}
                         <div class="row">
-                            <div class="col">
+                            <div class="col-12 col-lg-4 mb-5">
                                 <input type='text' placeholder="Delivery Date" class="form-control" id="datepicker" />
                             </div>
-                            <div class="col">
+                            <div class="col-12 col-lg-4 mb-5" id="timepicker_container">
                                 <input type='text' placeholder="Delivery Time" class="form-control" id='timepicker' />
                             </div>
-                            <div class="col">
+                            <div class="col-12 col-lg-4 mb-5">
                                 <button id="timingAlert" class="btn btn-primary">View</button>
                             </div>
                         </div>
@@ -312,12 +312,53 @@
 @section('page_js')
 <script src="{{asset('assets')}}/frontend/js/checkout.js?{{ time() }}"></script>
 <script>
+    function istoday(selectedDate)
+    {
+        splittedDate = selectedDate.split("/")
+        selectedDate =  `${splittedDate[1]}/${splittedDate[0]}/${splittedDate[2]}`    
+        var inputDate = new Date(selectedDate);
+        // Get today's date
+        var todaysDate = new Date();   
+        // call setHours to take the time out of the comparison
+        if(inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)) {
+            return true
+        }
+        return false
+    }
+    function getCurrentTime(date) {
+        var hours = date.getHours(),
+            minutes = date.getMinutes(),
+            ampm = hours >= 12 ? 'pm' : 'am';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+
+        return hours + ':' + minutes + ' ' + ampm;
+    }
     $(function() {
         $( "#datepicker" ).datepicker({ 
             minDate: 0,
             dateFormat: 'dd/mm/yy'
         });
-        $('#timepicker').timepicker({});
+        
+        })
+        $('#timepicker').timepicker({
+            // 'minTime': getCurrentTime(new Date())
+        });
+        $( "#datepicker" ).change(function() {
+            console.log(istoday($("#datepicker").val()))
+            $('#timepicker_container').html("");
+            $('#timepicker_container').html('<input type="text" placeholder="Delivery Time" class="form-control" id="timepicker" />');
+            if(istoday($("#datepicker").val())) {
+                $('#timepicker').timepicker({
+                    'minTime': getCurrentTime(new Date())
+                });
+            } else {
+                $('#timepicker').timepicker({
+                });
+            }
+            
         $('#timingAlert').click(function(e) {
             e.preventDefault();
             alert(`
