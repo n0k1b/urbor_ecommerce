@@ -147,11 +147,11 @@
                 </li> --}}
 
 
-                <li><a class="ai-icon" href="{{ route('show-all-expense') }}" aria-expanded="false">
+                {{-- <li><a class="ai-icon" href="{{ route('show-all-expense') }}" aria-expanded="false">
                     <i class="la la-bank"></i>
                     <span class="nav-text">Expense</span>
                 </a>
-                </li>
+                </li> --}}
 
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="la la-shopping-cart"></i>

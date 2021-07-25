@@ -112,7 +112,7 @@ class FrontController extends Controller
 
         foreach($category as $cat)
            {
-              $sub_cat_avail = sub_category::where('category_id',$cat->id)->first();
+              $sub_cat_avail = sub_category::where('status',1)->where('category_id',$cat->id)->first();
               if($sub_cat_avail)
               {
             $data.='
@@ -174,7 +174,7 @@ class FrontController extends Controller
 
         foreach($category as $cat)
            {
-              $sub_cat_avail = sub_category::where('category_id',$cat->id)->first();
+              $sub_cat_avail = sub_category::where('status',1)->where('category_id',$cat->id)->first();
               if($sub_cat_avail)
               {
             $data.='
@@ -220,7 +220,7 @@ class FrontController extends Controller
     {
       // session()->forget('cart');
         $banners = banner::where('status',1)->orderBy('order')->get();
-        $categories = category::get();
+        $categories = category::where('status',1)->get();
         $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
         $company_info = company_info::first();
 
@@ -323,7 +323,7 @@ class FrontController extends Controller
     public function search_product(Request $request)
     {
         $input_value = $request->input_value;
-        $products = product::where('name','LIKE','%'.$input_value.'%')->get();
+        $products = product::where('name','LIKE','%'.$input_value.'%')->where('status',1)->get();
         $data='';
         if(sizeof($products)>0){
         foreach($products as $product)

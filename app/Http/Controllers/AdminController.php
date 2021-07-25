@@ -312,11 +312,13 @@ class AdminController extends Controller
 
         $rules = [
                 'name'=>'required',
+                'image'=>'required'
 
 
             ];
         $customMessages = [
             'name.required' => 'Category field is required.',
+            'image.required'=>'Image filed is required'
 
 
         ];
@@ -359,10 +361,16 @@ class AdminController extends Controller
         if ($status == 1)
         {
             category::where('id', $id)->update(['status' => 0]);
+            sub_category::where('category_id',$id)->update(['status'=>0]);
+            product::where('category_id',$id)->update(['status'=>0]);
+
+
         }
         else
         {
             category::where('id', $id)->update(['status' => 1]);
+            sub_category::where('category_id',$id)->update(['status'=>1]);
+            product::where('category_id',$id)->update(['status'=>1]);
         }
     }
     public function edit_category_content_ui(Request $request)
@@ -1797,12 +1805,14 @@ class AdminController extends Controller
             'name'=>'required',
 
             'category_id'=>'required',
+            'image'=>'required',
 
         ];
     $customMessages = [
         'name.required' => 'Sub Category field is required.',
 
         'category_id.required' => 'Category field is required.',
+        'image.required'=>'Image field is required'
 
 
     ];
@@ -1842,10 +1852,12 @@ class AdminController extends Controller
         if ($status == 1)
         {
             sub_category::where('id', $id)->update(['status' => 0]);
+            product::where('sub_category_id',$id)->update(['status' => 0]);
         }
         else
         {
             sub_category::where('id', $id)->update(['status' => 1]);
+             product::where('sub_category_id',$id)->update(['status' => 1]);
         }
     }
     public function edit_sub_category_content_ui(Request $request)
@@ -2391,6 +2403,7 @@ class AdminController extends Controller
         else
         {
             product::where('id', $id)->update(['status' => 1]);
+            homepage_product_list::where('product_list',$id)->update(['status'=>1]);
         }
     }
     public function edit_product_content_ui(Request $request)
@@ -2837,12 +2850,12 @@ class AdminController extends Controller
                         $permission = $this->permission();
                         $button = '';
                         if(in_array('category_edit',$permission))
-                        $button .= ' <a href="edit_category_content/'.$data->id.'" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
+                        $button .= ' <a href="test/7" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
                         else
                         $button .= ' <a href="javascript:void(0);" onclick="access_alert()" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
                         $button .= '&nbsp;&nbsp;';
                         if(in_array('category_delete',$permission))
-                        $button .= ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="category_content_delete('.$data->id.')"><i class="la la-trash-o"></i></a>';
+                        $button .= ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="purchase_content_delete('.$data->id.')"><i class="la la-trash-o"></i></a>';
                         else
                         $button .= ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="access_alert()"><i class="la la-trash-o"></i></a>';
                         return $button;
@@ -2855,7 +2868,58 @@ class AdminController extends Controller
 
         return view('admin.purchase.all');
 
+
     }
+    public function edit_purchase_content_ui(Request $request)
+    {
+        file_put_contents('test.txt',$request);
+        $id = $request->type;
+        $data = purchase::where('id',$id)->first();
+
+        $suppliers = supplier::get();
+        $products = product::where('delete_status',0)->get();
+        return view('admin.purchase.edit',compact('data','products','suppliers'));
+
+    }
+
+    public function add_purchase_ui()
+    {
+        $products = product::where('delete_status',0)->get();
+        $suppliers = supplier::get();
+        return view('admin.purchase.add',compact('products','suppliers'));
+
+
+    }
+
+    public function add_purchase(Request $request)
+    {
+        $product_id = $request->product_id;
+        $supplier_id = $request->supplier_id;
+        $purchase_quantity = $request->product_quantity;
+        $unit_purchasing_price = $request->unit_purchasing_price;
+        $net_price = $purchase_quantity*$unit_purchasing_price;
+        $total_price = $net_price+($net_price*($request->vat/100))-($net_price*($request->discount/100))+$request->shipping_cost;
+        $purchase_note = $request->purchase_note;
+        purchase::create([
+            'supplier_id'=>$supplier_id,
+            'product_id'=>$product_id,
+            'product_quantity'=>$purchase_quantity,
+            'unit_purchasing_price'=>$unit_purchasing_price,
+            'net_price'=>$net_price,
+            'discount'=>$request->discount,
+            'vat'=>$request->vat,
+            'shipping_cost'=>$request->shipping_cost,
+            'purchase_note'=>$purchase_note,
+            'total_price'=>$total_price
+
+
+        ]);
+            return back()->with('success','Data Addess Successfully');
+
+
+    }
+
+    //purchase end
 
     public function show_all_report(Request $request)
     {
@@ -3000,44 +3064,9 @@ class AdminController extends Controller
         return view('admin.report.date_view',['type'=>$type]);
     }
 
-    public function add_purchase_ui()
-    {
-        $products = product::where('delete_status',0)->get();
-        $suppliers = supplier::get();
-        return view('admin.purchase.add',compact('products','suppliers'));
 
 
-    }
 
-    public function add_purchase(Request $request)
-    {
-        $product_id = $request->product_id;
-        $supplier_id = $request->supplier_id;
-        $purchase_quantity = $request->product_quantity;
-        $unit_purchasing_price = $request->unit_purchasing_price;
-        $net_price = $purchase_quantity*$unit_purchasing_price;
-        $total_price = $net_price+($net_price*($request->vat/100))-($net_price*($request->discount/100))+$request->shipping_cost;
-        $purchase_note = $request->purchase_note;
-        purchase::create([
-            'supplier_id'=>$supplier_id,
-            'product_id'=>$product_id,
-            'product_quantity'=>$purchase_quantity,
-            'unit_purchasing_price'=>$unit_purchasing_price,
-            'net_price'=>$net_price,
-            'discount'=>$request->discount,
-            'vat'=>$request->vat,
-            'shipping_cost'=>$request->shipping_cost,
-            'purchase_note'=>$purchase_note,
-            'total_price'=>$total_price
-
-
-        ]);
-            return back()->with('success','Data Addess Successfully');
-
-
-    }
-
-    //purchase end
 
     //homepage section start
 

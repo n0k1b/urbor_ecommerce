@@ -67,7 +67,7 @@
 											<div class="form-group">
 
 												<div class="field" align="left">
-													<label class="form-label">Sub Category Image(optional)</label>
+													<label class="form-label">Sub Category Image</label>
 													<input type="file" id="files" name="image" />
 												  </div>
 											</div>

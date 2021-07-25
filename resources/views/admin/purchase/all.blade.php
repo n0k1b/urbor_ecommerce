@@ -71,7 +71,7 @@
                                             <th>Shipping Cost</th>
                                             <th>Purchase Note</th>
                                             <th>Total Price</th>
-                                            {{-- <th>Action</th> --}}
+                                            <th>Action</th>
 
                                         </tr>
                                     </thead>
@@ -150,10 +150,10 @@
                 data:'total_price',
                 name:'total_price',
              },
-            //  {
-            //     data:'action',
-            //     name:'action',
-            //  }
+             {
+                data:'action',
+                name:'action',
+             }
 
 
 

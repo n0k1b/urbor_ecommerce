@@ -109,7 +109,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
     //domain start
     Route::get('show-all-domain','AdminController@show_all_domain')->name('show-all-domain');
-    Route::get('add-domain','AdminController@add_domain_ui')->name('add-domain');
+    Route::get('add-domain','AdminController@add_domain_ui');
     Route::post('add-domain','AdminController@add_domain')->name('add-domain');
     Route::get('domain_active_status_update/{id}','AdminController@domain_active_status_update');
     Route::get('edit_domain_content/{id}','AdminController@edit_domain_content_ui')->name('edit_domain_content');
@@ -121,7 +121,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
     //domain end
      //category start
      Route::get('show-all-category','AdminController@show_all_category')->name('show-all-category');
-     Route::get('add-category','AdminController@add_category_ui')->name('add-category');
+     Route::get('add-category','AdminController@add_category_ui');
      Route::post('add-category','AdminController@add_category')->name('add-category');
      Route::get('category_active_status_update/{id}','AdminController@category_active_status_update');
      Route::get('edit_category_content/{id}','AdminController@edit_category_content_ui')->name('edit_category_content');
@@ -135,7 +135,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
       //category start with domain
       Route::get('show-all-category-with_domain','AdminController@show_all_category_with_domain')->name('show-all-category-with-domain');
-      Route::get('add-category-with-domain','AdminController@add_category_with_domain_ui')->name('add-category-with-domain');
+      Route::get('add-category-with-domain','AdminController@add_category_with_domain_ui');
       Route::post('add-category-with-domain','AdminController@add_category_with_domain')->name('add-category-with-domain');
       Route::get('category_with_domain_active_status_update/{id}','AdminController@category_with_domain_active_status_update');
       Route::get('edit_category_with_domain_content/{id}','AdminController@edit_category_with_domain_content_ui')->name('edit_category_with_domain_content');
@@ -149,7 +149,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
       //sub category start
 
       Route::get('show-all-sub-category','AdminController@show_all_sub_category')->name('show-all-sub-category');
-      Route::get('add-sub_category','AdminController@add_sub_category_ui')->name('add-sub_category');
+      Route::get('add-sub_category','AdminController@add_sub_category_ui');
       Route::post('add-sub_category','AdminController@add_sub_category')->name('add-sub_category');
       Route::get('sub_category_active_status_update/{id}','AdminController@sub_category_active_status_update');
       Route::get('edit_sub_category_content/{id}','AdminController@edit_sub_category_content_ui')->name('edit_sub_category_content');
@@ -166,7 +166,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
       Route::post('get_brand','AdminController@get_brand')->name('get_brand');
       Route::get('show-all-product','AdminController@show_all_product')->name('show-all-product');
       Route::get('get_all_product','AdminController@get_all_product')->name('get_all_product');
-      Route::get('add-product','AdminController@add_product_ui')->name('add-product');
+      Route::get('add-product','AdminController@add_product_ui');
       Route::post('add-product','AdminController@add_product')->name('add-product');
       Route::get('product_active_status_update/{id}','AdminController@product_active_status_update');
       Route::get('edit_product_content/{id}','AdminController@edit_product_content_ui')->name('edit_product_content');
@@ -184,29 +184,30 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
       //purchase start
       Route::post('add-purchase','AdminController@add_purchase')->name('add-purchase');
-      Route::get('add-purchase','AdminController@add_purchase_ui')->name('add-purchase');
+      Route::get('add-purchase','AdminController@add_purchase_ui');
       Route::get('show-all-purchase','AdminController@show_all_purchase')->name('show-all-purchase');
+      Route::get('testt/{type}','AdminController@edit_purchase_content_ui');
 
       //purchase end
 
-      //brand start
-      Route::get('edit_brand_content/get_category','AdminController@get_category')->name('get_category');
-      Route::post('edit_brand_content/get_sub_category','AdminController@get_sub_category')->name('get_sub_category');
-      Route::get('show-all-brand','AdminController@show_all_brand')->name('show-all-brand');
-      Route::get('add-brand','AdminController@add_brand_ui')->name('add-brand');
-      Route::post('add-brand','AdminController@add_brand')->name('add-brand');
-      Route::get('brand_active_status_update/{id}','AdminController@brand_active_status_update');
-      Route::get('edit_brand_content/{id}','AdminController@edit_brand_content_ui')->name('edit_brand_content');
-      Route::post('update_brand_content','AdminController@update_brand_content')->name('update_brand_content');
-      Route::get('brand_content_delete/{id}','AdminController@brand_content_delete')->name('brand_content_delete');
-      Route::get('edit_brand_image/{id}','AdminController@edit_brand_image_ui')->name('edit_brand_image');
-      Route::post('update_brand_image','AdminController@update_brand_image')->name('update_brand_image');
+    //   //brand start
+    //   Route::get('edit_brand_content/get_category','AdminController@get_category')->name('get_category');
+    //   Route::post('edit_brand_content/get_sub_category','AdminController@get_sub_category')->name('get_sub_category');
+    //   Route::get('show-all-brand','AdminController@show_all_brand')->name('show-all-brand');
+    //   Route::get('add-brand','AdminController@add_brand_ui')->name('add-brand');
+    //   Route::post('add-brand','AdminController@add_brand')->name('add-brand');
+    //   Route::get('brand_active_status_update/{id}','AdminController@brand_active_status_update');
+    //   Route::get('edit_brand_content/{id}','AdminController@edit_brand_content_ui')->name('edit_brand_content');
+    //   Route::post('update_brand_content','AdminController@update_brand_content')->name('update_brand_content');
+    //   Route::get('brand_content_delete/{id}','AdminController@brand_content_delete')->name('brand_content_delete');
+    //   Route::get('edit_brand_image/{id}','AdminController@edit_brand_image_ui')->name('edit_brand_image');
+    //   Route::post('update_brand_image','AdminController@update_brand_image')->name('update_brand_image');
 
-      //brand end
+    //   //brand end
 
       //homepgae_content_start
       Route::get('show-all-homepage_section','AdminController@show_all_homepage_section')->name('show-all-homepage_section');
-      Route::get('add-homepage-section','AdminController@add_homepage_section_ui')->name('add-homepage-section');
+      Route::get('add-homepage-section','AdminController@add_homepage_section_ui');
       Route::post('add-homepage-section','AdminController@add_homepage_section')->name('add-homepage-section');
       Route::get('homepage-section_active_status_update/{id}','AdminController@homepage_section_active_status_update');
       Route::get('edit_homepage-section_content/{id}','AdminController@edit_homepage_section_content_ui')->name('edit_homepage-section_content');
@@ -228,7 +229,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
     //banner start
     Route::get('show-all-banner','AdminController@show_all_banner')->name('show-all-banner');
-    Route::get('add-banner','AdminController@add_banner_ui')->name('add-banner');
+    Route::get('add-banner','AdminController@add_banner_ui');
     Route::post('add-banner','AdminController@add_banner')->name('add-banner');
     Route::get('banner_active_status_update/{id}','AdminController@banner_active_status_update');
     Route::get('edit_banner_content/{id}','AdminController@edit_banner_content_ui')->name('edit_banner_content');
@@ -285,7 +286,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
     Route::get('edit_warehouse_content/{id}','AdminController@edit_warehouse_content_ui')->name('edit_warehouse_content');
     Route::post('update_warehouse_content','AdminController@update_warehouse_content')->name('update_warehouse_content');
     Route::get('warehouse_content_delete/{id}','AdminController@warehouse_content_delete')->name('warehouse_content_delete');
-    Route::get('warehouse_product/{id}','AdminController@warehouse_content_delete')->name('warehouse_content_delete');
+    Route::get('warehouse_product/{id}','AdminController@warehouse_content_delete');
     Route::post('show-warehouse-product','AdminController@show_warehouse_product')->name('show-warehouse-product');
 
 
@@ -299,7 +300,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
    Route::get('area_active_status_update/{id}','AdminController@area_active_status_update');
    Route::get('edit_area_content/{id}','AdminController@edit_area_content_ui')->name('edit_area_content');
    Route::post('update_area_content','AdminController@update_area_content')->name('update_area_content');
-   Route::get('area_content_delete/{id}','AdminController@area_content_delete')->name('area_content_delete');
+   Route::get('area_content_delete/{id}','AdminController@area_content_delete');
    Route::get('area_product/{id}','AdminController@area_content_delete')->name('area_content_delete');
    //area end
 
@@ -311,7 +312,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
      Route::get('expense_active_status_update/{id}','AdminController@expense_active_status_update');
      Route::get('edit_expense_content/{id}','AdminController@edit_expense_content_ui');
      Route::post('update_expense_content','AdminController@update_expense_content')->name('update_expense_content');
-     Route::get('expense_content_delete/{id}','AdminController@expense_content_delete')->name('expense_content_delete');
+     Route::get('expense_content_delete/{id}','AdminController@expense_content_delete');
      Route::get('expense_product/{id}','AdminController@expense_content_delete')->name('expense_content_delete');
      //Expense End
 
@@ -323,8 +324,8 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
    Route::get('deposit_active_status_update/{id}','AdminController@deposit_active_status_update');
    Route::get('edit_deposit_content/{id}','AdminController@edit_deposit_content_ui');
    Route::post('update_deposit_content','AdminController@update_deposit_content')->name('update_deposit_content');
-   Route::get('deposit_content_delete/{id}','AdminController@deposit_content_delete')->name('deposit_content_delete');
-   Route::get('deposit_product/{id}','AdminController@deposit_content_delete')->name('deposit_content_delete');
+   Route::get('deposit_content_delete/{id}','AdminController@deposit_content_delete');
+   Route::get('deposit_product/{id}','AdminController@deposit_content_delete');
    //Deposit End
 
 
@@ -337,7 +338,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
    Route::get('role_active_status_update/{id}','AdminController@role_active_status_update');
    Route::get('edit_role_content/{id}','AdminController@edit_role_content_ui')->name('edit_role_content');
    Route::post('update_role_content','AdminController@update_role_content')->name('update_role_content');
-   Route::get('role_content_delete/{id}','AdminController@role_content_delete')->name('role_content_delete');
+   Route::get('role_content_delete/{id}','AdminController@role_content_delete');
    Route::get('role_product/{id}','AdminController@role_content_delete')->name('role_content_delete');
    Route::get('permission/{id}','AdminController@show_permission_form')->name('permission');
    Route::post('set_permission','AdminController@set_permission')->name('set_permission');

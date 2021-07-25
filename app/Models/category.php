@@ -15,6 +15,6 @@ class category extends Model
 
     public function sub_category()
         {
-            return $this->hasMany('App\Models\sub_category','category_id','id');
+            return $this->hasMany('App\Models\sub_category','category_id','id')->where('status',1);
         }
 }

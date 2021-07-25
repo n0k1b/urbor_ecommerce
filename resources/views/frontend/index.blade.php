@@ -3,7 +3,7 @@
 @section('main_content')
 <main class="no-main ps-home--dark">
     <div class="section-slide--default">
-        <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="4000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1"
+        <div class="owl-carousel" data-owl-auto="false" data-owl-loop="false" data-owl-speed="4000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="1" data-owl-item-xs="1" data-owl-item-sm="1" data-owl-item-md="1" data-owl-item-lg="1"
             data-owl-duration="3000" data-owl-mousedrag="on">
             @foreach($banners as $banner)
             <div class="ps-banner">
@@ -22,7 +22,7 @@
                 <h3 class="component__title">Shop By Category</h3><a class="component__view" href="#">View all <i class="icon-chevron-right"></i></a>
             </div>
             <div class="component__content">
-                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="4000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="5" data-owl-duration="1000"
+                <div class="owl-carousel" data-owl-auto="false" data-owl-loop="false" data-owl-speed="4000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="6" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="3" data-owl-item-lg="5" data-owl-duration="1000"
                     data-owl-mousedrag="on">
                     @foreach ($categories as $category)
                     <div class="ps-category__item">
@@ -46,7 +46,7 @@
                 <h3 class="component__title">{{ $section_product->section_name }}</h3><a class="component__view" href="view_all/section_prodcut-{{$section_product->id}}">View all <i class="icon-chevron-right"></i></a>
             </div>
             <div class="component__content">
-                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
+                <div class="owl-carousel" data-owl-auto="false" data-owl-loop="false" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
                     data-owl-duration="1000" data-owl-mousedrag="on">
                     @foreach($section_product->product_list as $product_list)
                     <?php

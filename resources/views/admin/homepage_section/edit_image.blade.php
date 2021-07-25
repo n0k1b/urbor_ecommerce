@@ -8,14 +8,14 @@
 				<div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Add Content</h4>
+                            <h4>Edit Image</h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0);">homepage-section Content</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0);">Add Content</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0);">Homepage Section</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0);">Edit Image</a></li>
                         </ol>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="form-group fallback w-100">
                                                 <div class="field" align="left">
-													<label class="form-label">Image</label>
+
                                                     <input type="file" id="files" name="image" />
                                                     <input name="id" type="hidden" value="{{$data->id}}">
 												  </div>
