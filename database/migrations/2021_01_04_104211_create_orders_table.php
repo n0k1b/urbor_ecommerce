@@ -18,7 +18,11 @@ class CreateOrdersTable extends Migration
             $table->string('order_no')->unique();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('address_id')->unsigned();
-            $table->string('order_date');
+            $table->integer('total_price')->nullable();
+            $table->string('status')->nullable();
+            $table->string('remarks')->nullable();
+            $table->string('delivery_date')->nullable();
+            $table->string('delivery_time')->nullable();
             $table->integer('delete_status')->default(0);
 
             $table->timestamps();

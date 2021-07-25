@@ -397,15 +397,28 @@ class FrontController extends Controller
     public function place_order(Request $request)
     {
         //session()->forget('cart');
+        $rules = [
+            'address_id'=>'required',
+            'delivery_date'=>'required',
+            'delivery_time'=>'required',
+        ];
 
-             $validator = Validator::make($request->all(), [
-            'address_id' => ['required'],
-         ]);
+
+
+         $customMessages = [
+            'address_id.required' => 'Please select or add an address.',
+            'delivery_date.required'=>'Please select a delivery date',
+            'delivery_time.required'=>'Please select a delivery time',
+
+        ];
+        $validator = Validator::make( $request->all(), $rules, $customMessages );
     if($validator->fails())
     {
-        return redirect()->back()->with('error','Please select an address');
+        return redirect()->back()->with('errors',collect($validator->errors()->all()));
     }
         $address_id = $request->address_id;
+        $delivery_date = $request->delivery_date;
+        $delivery_time = $request->delivery_time;
         $cart = session()->get('cart');
         $total = 0;
 
@@ -422,7 +435,7 @@ class FrontController extends Controller
            order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price']]);
         }
         $delivery_fee = 60;
-        $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee]);
+        $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee,'delivery_date'=>$delivery_date,'delivery_time'=>$delivery_time]);
 
         $status = $order->status;
         $order_no = $order->order_no;
@@ -1070,9 +1083,9 @@ class FrontController extends Controller
         <button type="button" class="btn btn-success" onclick="edit_address_modal('.$datas[0]->id.')"><i class="icon-pencil icon-shop5" style="color:white;font-weight:bold; font-family: Linearicons, Bangla634, sans-serif;"></i></button>
         <button  type="button" class="btn btn-danger" onclick="delete_address('.$datas[0]->id.')" style="background-color:#f10000"><i class="icon-trash2 icon-shop5" style="color:white;font-weight:bold;font-family: Linearicons, Bangla634, sans-serif;"></i></button>
         </label>
-        <p><i class="icon-home4"></i>&nbsp'.$datas[0]->area->name.'<span>,&nbsp'.$datas[0]->address.'</span></p>
+        <p><i class="icon-home4" style="color:black"></i>&nbsp'.$datas[0]->area->name.'<span style="color:black;font-weight:bolder">,&nbsp'.$datas[0]->address.'</span></p>
 
-        <p><i class="icon-telephone"></i>&nbsp'.$datas[0]->contact_no.'</p>
+        <p><i class="icon-telephone" style="color:black"></i>&nbsp'.$datas[0]->contact_no.'</p>
     </div>';
 
         }
