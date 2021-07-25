@@ -394,6 +394,12 @@ class FrontController extends Controller
 
     }
 
+    public function cancel_order(Request $request)
+    {
+        $order_no = $request->order_no;
+        order::where('order_no',$order_no)->update(['status'=>'canceled']);
+    }
+
     public function place_order(Request $request)
     {
         //session()->forget('cart');

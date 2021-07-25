@@ -80,6 +80,8 @@ Route::group(['middleware' => 'IsLoggedIn'], function()
    Route::get('order_list','FrontController@order_list');
    Route::post('view_order_details','FrontController@view_order_details')->name('view_order_details');
 
+  Route::post('cancel_order','FrontController@cancel_order')->name('cancel_order');
+
 });
 
 

@@ -2667,6 +2667,7 @@ label:hover:before {
     color: #222;
 }
 
+
 .ps-product--standard .ps-product__price-default {
     font-weight: bold;
     color: #222;
@@ -2693,6 +2694,12 @@ label:hover:before {
     max-width: 946px !important;
     margin: 1.75rem auto;
 }
+}
+.section--wishlist .wishlist__btn{
+    font-size:23px !important;
+}
+.table {
+    font-size:31px !important;
 }
 .ui-timepicker-container
 {

@@ -58,7 +58,7 @@
                                          <form action="{{ route('view_order_details') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                        <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                        <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -98,7 +98,7 @@
                                          <form action="{{ route('view_order_details') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                        <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                        <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -140,7 +140,7 @@
                                              <form action="{{ route('view_order_details') }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                            <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                            <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -180,7 +180,7 @@
                                          <form action="{{ route('view_order_details') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                        <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                        <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -223,7 +223,7 @@
                                      <form action="{{ route('view_order_details') }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                            <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                            <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                             </form>
                                 </td>
                             </tr>
@@ -264,7 +264,7 @@
                                  <form action="{{ route('view_order_details') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                        <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                        <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                         </form>
                             </td>
                         </tr>
@@ -307,7 +307,7 @@
                                             <form action="{{ route('view_order_details') }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                            <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                            <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                             </form>
                                         </td>
                                     </tr>
@@ -347,7 +347,7 @@
                                         <form action="{{ route('view_order_details') }}" method="post">
                                             @csrf
                                             <input type="hidden" name="order_no" value="{{ $data->order_no }}">
-                                        <button type="submit" class="btn wishlist__btn add-cart">Order Details</button>
+                                        <button type="submit" class="btn wishlist__btn add-cart">Details</button>
                                         </form>
                                     </td>
                                 </tr>

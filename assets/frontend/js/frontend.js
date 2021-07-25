@@ -180,6 +180,45 @@ function get_cart_count()
     }
 })
 }
+
+function cancel_order(order_no)
+{
+
+    swal({
+        title: "Are you sure?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+
+
+            var formdata = new FormData();
+
+            formdata.append('order_no',order_no);
+             $.ajax({
+             processData: false,
+             contentType: false,
+             type: 'POST',
+             url: 'cancel_order',
+             data:formdata,
+             success: function (data) {
+
+                swal("Your order has been canceled", {
+                    icon: "success",
+
+                  }).then((value) => {
+                    window.location.href = 'order_list';
+                  });
+
+             }
+         })
+
+
+        }
+      });
+}
 function modal_close()
 {
 

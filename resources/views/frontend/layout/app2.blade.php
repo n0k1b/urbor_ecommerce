@@ -325,7 +325,7 @@
     <script src="{{asset('assets')}}/frontend/plugins/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-    
+
     <script src="{{asset('assets')}}/frontend/plugins/popper.min.js"></script>
 
     <script src="{{asset('assets')}}/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -341,6 +341,7 @@
 
     <!-- custom code-->
     <script src="{{asset('assets')}}/frontend/js/main.js?{{ time() }}"></script>
+    <script src="{{asset('assets')}}/frontend/js/sweetalert.js?{{ time() }}"></script>
     <script src="{{asset('assets')}}/frontend/js/custom.js"></script>
     <script src="{{asset('assets')}}/frontend/js/frontend.js?{{ time() }}"></script>
 
