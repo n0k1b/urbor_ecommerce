@@ -208,9 +208,8 @@
             @endif --}}
             <h2 class="page__title">Checkout</h2>
             <div class="checkout__content">
-
                 <div class="row">
-                    <div class="col col-6 col-md-6 col-sm-12">
+                    <div class="col col-6 col-md-6 col-sm-12 mb-6">
                         <h3 class="checkout__title">Delivery Address<span style="float: right;"><button type="button"  onclick="show_address_modal()" class="btn btn-lg btn-primary">Add New</button></span> </h3>
                         <div class="col-12 col-lg-12" style="background-color:#F7F9F9;padding:17px">
 
@@ -243,102 +242,123 @@
 
                                     </div>
 
-                            </div>
                         </div>
-                        <h3 class="checkout__title">Pick a delivery date & time </h3>
-                        <div class="col col-12 col-lg-12" style="background-color:#F7F9F9; margin-top:25px;padding-bottom:30px;padding:17px">
+                    </div>
+                    </div>
+                <div class="col-12 col-lg-7 mt-6">
+                    {{-- <h3 class="checkout__title">Pick a delivery date </h3>
+                    <div class="row">
+                        <div class='col-sm-6'>
+                            
+                            </div>
+                    </div>
+                    <h3 class="checkout__title">Pick a delivery time </h3>
+                    <div class="row">
+                        <div class='col-sm-6'>
+                            
+                            </div>
+                    </div> --}}
+                    <div class="row">
+                        <div class="col-12 col-lg-4 mb-5">
+                            <input type='text' placeholder="Delivery Date" class="form-control" id="datepicker" />
+                        </div>
+                        <div class="col-12 col-lg-4 mb-5" id="timepicker_container">
+                            <input type='text' placeholder="Delivery Time" class="form-control" id='timepicker' />
+                        </div>
+                        <div class="col-12 col-lg-4 mb-5">
+                            <button id="timingAlert" class="btn btn-primary">View</button>
+                        </div>
+                    </div>
+                    
+                    {{-- <div class="col col-12 col-lg-12" style="background-color:#F7F9F9; margin-top:25px;padding-bottom:30px;padding:17px">
 
+
+                        <div class="row">
+                            <div class="col">
+                                <label>Select Date</label>
+                                <input type='text' placeholder="Delivery Date" name="delivery_date" class="form-control" id="datepicker" />
+                            </div>
+                            <div class="col">
+                                <label>Select Time</label>
+                                <input type='text' placeholder="Delivery Time" name="delivery_time" class="form-control" id='timepicker' />
+                            </div>
+
+                        </div>
+
+
+                    </div> --}}
+
+                </div>
+
+                <div class="col-5 col-md-5 col-sm-12">
+                    <div class="col-12">
+                        <h3 class="checkout__title">Your Order</h3>
+                        <div class="checkout__products">
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="checkout__label">PRODUCT</div>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <div class="checkout__label">TOTAL</div>
+                                </div>
+                            </div>
+                            <div class="checkout__list">
+                                @foreach($cart as $id =>$details)
+
+                                <div class="checkout__product__item">
+                                    <div class="checkout-product">
+                                        <div class="product__name">{{ $details['name'] }}<span>(x{{ $details['quantity'] }})</span></div>
+                                        <div class="product__unit">{{ $details['unit'] }}</div>
+                                    </div>
+                                    <div class="checkout-price">{{ $details['price']*$details['quantity'] }}</div>
+                                </div>
+                                @endforeach
+                            </div>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="checkout__label">Subtotal</div>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <div class="checkout__label">{{ $sub_total }}</div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-8">
+                                    <div class="checkout__label">Delivery Charge</div>
+                                </div>
+                                <div class="col-4 text-right">
+                                    <div class="checkout__label">{{ $delivery_charge }}</div>
+                                </div>
+                            </div>
+                            <br>
 
                             <div class="row">
-                                <div class="col">
-                                    <label>Select Date</label>
-                                    <input type='text' placeholder="Delivery Date" name="delivery_date" class="form-control" id="datepicker" />
+                                <div class="col-8">
+                                    <div class="checkout__total">Total</div>
                                 </div>
-                                <div class="col">
-                                    <label>Select Time</label>
-                                    <input type='text' placeholder="Delivery Time" name="delivery_time" class="form-control" id='timepicker' />
+                                <div class="col-4 text-right">
+                                    <div class="checkout__money">{{ $total }}</div>
                                 </div>
-
                             </div>
-
-
                         </div>
-
-                    </div>
-
-                    <div class="col-6 col-md-6 col-sm-12">
-                        <div class="col-12">
-                            <h3 class="checkout__title">Your Order</h3>
-                            <div class="checkout__products">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="checkout__label">PRODUCT</div>
-                                    </div>
-                                    <div class="col-4 text-right">
-                                        <div class="checkout__label">TOTAL</div>
-                                    </div>
-                                </div>
-                                <div class="checkout__list">
-                                    @foreach($cart as $id =>$details)
-
-                                    <div class="checkout__product__item">
-                                        <div class="checkout-product">
-                                            <div class="product__name">{{ $details['name'] }}<span>(x{{ $details['quantity'] }})</span></div>
-                                            <div class="product__unit">{{ $details['unit'] }}</div>
-                                        </div>
-                                        <div class="checkout-price">{{ $details['price']*$details['quantity'] }}</div>
-                                    </div>
-                                    @endforeach
-                                </div>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="checkout__label">Subtotal</div>
-                                    </div>
-                                    <div class="col-4 text-right">
-                                        <div class="checkout__label">{{ $sub_total }}</div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="checkout__label">Delivery Charge</div>
-                                    </div>
-                                    <div class="col-4 text-right">
-                                        <div class="checkout__label">{{ $delivery_charge }}</div>
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="checkout__total">Total</div>
-                                    </div>
-                                    <div class="col-4 text-right">
-                                        <div class="checkout__money">{{ $total }}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__payment">
-                                <div class="checkout__label mb-3">SELECT PAYMENT</div>
-                                <div class="form-group--block">
-                                    <input class="form-check-input" type="checkbox" id="checkboxBank" value="bank">
-                                    <label class="label-checkbox" for="checkboxBank"><b class="text-heading">Cash on Delivery</b></label>
-                                </div>
-
-
-                            </div>
-
+                        <div class="checkout__payment">
+                            <div class="checkout__label mb-3">SELECT PAYMENT</div>
                             <div class="form-group--block">
-                                <input class="form-check-input" type="checkbox" id="checkboxAgree" value="agree">
+                                <input class="form-check-input" type="checkbox" id="checkboxBank" value="bank">
+                                <label class="label-checkbox" for="checkboxBank"><b class="text-heading">Cash on Delivery</b></label>
+                            </div>
 
-                            </div><button class="checkout__order" type="submit" >Place an order</button>
-                        </form>
+
                         </div>
+
+                        <div class="form-group--block">
+                            <input class="form-check-input" type="checkbox" id="checkboxAgree" value="agree">
+
+                        </div><button class="checkout__order" type="submit" >Place an order</button>
+                    </form>
                     </div>
-
-
-
-
+                </div>
                 </div>
             </div>
         </div>
@@ -348,12 +368,53 @@
 @section('page_js')
 <script src="{{asset('assets')}}/frontend/js/checkout.js?{{ time() }}"></script>
 <script>
+    function istoday(selectedDate)
+    {
+        splittedDate = selectedDate.split("/")
+        selectedDate =  `${splittedDate[1]}/${splittedDate[0]}/${splittedDate[2]}`    
+        var inputDate = new Date(selectedDate);
+        // Get today's date
+        var todaysDate = new Date();   
+        // call setHours to take the time out of the comparison
+        if(inputDate.setHours(0,0,0,0) == todaysDate.setHours(0,0,0,0)) {
+            return true
+        }
+        return false
+    }
+    function getCurrentTime(date) {
+        var hours = date.getHours(),
+            minutes = date.getMinutes(),
+            ampm = hours >= 12 ? 'pm' : 'am';
+
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+
+        return hours + ':' + minutes + ' ' + ampm;
+    }
     $(function() {
         $( "#datepicker" ).datepicker({
             minDate: 0,
             dateFormat: 'dd/mm/yy'
         });
-        $('#timepicker').timepicker({});
+        
+        })
+        $('#timepicker').timepicker({
+            // 'minTime': getCurrentTime(new Date())
+        });
+        $( "#datepicker" ).change(function() {
+            console.log(istoday($("#datepicker").val()))
+            $('#timepicker_container').html("");
+            $('#timepicker_container').html('<input type="text" placeholder="Delivery Time" class="form-control" id="timepicker" />');
+            if(istoday($("#datepicker").val())) {
+                $('#timepicker').timepicker({
+                    'minTime': getCurrentTime(new Date())
+                });
+            } else {
+                $('#timepicker').timepicker({
+                });
+            }
+            
         $('#timingAlert').click(function(e) {
             e.preventDefault();
             alert(`
