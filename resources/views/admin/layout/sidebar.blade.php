@@ -85,7 +85,20 @@
                     <li><a href="{{ route('add-purchase')}}">Add Purchase</a></li>
 
                 </ul>
-            </li>
+                 </li>
+            @endif
+            @if(in_array('product_view',$role_permission))
+                <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                    <i class="la la-dropbox"></i>
+                    <span class="nav-text">Package</span>
+                </a>
+                <ul aria-expanded="false">
+                    <li><a href="{{ route('show-all-purchase')}}">All Package</a></li>
+                    <li><a href="{{ route('add-package')}}">Add Package</a></li>
+
+
+                </ul>
+                 </li>
             @endif
                 @if(in_array('homepage_content_view',$role_permission))
 					<li><a class="ai-icon" href="{{ route('show-all-homepage_section') }}" aria-expanded="false">
