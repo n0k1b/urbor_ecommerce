@@ -643,7 +643,7 @@ class FrontController extends Controller
                                 <button class="plus inc_view_cart_package" onclick=""><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
-                        <div class="ps-product__remove"><i class="icon-trash2"></i></div>
+                        <div class="ps-product__remove" onclick="delete_cart_view_cart('.$details['package_id'].')"><i class="icon-trash2"></i></div>
                     </div>
                 </div>
                     <div class="cart-price"><span class="ps-product__price">TK '.$details['price'].'</span>
@@ -659,7 +659,7 @@ class FrontController extends Controller
                     </div>
                     <div class="cart-total"> <span class="ps-product__total">TK '.$details['price']*$details['quantity'].'</span>
                     </div>
-                    <div class="cart-action"> <i class="icon-trash2"></i></div>
+                    <div class="cart-action" onclick="delete_cart_view_cart('.$details['package_id'].')> <i class="icon-trash2"></i></div>
                 </div>
                 ';
                 }
