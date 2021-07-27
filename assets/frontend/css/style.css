@@ -2707,6 +2707,12 @@ font-size: 19px !important;
     margin: 1.75rem auto;
 }
 }
+.package_thumbnail {
+    height: 182px !important;
+    width: 161px !important;
+    margin-bottom: 21px;
+}
+
 
 .ps-product--mini-cart .ps-product__remove i {
     font-size: 40px !important;
