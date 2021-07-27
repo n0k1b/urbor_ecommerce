@@ -9,7 +9,7 @@
         <section class="ps-component ps-component--category">
             <div class="container">
 
-                <div class="component__content category_list">
+                <div class="component__content category_list_view_all">
 
                 </div>
             </div>

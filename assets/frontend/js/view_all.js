@@ -21,7 +21,7 @@ function get_homepage_section(){
         url: 'get_all_homepage_section/'+type,
         success: function (data) {
 
-            $(".category_list").html(data);
+            $(".category_list_view_all").html(data);
 
         }
     })
