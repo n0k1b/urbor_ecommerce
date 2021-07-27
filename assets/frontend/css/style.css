@@ -2707,6 +2707,10 @@ font-size: 19px !important;
     margin: 1.75rem auto;
 }
 }
+
+.ps-product--mini-cart .ps-product__remove i {
+    font-size: 40px !important;
+}
 .section--wishlist .wishlist__btn{
     font-size:23px !important;
 }

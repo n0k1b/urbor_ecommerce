@@ -95,6 +95,24 @@
 
 
 // }
+
+function delete_cart_view_cart(id)
+{
+    $.ajax({
+    processData: false,
+    contentType: false,
+    type: 'GET',
+    url: 'cart_delete/'+id,
+    success: function (data) {
+
+        get_cart_count();
+         get_all_cart_info();
+         //get_cart_box();
+
+    }
+})
+}
+
 $(document).on("click", '.inc_view_cart', function(event) {
     //alert('hello');
     updateValue_view_cart(this, 1);

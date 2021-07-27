@@ -583,7 +583,8 @@ class FrontController extends Controller
             $sub_total = $total+$delivery_charge;
             foreach($cart as $id =>$details)
             {
-
+                if($details['type'] == 'product')
+                {
                 $data.='   <div class="shopping-cart-row">
                 <div class="cart-product">
                     <div class="ps-product--mini-cart"><a href="product-default.html"><img class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
@@ -593,10 +594,14 @@ class FrontController extends Controller
 
                             <p class="ps-product__meta">Price: <span class="ps-product__price">TK '.$details['price'].'</span></p>
                             <div class="def-number-input number-input safari_only">
-
+                                <button class="minus dec_view_cart" ><i class="icon-minus"></i></button>
+                                <input type="hidden" class="input_quantity">
+                              <input type="hidden" name="hidden_product_id" value="'.$details['product_id'].'">
+                              <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'"/>
+                                <button class="plus inc_view_cart"><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
-                        <div class="ps-product__remove"><i class="icon-trash2"></i></div>
+                        <div class="ps-product__remove" onclick="delete_cart_view_cart('.$details['product_id'].')"><i class="icon-trash2"></i></div>
                     </div>
                 </div>
                 <div class="cart-price"><span class="ps-product__price">TK '.$details['price'].'</span>
@@ -612,9 +617,46 @@ class FrontController extends Controller
                 </div>
                 <div class="cart-total"> <span class="ps-product__total">TK '.$details['price']*$details['quantity'].'</span>
                 </div>
-                <div class="cart-action"> <i class="icon-trash2"></i></div>
+                <div class="cart-action" onclick="delete_cart_view_cart('.$details['product_id'].')"> <i class="icon-trash2"></i></div>
             </div>
             ';
+                }
+                else
+                {
+                    $data.='   <div class="shopping-cart-row">
+                    <div class="cart-product">
+                    <div class="ps-product--mini-cart"><a href="product-default.html"><img class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
+                        <div class="ps-product__content">
+                            <h5><a class="ps-product__name" href="#">'.$details['name'].'</a></h5>
+
+
+                            <p class="ps-product__meta">Price: <span class="ps-product__price">TK '.$details['price'].'</span></p>
+                            <div class="def-number-input number-input safari_only">
+                                <button class="minus" onclick=""><i class="icon-minus"></i></button>
+                                <input class="quantity" min="0" name="quantity" value="1" type="number" />
+                                <button class="plus" onclick=""><i class="icon-plus"></i></button>
+                            </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
+                        </div>
+                        <div class="ps-product__remove"><i class="icon-trash2"></i></div>
+                    </div>
+                </div>
+                    <div class="cart-price"><span class="ps-product__price">TK '.$details['price'].'</span>
+                    </div>
+                    <div class="cart-quantity">
+                        <div class="def-number-input number-input safari_only">
+                            <button class="minus dec_view_cart" ><i class="icon-minus"></i></button>
+                            <input type="hidden" class="input_quantity">
+                            <input type="hidden" name="hidden_product_id" value="'.$details['package_id'].'">
+                            <input class="quantity quantity-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['package_id'].'"/>
+                            <button class="plus inc_view_cart" ><i class="icon-plus"></i></button>
+                        </div>
+                    </div>
+                    <div class="cart-total"> <span class="ps-product__total">TK '.$details['price']*$details['quantity'].'</span>
+                    </div>
+                    <div class="cart-action"> <i class="icon-trash2"></i></div>
+                </div>
+                ';
+                }
             }
              $data.='<script src="assets/frontend/js/cart_increment.js?'.time().'"></script>';
             $total_cart = '<div class="shopping-cart__right">
