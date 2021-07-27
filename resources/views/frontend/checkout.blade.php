@@ -249,11 +249,11 @@
                             <div class="row">
                                 <div class="col">
                                     <label>Select Date</label>
-                                    <input type='text' placeholder="Delivery Date" name="delivery_date" class="form-control" id="datepicker" autocomplete="off" />
+                                    <input type='text' placeholder="Delivery Date" name="delivery_date" class="form-control" id="datepicker" autocomplete="off" readonly="readonly" />
                                 </div>
                                 <div class="col">
                                     <label>Select Time</label>
-                                    <input type='text' placeholder="Delivery Time" name="delivery_time" class="form-control" id='timepicker' autocomplete="off" />
+                                    <input type='text' placeholder="Delivery Time" name="delivery_time" class="form-control" id='timepicker' autocomplete="off" readonly="readonly" />
                                 </div>
 
                             </div>
