@@ -508,6 +508,24 @@ function homepage_section_active_status(id)
 }
 
 
+
+function package_active_status(id)
+{
+
+    $.ajax({
+        processData: false,
+        contentType: false,
+        type: 'GET',
+        url: 'package_active_status_update/' + id,
+        success: function(data) {
+
+
+        }
+    })
+}
+
+
+
 function homepage_section_content_delete(id) {
 
     var conf = confirm('Are you sure?');
@@ -518,6 +536,25 @@ function homepage_section_content_delete(id) {
             contentType: false,
             type: 'GET',
             url: 'homepage-section_content_delete/' + id,
+            success: function(data) {
+                alert('Content Delete Successfully')
+                location.reload();
+
+            }
+        })
+    }
+}
+
+function package_content_delete(id) {
+
+    var conf = confirm('Are you sure?');
+
+    if (conf == true) {
+        $.ajax({
+            processData: false,
+            contentType: false,
+            type: 'GET',
+            url: 'package_content_delete/' + id,
             success: function(data) {
                 alert('Content Delete Successfully')
                 location.reload();

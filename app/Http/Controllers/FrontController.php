@@ -26,6 +26,9 @@ use App\Models\courier_man;
 use App\Models\company_info;
 use App\Models\order;
 use App\Models\order_details;
+use App\Models\package;
+use App\Models\package_product;
+
 
 use DB;
 
@@ -218,17 +221,18 @@ class FrontController extends Controller
     }
     public function index()
     {
-      // session()->forget('cart');
+        //session()->forget('cart');
         $banners = banner::where('status',1)->orderBy('order')->get();
         $categories = category::where('status',1)->get();
         $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
         $company_info = company_info::first();
 
+        $packages = package::where('status',1)->where('delete_status',0)->get();
 
 
-
-        return view ('frontend.index',compact('banners','categories','homepage_section_content','company_info'));
+        return view ('frontend.index',compact('banners','categories','homepage_section_content','company_info','packages'));
     }
+
 
 
     public function get_cart_count()
@@ -244,7 +248,59 @@ class FrontController extends Controller
         echo $total_product;
     }
 
+    public function cart_add_package(Request $request)
+    {
+        $id = $request->id;
+        $quantity = $request->quantity;
+        $package = package::find($id);
+        //$product = product::find($id);
+       // $discount_avail = homepage_product_list::where('product_list',$id)->where('status',1)->first();
 
+
+        $cart = session()->get('cart');
+        // if cart is empty then this the first product
+        if(!$cart) {
+            $cart = [
+                    $id => [
+                        "package_id"=>$package->id,
+                        "name" => $package->package_name,
+                        "quantity" => $quantity,
+                        "price" => $package->discount_price,
+                        "photo" => $package->package_image,
+
+                        'type'=>'package'
+                    ]
+            ];
+            session()->put('cart', $cart);
+            //return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+        else{
+        // if cart not empty then check if this product exist then increment quantity
+        if(isset($cart[$id])) {
+            $update_quantity = $cart[$id]['quantity'] +$quantity;
+            $cart[$id]['quantity'] = $update_quantity;
+            session()->put('cart', $cart);
+           // file_put_contents('test.txt',json_encode($cart));
+            //return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+        else{
+        // if item not exist in cart then add to cart with quantity = 1
+        $cart[$id] = [
+                        "package_id"=>$package->id,
+                        "name" => $package->package_name,
+                        "quantity" => $quantity,
+                        "price" => $package->discount_price,
+                        "photo" => $package->package_image,
+                        'type'=>'package'
+        ];
+        session()->put('cart', $cart);
+             }
+            }
+
+
+
+       // return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
 
     public function cart_add(Request $request)
     {
@@ -268,7 +324,8 @@ class FrontController extends Controller
                         "quantity" => $quantity,
                         "price" => $product->price,
                         "photo" => $product->thumbnail_image,
-                        'unit'=>$product->unit->unit_quantity.' '.$product->unit->unit_type
+                        'unit'=>$product->unit->unit_quantity.' '.$product->unit->unit_type,
+                        'type'=>'product'
                     ]
             ];
             session()->put('cart', $cart);
@@ -291,7 +348,8 @@ class FrontController extends Controller
             "quantity" => $quantity,
             "price" => $product->price,
             "photo" => $product->thumbnail_image,
-            'unit'=>$product->unit->unit_quantity.' '.$product->unit->unit_type
+            'unit'=>$product->unit->unit_quantity.' '.$product->unit->unit_type,
+            'type'=>'product'
         ];
         session()->put('cart', $cart);
              }
@@ -512,6 +570,7 @@ class FrontController extends Controller
 
     public function get_all_cart_info()
     {
+       //session()->forget('cart');
             $data = "";
             $total = 0;
             $cart = session()->get('cart');
@@ -534,11 +593,7 @@ class FrontController extends Controller
 
                             <p class="ps-product__meta">Price: <span class="ps-product__price">TK '.$details['price'].'</span></p>
                             <div class="def-number-input number-input safari_only">
-                                <button class="minus dec" onclick="dec('.$id.')"><i class="icon-minus"></i></button>
-                                <input type="hidden"  class="input_quantity">
 
-                                <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'" />
-                                <button class="plus inc" onclick="inc('.$id.')"><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
                         <div class="ps-product__remove"><i class="icon-trash2"></i></div>
@@ -548,11 +603,11 @@ class FrontController extends Controller
                 </div>
                 <div class="cart-quantity">
                     <div class="def-number-input number-input safari_only">
-                        <button class="minus dec" onclick="dec('.$id.')"><i class="icon-minus"></i></button>
+                        <button class="minus dec_view_cart" ><i class="icon-minus"></i></button>
                         <input type="hidden" class="input_quantity">
-
+                        <input type="hidden" name="hidden_product_id" value="'.$details['product_id'].'">
                         <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'"/>
-                        <button class="plus inc" onclick="inc('.$id.')"><i class="icon-plus"></i></button>
+                        <button class="plus inc_view_cart" ><i class="icon-plus"></i></button>
                     </div>
                 </div>
                 <div class="cart-total"> <span class="ps-product__total">TK '.$details['price']*$details['quantity'].'</span>
@@ -561,7 +616,7 @@ class FrontController extends Controller
             </div>
             ';
             }
-            $data.='<script src="assets/frontend/js/cart_increment.js?'.time().'"></script>';
+             $data.='<script src="assets/frontend/js/cart_increment.js?'.time().'"></script>';
             $total_cart = '<div class="shopping-cart__right">
             <div class="shopping-cart__total">
                 <p class="shopping-cart__subtotal"><span>Subtotal</span><span class="price">TK '.$total.'</span></p>
@@ -624,7 +679,14 @@ class FrontController extends Controller
         <li class="cart-item">
         <div class="ps-product--mini-cart"><a href="product-default.html"><img style="min-width:60px" class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
             <div class="ps-product__content"><a class="ps-product__name" href="product-default.html">'.$details['name'].'</a>
+               ';
+               if($details['type']=='product')
+               {
+               $data.='
                 <p class="ps-product__unit">'.$details['unit'].'</p>
+                ';
+               }
+                $data.='
 
                 <p class="ps-product__meta"> <span class="ps-product__price">TK '.$details['price'].'</span><span class="ps-product__quantity">(x'.$details['quantity'].')</span>
                 </p>
@@ -984,6 +1046,76 @@ class FrontController extends Controller
     </div>
 
 
+    <script src="assets/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+
+        ';
+        echo $data;
+        exit;
+    }
+
+    public function show_package_modal($id)
+    {
+        file_put_contents('test.txt',$id);
+        $package_product = package_product::where('package_id',$id)->where('delete_status',0)->get();
+      //  $product_in_section = homepage_product_list::where('product_list',$id)->where('status',1)->first();
+        // $discount_percentage = 0;
+
+        // $unit = $product->unit->unit_quantity." ".$product->unit->unit_type;
+
+
+
+        $data ='
+        <div class="modal-dialog modal-dialog-centered modal-xl ps-quickview">
+   <div class="modal-content">
+      <div class="modal-header">
+         <button class="close" type="button" data-dismiss="modal" onclick="modal_close();" aria-label="close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body package_modal" style="margin-top:58px">
+         <div class="container-fluid quickview-body">
+            <div class="row">
+               ';
+               foreach($package_product as $product)
+               {
+               $data.='
+               <div class="col-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom:6px">
+                  <div class="row">
+                     <div class="col-4 col-md-4 col-lg-4 text-center">
+                        <img class="carousel__thumbnail package_thumbnail" src="'.$product->product->thumbnail_image.'" alt="alt" />
+                     </div>
+                     <div class="col-8 col-md-8 col-lg-8">
+                        <div class="product__header">
+                           <div class="product__title package_title">'.$product->product->name.' <span class="product__unit" style="float:right;color:red;font-weight:bold;margin-top: 3px;"" >(x '.$product->unit_quantity.')</span></div>
+                        </div>
+                        ';
+                        $data.='
+                     </div>
+                  </div>
+               </div>
+
+                ';
+              }
+                $data.='
+            </div>
+            <div class="product__action text-center">
+            <label>Quantity: </label>
+            <div class="def-number-input number-input safari_only">
+                <button class="minus dec_package" ><i class="icon-minus"></i></button>
+                <input class="quantity_package" min="0" name="quantity" value="1" type="number" id="quantity_package-'.$product->package_id.'">
+                <input type="hidden" id="input_quantity_package">
+                <input type="hidden" name="hidden_product_id_package" value="'.$product->package_id.'">
+                <button class="plus inc_package"><i class="icon-plus"></i></button>
+            </div>
+            <button class="btn product__addcart"  onclick="cart_add_package('.$product->package_id.')"> <i class="icon-cart"></i>Add to cart</button>
+
+
+        </div>
+
+         </div>
+      </div>
+   </div>
+</div>
     <script src="assets/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
 
 

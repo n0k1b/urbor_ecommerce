@@ -10,6 +10,6 @@ class package extends Model
     protected $guarded =[];
     public function product_list()
         {
-            return $this->hasMany('App\Models\homepage_product_list','homepage_section_id','id')->where('status',1);
+            return $this->hasMany('App\Models\package_product','package_id','id')->where('status',1);
         }
 }

@@ -1,1 +1,1 @@
-[{"id":1,"area_id":6,"name":"Warehouse 1","address":"Kaptan Bazar","contact_no":"01845318609","status":1,"delete_status":0,"created_at":"2021-03-29T11:03:05.000000Z","updated_at":"2021-07-16T13:10:09.000000Z"}]
+1

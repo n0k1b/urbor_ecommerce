@@ -93,7 +93,7 @@
                     <span class="nav-text">Package</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ route('show-all-purchase')}}">All Package</a></li>
+                    <li><a href="{{ route('show_all_package')}}">All Package</a></li>
                     <li><a href="{{ route('add-package')}}">Add Package</a></li>
 
 

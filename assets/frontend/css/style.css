@@ -2555,6 +2555,18 @@ label:hover:before {
     background-color: #f68872;
 }
 
+.package_thumbnail{
+    height: 70px !important;
+    width: 88px !important;
+}
+.package_modal{
+    padding-left: 38px !important;
+    padding-right: 80px !important;
+}
+.package_title{
+font-size: 19px !important;
+}
+
 .ps-product--standard {
     display: block;
     text-align: center;
@@ -17649,7 +17661,7 @@ html .bg--parallax {
         font-size: 40px;
     }
     .ui-icon {
-        
+
         -ms-transform: scale(3); /* IE 9 */
         -webkit-transform: scale(3); /* Chrome, Safari, Opera */
         transform: scale(3);

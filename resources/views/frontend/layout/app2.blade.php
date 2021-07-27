@@ -204,6 +204,10 @@
     <div class="modal cart_modal" id="cart_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
     </div>
+
+    <div class="modal package_modal" id="package_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+
+    </div>
     <footer class="ps-footer">
         <div class="container">
             <div class="ps-footer--contact">

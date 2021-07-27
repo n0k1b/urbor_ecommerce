@@ -29,6 +29,7 @@ Route::get('/','FrontController@index');
 Route::get('get_all_category','FrontController@get_all_category')->name('get_all_category');
 Route::get('get_all_category_mobile','FrontController@get_all_category_mobile')->name('get_all_category_mobile');
 Route::post('cart_add','FrontController@cart_add')->name('cart_add');
+Route::post('cart_add_package','FrontController@cart_add_package');;
 Route::get('get_cart_count','FrontController@get_cart_count')->name('get_cart_count');
 Route::get('get_cart_box','FrontController@get_cart_box')->name('get_cart_box');
 Route::get('get_cart_data','FrontController@get_cart_data')->name('get_cart_data');
@@ -36,7 +37,9 @@ Route::get('cart_delete/{id}','FrontController@cart_delete')->name('cart_delete'
 Route::get('view_cart','FrontController@view_cart')->name('view_cart');
 Route::get('get_all_cart_info','FrontController@get_all_cart_info');
 Route::post('cart_update','FrontController@cart_update');
+Route::post('cart_update_package','FrontController@cart_update_package');
 Route::get('show_cart_modal/{id}','FrontController@show_cart_modal')->name('show_cart_modal');
+Route::get('show_package_modal/{id}','FrontController@show_package_modal');
 Route::get('send_otp', function() {
     return view('auth.otp');
     // return what you want
@@ -64,6 +67,7 @@ Route::get('get_all_product_view_all/{type}','FrontController@get_all_product_vi
 Route::get('view_all','FrontController@view_alll_category_product')->name('view_all_product');
 Route::post('search_product','FrontController@search_product')->name('search_product');
 Route::get('get_all_homepage_section/{type}','FrontController@get_all_homepage_section');
+
 
 Route::group(['middleware' => 'IsLoggedIn'], function()
 {
@@ -223,10 +227,28 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
         Route::get('get_all_homepage_section_product/{id}','AdminController@get_all_homepage_section_product')->name('get_all_homepage_section_product');
         Route::get('delete_product_from_section/{id}','AdminController@delete_product_from_section')->name('delete_product_from_section');
         Route::get('get_all_product_list/{id}','AdminController@get_all_product_list')->name('get_all_product_list');
+
     //product add to section end
 
     //package start
-        Route::get('add-package','AdminController@add_package')->name('add-package');
+        Route::get('add-package','AdminController@add_package_ui')->name('add-package');
+        Route::post('add-package','AdminController@add_package')->name('add-package');
+        Route::get('show_all_package','AdminController@show_all_package')->name('show_all_package');
+        Route::get('product-add-to-package/{id}','AdminController@product_add_to_package_ui');
+        Route::get('get_all_package_product/{id}','AdminController@get_all_package_product');
+        Route::post('add-product-to-package','AdminController@add_product_to_package')->name('add-product-to-package');
+        Route::get('delete_product_from_package/{id}','AdminController@delete_product_from_package');
+        Route::get('package_active_status_update/{id}','AdminController@package_active_status_update');
+        Route::get('edit_package_content/{id}','AdminController@edit_package_content_ui');
+        Route::post('update-package-content','AdminController@update_package_content')->name('update-package-content');
+        Route::get('edit_package_image/{id}','AdminController@edit_package_image_ui');
+        Route::post('update_package_image','AdminController@update_package_image')->name('update_package_image');
+        Route::get('package_content_delete/{id}','AdminController@package_content_delete');
+        Route::post('update-product-to-package','AdminController@update_product_to_package');
+
+
+
+
     //package end
 
 

@@ -35,6 +35,54 @@
             </div>
         </div>
     </section>
+
+
+    <section class="ps-component ps-component--flash">
+        <div class="container">
+            <div class="component__header">
+                <h3 class="component__title">Special Package</h3><a class="component__view" href="#">View all <i class="icon-chevron-right"></i></a>
+            </div>
+            <div class="component__content">
+
+                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
+                    data-owl-duration="1000" data-owl-mousedrag="on">
+
+
+
+
+                    @foreach($packages as $package)
+
+                    <div class="ps-flash__product">
+                        <div class="ps-product--standard">
+                            <a href="javascript:void(0);" onclick="show_package_modal({{$package->id}})"><img class="ps-product__thumbnail" height="150px"  src="{{ $package->package_image }}" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" onclick="show_package_modal({{$package->id}})"><i class="icon-expand"></i></a>
+                            <div class="ps-product__content" href="javascript:void(0);" onclick="show_package_modal({{$package->id}})">
+
+                                <h5><a class="ps-product__name" style="height: 40px" href="javascript:void(0);" onclick="show_package_modal({{$package->id}})">{{$package->package_name }}</a></h5>
+
+
+                                <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $package->discount_price }}</span><span class="ps-product__price">TK {{ $package->total_price }}</span><span class="ps-product__off">{{ $package->discount_percentage }}% Off</span>
+                                </p>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    @endforeach
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
     @foreach($homepage_section_content as $section_product)
 
 
@@ -46,7 +94,7 @@
                 <h3 class="component__title">{{ $section_product->section_name }}</h3><a class="component__view" href="view_all/section_prodcut-{{$section_product->id}}">View all <i class="icon-chevron-right"></i></a>
             </div>
             <div class="component__content">
-                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
+                <div class="owl-carousel" data-owl-auto="false" data-owl-loop="false" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
                     data-owl-duration="1000" data-owl-mousedrag="on">
                     @foreach($section_product->product_list as $product_list)
                     <?php

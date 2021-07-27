@@ -10,10 +10,10 @@ class package_product extends Model
     protected $guarded =[];
     public function product()
     {
-        return $this->belongsTo('App\Models\product','product_list','id');
+        return $this->belongsTo('App\Models\product','product_id','id');
     }
     public function homepage_section()
     {
-        return $this->belongsTo('App\Models\homepage_section','homepage_section_id','id');
+        return $this->belongsTo('App\Models\package','package_id','id');
     }
 }
