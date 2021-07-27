@@ -37,10 +37,12 @@
 </head>
 
 <body>
+
     <?php
     $company_info =DB::table('company_infos')->first();
     ?>
-    <header class="header">
+
+        <header class="header">
         <div class="ps-top-bar">
             <div class="container">
                 <div class="top-bar">
@@ -199,8 +201,8 @@
                 </div>
             </div>
         </div>
-    </header>
-   @yield('main_content')
+     </header>
+     @yield('main_content')
     <div class="modal cart_modal" id="cart_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
     </div>
@@ -273,9 +275,17 @@
         </div>
     </div>
     <button class="btn scroll-top"><i class="icon-chevron-up"></i></button>
-    <div class="ps-preloader" id="preloader">
+    {{-- <div class="ps-preloader" id="preloader">
         <div class="ps-preloader-section ps-preloader-left"></div>
         <div class="ps-preloader-section ps-preloader-right"></div>
+    </div> --}}
+
+    <div class="ps-preloader" id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
     </div>
     <div class="ps-category--mobile">
         <div class="category__header">
@@ -326,6 +336,8 @@
         </div>
 
     </nav>
+
+
     <script src="{{asset('assets')}}/frontend/plugins/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
