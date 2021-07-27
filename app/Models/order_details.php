@@ -12,4 +12,9 @@ class order_details extends Model
     {
         return $this->belongsTo('App\Models\product','product_id','id');
     }
+
+    public function package()
+    {
+        return $this->belongsTo('App\Models\package','package_id','id');
+    }
 }

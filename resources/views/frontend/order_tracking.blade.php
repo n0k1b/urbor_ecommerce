@@ -276,7 +276,11 @@
 
                                 <div class="checkout__product__item">
                                     <div class="checkout-product">
+                                        @if($data->product_type =='regular')
                                         <div class="product__name">{{$data->product->name  }}<span>(x{{ $data->count }})</span></div>
+                                        @else
+                                        <div class="product__name">{{$data->package->package_name  }}<span>(x{{ $data->count }})</span></div>
+                                        @endif
                                         <div class="product__unit">{{ $data->unit_quantity }}</div>
                                     </div>
                                     <div class="checkout-price">{{ $data->price*$data->count }}</div>

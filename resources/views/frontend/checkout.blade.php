@@ -281,7 +281,9 @@
                                     <div class="checkout__product__item">
                                         <div class="checkout-product">
                                             <div class="product__name">{{ $details['name'] }}<span>(x{{ $details['quantity'] }})</span></div>
+                                            @if($details['type'] =='product')
                                             <div class="product__unit">{{ $details['unit'] }}</div>
+                                            @endif
                                         </div>
                                         <div class="checkout-price">{{ $details['price']*$details['quantity'] }}</div>
                                     </div>

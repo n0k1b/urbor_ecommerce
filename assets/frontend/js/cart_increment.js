@@ -7,9 +7,25 @@
             }
         });
 
-
+        get_all_cart_info()
 
     })
+
+    function get_all_cart_info()
+    {
+
+        $.ajax({
+        processData: false,
+        contentType: false,
+        type: 'GET',
+        url: 'get_all_cart_info',
+        success: function (data) {
+                var cart =JSON.parse(data);
+             $("#cart_all").html(cart.cart_table);
+             $("#cart_total").html(cart.cart_total);
+        }
+    })
+    }
 
 
     function delete_cart(id)
@@ -28,22 +44,7 @@
     })
     }
 
-    function get_all_cart_info()
-    {
 
-        $.ajax({
-        processData: false,
-        contentType: false,
-        type: 'GET',
-        url: 'get_all_cart_info',
-        success: function (data) {
-
-            var cart =JSON.parse(data);
-            $("#cart_all").html(cart.cart_table);
-            $("#cart_total").html(cart.cart_total);
-        }
-    })
-    }
     function get_cart_count()
     {
         $.ajax({
@@ -122,9 +123,56 @@ $(document).on("click", '.dec_view_cart', function(event) {
     updateValue_view_cart(this, -1);
 });
 
+$(document).on("click", '.inc_view_cart_package', function(event) {
+    //alert('hello');
+    updateValue_view_cart_package(this, 1);
+});
+
+$(document).on("click", '.dec_view_cart_package', function(event) {
+    updateValue_view_cart_package(this, -1);
+});
+
+
+function updateValue_view_cart_package(obj, delta) {
+    ;
+
+    // var item = $(obj).parent().find("input[type=number]");
+    // var product_id = $(obj).parent().find("input[name='hidden_product_id_package']");
+
+    // var newValue = parseInt(item.val(), 10) + delta;
+    // //alert(newValue)
+    // item.val(Math.max(newValue, 0));
+    // //var product_id = $('#input_quantity').val();
+    // $(".quantity_package-"+product_id.val()).val(newValue);
+
+
+
+
+    //  var quantity = $(".quantity_package-"+product_id.val()).val()
+    //  //alert(quantity)
+    //     var formdata = new FormData();
+    //     formdata.append('id',product_id.val());
+    //     formdata.append('quantity',quantity);
+    //      $.ajax({
+    //      processData: false,
+    //      contentType: false,
+    //      type: 'POST',
+    //      url: 'cart_update_package',
+    //      data:formdata,
+    //      success: function (data) {
+
+    //        get_all_cart_info();
+    //      }
+    //  })
+
+
+
+
+
+ }
 
 function updateValue_view_cart(obj, delta) {
-   // alert('hello');
+    alert('hello');
 
    var item = $(obj).parent().find("input[type=number]");
    var product_id = $(obj).parent().find("input[name='hidden_product_id']");

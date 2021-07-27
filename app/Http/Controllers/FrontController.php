@@ -267,7 +267,7 @@ class FrontController extends Controller
                         "quantity" => $quantity,
                         "price" => $package->discount_price,
                         "photo" => $package->package_image,
-
+                        'unit'=>$quantity.' pcs',
                         'type'=>'package'
                     ]
             ];
@@ -291,6 +291,7 @@ class FrontController extends Controller
                         "quantity" => $quantity,
                         "price" => $package->discount_price,
                         "photo" => $package->package_image,
+                        'unit'=>$quantity.' pcs',
                         'type'=>'package'
         ];
         session()->put('cart', $cart);
@@ -496,7 +497,10 @@ class FrontController extends Controller
         foreach( $cart as $id => $details)
         {
            $total += $details['price'] * $details['quantity'];
-           order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price']]);
+           if($details['type'] == 'product')
+           order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price'],'product_type'=>'regular']);
+           else
+           order_details::create(['order_no'=>$order_no,'package_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price'],'product_type'=>'package']);
         }
         $delivery_fee = 60;
         $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee,'delivery_date'=>$delivery_date,'delivery_time'=>$delivery_time]);
@@ -632,9 +636,11 @@ class FrontController extends Controller
 
                             <p class="ps-product__meta">Price: <span class="ps-product__price">TK '.$details['price'].'</span></p>
                             <div class="def-number-input number-input safari_only">
-                                <button class="minus" onclick=""><i class="icon-minus"></i></button>
-                                <input class="quantity" min="0" name="quantity" value="1" type="number" />
-                                <button class="plus" onclick=""><i class="icon-plus"></i></button>
+                                <button class="minus dec_view_cart_package" onclick=""><i class="icon-minus"></i></button>
+                                <input type="hidden" class="input_quantity">
+                                <input type="hidden" name="hidden_product_id_package" value="'.$details['package_id'].'">
+                                <input class="quantity quantity_package-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" />
+                                <button class="plus inc_view_cart_package" onclick=""><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
                         <div class="ps-product__remove"><i class="icon-trash2"></i></div>
@@ -644,11 +650,11 @@ class FrontController extends Controller
                     </div>
                     <div class="cart-quantity">
                         <div class="def-number-input number-input safari_only">
-                            <button class="minus dec_view_cart" ><i class="icon-minus"></i></button>
+                            <button class="minus dec_view_cart_package" ><i class="icon-minus"></i></button>
                             <input type="hidden" class="input_quantity">
-                            <input type="hidden" name="hidden_product_id" value="'.$details['package_id'].'">
-                            <input class="quantity quantity-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['package_id'].'"/>
-                            <button class="plus inc_view_cart" ><i class="icon-plus"></i></button>
+                            <input type="hidden" name="hidden_product_id_package" value="'.$details['package_id'].'">
+                            <input class="quantity quantity_package-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity_package-'.$details['package_id'].'"/>
+                            <button class="plus inc_view_cart_package" ><i class="icon-plus"></i></button>
                         </div>
                     </div>
                     <div class="cart-total"> <span class="ps-product__total">TK '.$details['price']*$details['quantity'].'</span>
@@ -658,7 +664,7 @@ class FrontController extends Controller
                 ';
                 }
             }
-             $data.='<script src="assets/frontend/js/cart_increment.js?'.time().'"></script>';
+             //$data.='<script src="assets/frontend/js/cart_increment.js?'.time().'"></script>';
             $total_cart = '<div class="shopping-cart__right">
             <div class="shopping-cart__total">
                 <p class="shopping-cart__subtotal"><span>Subtotal</span><span class="price">TK '.$total.'</span></p>
@@ -697,6 +703,18 @@ class FrontController extends Controller
             session()->flash('success', 'Cart updated successfully');
         }
     }
+
+    public function cart_update_package(Request $request)
+    {
+        if($request->id && $request->quantity)
+        {
+            $cart = session()->get('cart');
+            $cart[$request->id]["quantity"] = $request->quantity;
+            session()->put('cart', $cart);
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+
 
     public function get_cart_box()
     {

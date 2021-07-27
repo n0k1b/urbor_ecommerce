@@ -360,6 +360,7 @@ function updateValue_package(obj, delta) {
 
 
 function updateValue(obj, delta) {
+
     var item = $(obj).parent().find("input[type=number]");
     var product_id = $(obj).parent().find("input[name='hidden_product_id']");
 

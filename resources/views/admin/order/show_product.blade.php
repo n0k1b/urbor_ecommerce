@@ -52,7 +52,7 @@
     											<thead>
 													<tr>
 														<th>#</th>
-														<th>Product Id</th>
+
 
 
 														<th>Product Name</th>
@@ -67,8 +67,12 @@
                                                     @foreach($datas as $data)
 
 														<td><strong>{{$data->sl_no}}</strong></td>
-														<td>{{$data->id}}</td>
+
+                                                        @if($data->product_type=='regular')
 														<td>{{$data->product->name}}</td>
+                                                        @else
+                                                        <td>{{$data->package->package_name}}</td>
+                                                        @endif
 														<td>{{ $data->count }} x {{$data->unit_quantity}}</td>
 
 
