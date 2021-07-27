@@ -2712,7 +2712,10 @@ font-size: 19px !important;
     width: 161px !important;
     margin-bottom: 21px;
 }
-
+.ui-datepicker{
+    top: 382px !important;
+    left: 103px !important;
+}
 
 .ps-product--mini-cart .ps-product__remove i {
     font-size: 40px !important;
