@@ -113,10 +113,13 @@
                             <div class="ps-product__content" href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})">
 
                                 <h5><a class="ps-product__name" style="height: 40px" href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})">{{ $product_list->product->name }}</a></h5>
+                                <?php
+                                        $product_list->discount_percentage = 5;
+                                ?>
                                 @if($product_list->discount_percentage>0)
-                                <p class="ps-product__unit">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}</p>
-                                <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span><span class="ps-product__price">TK {{ $product_list->product->price }}</span><span class="ps-product__off">{{ $product_list->discount_percentage }}% Off</span>
-                                </p>
+                                <p class="ps-product__unit">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}<span class="ps-product-price-block"> Tk <span class="ps-product__sale">{{ $discount_price }}</span><span class="ps-product__price">TK {{ $product_list->product->price }}</span><span class="ps-product__off">{{ $product_list->discount_percentage }}% Off</span></span></p>
+
+
                                 @else
                                 <p class="ps-product__unit text-center">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}<span clas="ps-product-price-block"> Tk <span class="ps-product__sale">{{ $discount_price }}</span></span></p>
                                 {{-- <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span> --}}
