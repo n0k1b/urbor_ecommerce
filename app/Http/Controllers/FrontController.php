@@ -601,7 +601,7 @@ class FrontController extends Controller
                                 <button class="minus dec_view_cart" ><i class="icon-minus"></i></button>
                                 <input type="hidden" class="input_quantity">
                               <input type="hidden" name="hidden_product_id" value="'.$details['product_id'].'">
-                              <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'"/>
+                              <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'" readonly="readonly"/>
                                 <button class="plus inc_view_cart"><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
@@ -615,7 +615,7 @@ class FrontController extends Controller
                         <button class="minus dec_view_cart" ><i class="icon-minus"></i></button>
                         <input type="hidden" class="input_quantity">
                         <input type="hidden" name="hidden_product_id" value="'.$details['product_id'].'">
-                        <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'"/>
+                        <input class="quantity quantity-'.$details['product_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity-'.$details['product_id'].'" readonly="readonly"/>
                         <button class="plus inc_view_cart" ><i class="icon-plus"></i></button>
                     </div>
                 </div>
@@ -639,7 +639,7 @@ class FrontController extends Controller
                                 <button class="minus dec_view_cart_package" onclick=""><i class="icon-minus"></i></button>
                                 <input type="hidden" class="input_quantity">
                                 <input type="hidden" name="hidden_product_id_package" value="'.$details['package_id'].'">
-                                <input class="quantity quantity_package-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" />
+                                <input class="quantity quantity_package-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" readonly="readonly" />
                                 <button class="plus inc_view_cart_package" onclick=""><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
@@ -653,7 +653,7 @@ class FrontController extends Controller
                             <button class="minus dec_view_cart_package" ><i class="icon-minus"></i></button>
                             <input type="hidden" class="input_quantity">
                             <input type="hidden" name="hidden_product_id_package" value="'.$details['package_id'].'">
-                            <input class="quantity quantity_package-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity_package-'.$details['package_id'].'"/>
+                            <input class="quantity quantity_package-'.$details['package_id'].'" min="0" name="quantity" value="'.$details['quantity'].'" type="number" id="quantity_package-'.$details['package_id'].'" readonly="readonly"/>
                             <button class="plus inc_view_cart_package" ><i class="icon-plus"></i></button>
                         </div>
                     </div>
@@ -885,7 +885,7 @@ class FrontController extends Controller
                     <div class="ps-product__footer">
                                     <div class="def-number-input number-input safari_only">
                                         <button class="minus dec" onclick="dec('.$product->product->id.')" ><i class="icon-minus"></i></button>
-                                        <input class="quantity quantity-{{ $product_list->product->id }}" value="1" min="0" name="quantity" type="number" id="quantity-'.$product->product->id.'"   />
+                                        <input class="quantity quantity-{{ $product_list->product->id }}" value="1" min="0" name="quantity" type="number" id="quantity-'.$product->product->id.'" readonly="readonly"  />
                                         <input type="hidden" id="input_quantity-'.$product->product->id.'">
                                         <button class="plus inc" onclick="inc('.$product->product->id.')" ><i class="icon-plus"></i></button>
                                     </div>
@@ -944,7 +944,7 @@ class FrontController extends Controller
                     <div class="ps-product__footer">
                                     <div class="def-number-input number-input safari_only">
                                         <button class="minus dec" onclick="dec('.$product->id.')" ><i class="icon-minus"></i></button>
-                                        <input class="quantity quantity-{{ $product_list->product->id }}" value="1" min="0" name="quantity" type="number" id="quantity-'.$product->id.'"   />
+                                        <input class="quantity quantity-{{ $product_list->product->id }}" value="1" min="0" name="quantity" type="number" id="quantity-'.$product->id.'"  readonly="readonly" />
                                         <input type="hidden" id="input_quantity-'.$product->id.'">
                                         <button class="plus inc" onclick="inc('.$product->id.')" ><i class="icon-plus"></i></button>
                                     </div>
@@ -1004,7 +1004,7 @@ class FrontController extends Controller
                     <div class="ps-product__footer">
                                     <div class="def-number-input number-input safari_only">
                                         <button class="minus dec" onclick="dec('.$product->id.')" ><i class="icon-minus"></i></button>
-                                        <input class="quantity quantity-{{ $product_list->product->id }}" value="1" min="0" name="quantity" type="number" id="quantity-'.$product->id.'"   />
+                                        <input class="quantity quantity-{{ $product_list->product->id }}" value="1" min="0" name="quantity" type="number" id="quantity-'.$product->id.'" readonly="readonly"  />
                                         <input type="hidden" id="input_quantity-'.$product->id.'">
                                         <button class="plus inc" onclick="inc('.$product->id.')" ><i class="icon-plus"></i></button>
                                     </div>
@@ -1051,7 +1051,16 @@ class FrontController extends Controller
                 <div class="container-fluid quickview-body">
 
                     <div class="row">
-
+                    ';
+                    if($product->category->description)
+                    {
+                    $data.='
+                    <div class="col-12 col-lg-12 col-md-12 text-center alert-danger" style="top:41px">
+                    <p>'.$product->category->description.'</p>
+                    </div>
+                    ';
+                    }
+                    $data.='
 
                         <div class="col-12 col-lg-5">
 
@@ -1087,7 +1096,7 @@ class FrontController extends Controller
                                     <label>Quantity: </label>
                                     <div class="def-number-input number-input safari_only">
                                         <button class="minus dec" ><i class="icon-minus"></i></button>
-                                        <input class="quantity" min="0" name="quantity" value="1" type="number" id="quantity-'.$product->id.'">
+                                        <input class="quantity" min="0" name="quantity" value="1" type="number" id="quantity-'.$product->id.'" readonly="readonly">
                                         <input type="hidden" id="input_quantity">
                                         <input type="hidden" name="hidden_product_id" value="'.$product->id.'">
                                         <button class="plus inc"><i class="icon-plus"></i></button>
@@ -1162,7 +1171,7 @@ class FrontController extends Controller
             <label>Quantity: </label>
             <div class="def-number-input number-input safari_only">
                 <button class="minus dec_package" ><i class="icon-minus"></i></button>
-                <input class="quantity_package" min="0" name="quantity" value="1" type="number" id="quantity_package-'.$product->package_id.'">
+                <input class="quantity_package" min="0" name="quantity" value="1" type="number" id="quantity_package-'.$product->package_id.'" readonly="readonly">
                 <input type="hidden" id="input_quantity_package">
                 <input type="hidden" name="hidden_product_id_package" value="'.$product->package_id.'">
                 <button class="plus inc_package"><i class="icon-plus"></i></button>
@@ -1253,6 +1262,7 @@ class FrontController extends Controller
 
             foreach( $cart as $id => $details)
             {
+
                 $sub_total += $details['price'] * $details['quantity'];
             }
             $delivery_charge = 20;
