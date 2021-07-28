@@ -63,13 +63,12 @@
 
                                             <td>
                                                 <label class="switch">
-                                                    @if(in_array('area_edit',$role_permission))
+
                                                     <input type="checkbox" onclick="area_active_status({{$data->id}})" {{$checked}} />
 
-                                                    @else
-                                                    <input type="checkbox"  {{$checked}}  disabled/>
-                                                    <span class="slider round"  onclick="access_alert()"></span>
-                                                    @endif
+
+
+                                                    <span class="slider round" ></span>
 
                                                 </label>
                                             </td>

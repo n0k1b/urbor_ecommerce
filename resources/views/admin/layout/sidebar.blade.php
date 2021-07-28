@@ -138,11 +138,11 @@
                       @endif --}}
 
                       @if(in_array('area_view',$role_permission))
-                    {{-- <li><a class="ai-icon" href="{{ route('show-all-area') }}" aria-expanded="false">
+                    <li><a class="ai-icon" href="{{ route('show-all-area') }}" aria-expanded="false">
                         <i class="la la-area-chart"></i>
                         <span class="nav-text">Area</span>
                     </a>
-                 </li> --}}
+                 </li>
                  @endif
 
                  @if(in_array('warehouse_view',$role_permission))

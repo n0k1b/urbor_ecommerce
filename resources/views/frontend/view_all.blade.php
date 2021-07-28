@@ -26,7 +26,7 @@
             <div class="flashSale__product" >
                 <div class="row m-0" id="product_list">
 
-                    
+
 
 
 

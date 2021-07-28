@@ -580,6 +580,20 @@ function banner_active_status(id)
     })
 }
 
+function area_active_status(id)
+{
+    $.ajax({
+        processData: false,
+        contentType: false,
+        type: 'GET',
+        url: 'area_active_status_update/' + id,
+        success: function(data) {
+
+
+        }
+    })
+}
+
 
 function banner_content_delete(id) {
 

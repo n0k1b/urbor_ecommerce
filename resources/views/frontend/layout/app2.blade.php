@@ -202,7 +202,9 @@
             </div>
         </div>
      </header>
+
      @yield('main_content')
+
     <div class="modal cart_modal" id="cart_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
 
     </div>
