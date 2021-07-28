@@ -150,7 +150,7 @@
                     </div>
                     {{-- cart start --}}
                     <div class="header-inner__right">
-                      <a class="button-icon icon-md" href="#"><i class="icon-heart"></i><span class="badge bg-warning">2</span></a>
+                      {{-- <a class="button-icon icon-md" href="#"><i class="icon-heart"></i><span class="badge bg-warning">2</span></a> --}}
                         <div class="button-icon btn-cart-header"><i class="icon-cart icon-Ecommerce5"></i><span class="badge bg-warning cart_itemt_count" id="cart_itemt_count"></span>
                             <div class="mini-cart">
                                 <div class="mini-cart--content">

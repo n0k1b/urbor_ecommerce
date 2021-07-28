@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="ps-product__total"></div>
                                 <button class="ps-product__addcart" onclick="cart_add({{ $product_list->product->id }})"><i class="icon-cart"></i>Add to cart</button>
-                                <div class="ps-product__box"><a class="ps-product__wishlist" href="#">Wishlist</a></div>
+                                {{-- <div class="ps-product__box"><a class="ps-product__wishlist" href="#">Wishlist</a></div> --}}
                             </div>
                         </div>
                     </div>
