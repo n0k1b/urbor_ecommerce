@@ -1,6 +1,7 @@
 @extends('admin.layout.app')
 @section('page_css')
 <link rel="stylesheet" href="{{asset('assets')}}/admin/css/dripicons/webfont.css?{{time()}}">
+
 <style>
     .count-title {
     background: #FFF;
@@ -133,7 +134,7 @@
         <div class="container-fluid">
           <div class="col-md-12">
             <div class="brand-text float-left mt-4">
-                <h3>Welcome <span>{{Auth::user()->name}}</span> </h3>
+                <h3>Welcome <span>{{Auth::guard('admin')->user()->name;}}</span> </h3>
             </div>
             <div class="filter-toggle btn-group">
               <button class="btn btn-secondary date-btn" data-start_date="{{date('Y-m-d')}}" data-end_date="{{date('Y-m-d')}}">Today</button>

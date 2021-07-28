@@ -47,12 +47,16 @@ use App\Models\product_required_filed;
 class AdminController extends Controller
 {
 
+    protected function guard()
+{
+    return Auth::guard('admin');
+}
    // public $role_permissions;
     public function permission ()
 {
 
-    $user_id = Auth::user()->id;
-    $user_role = Auth::user()->role;
+    $user_id = Auth::guard('admin')->user()->id;
+    $user_role = Auth::guard('admin')->user()->role;
     $role_id = DB::table('roles')->where('name',$user_role)->first()->id;
     $role_permission = DB::table('role_permisiions')->where('role_id',$role_id)->pluck('content_name')->toArray();
     return $role_permission;
@@ -62,8 +66,9 @@ class AdminController extends Controller
     //login startt
     public function login(Request $request)
     {
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
 
+           // file_put_contents('test2.txt',Auth::guard('admin')->user()->name);
             return redirect('admin');
 
          }
@@ -75,7 +80,7 @@ class AdminController extends Controller
 
     public function logout()
     {
-        auth()->logout();
+        auth()->guard('admin')->logout();
         return redirect()->to('admin_login');
     }
 
@@ -1537,7 +1542,7 @@ class AdminController extends Controller
       //     return redirect()->back()->with('errors',collect($validator->errors()->all()));
       // }
 
-      $request['deposit_received_by'] = Auth::user()->id;
+      $request['deposit_received_by'] = Auth::guard('admin')->user()->id;
          deposit::create($request->all());
           return redirect()->route('show-all-deposit')->with('success','deposit Added Successfully');
 
@@ -1560,7 +1565,7 @@ class AdminController extends Controller
       //     return redirect()->back()->with('errors',collect($validator->errors()->all()));
       // }
 
-      $request['deposit_received_by'] = Auth::user()->id;
+      $request['deposit_received_by'] = Auth::guard('admin')->user()->id;
          deposit::create($request->all());
           return redirect()->route('show-all-deposit')->with('success','deposit Added Successfully');
 
@@ -2329,7 +2334,7 @@ class AdminController extends Controller
         {
             $description = NULL;
         }
-        $user_role = Auth::user()->role;
+        $user_role = Auth::guard('admin')->user()->role;
 
         if($user_role == 'Admin' || $user_role == 'admin')
         {
