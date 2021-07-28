@@ -1,6 +1,9 @@
 @extends('frontend.layout.app2')
 
 @section('main_content')
+<div class="screen_overlay">
+    <div class="spinner-border" size="4"></div>
+</div>
 <main class="no-main">
 
 
@@ -23,7 +26,7 @@
             <div class="flashSale__product" >
                 <div class="row m-0" id="product_list">
 
-
+                    
 
 
 

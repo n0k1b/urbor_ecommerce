@@ -34,9 +34,11 @@ function get_product()
         type: 'GET',
         url: 'get_all_product_view_all/'+type,
         success: function (data) {
-            $("#product_list").html(data);
-            get_homepage_section();//get homepage category
-
+            setTimeout(() => {
+                $(".screen_overlay").css("display", "none");
+                $("#product_list").html(data);
+                get_homepage_section();//get homepage category    
+            }, 1000)            
         }
     })
 }
