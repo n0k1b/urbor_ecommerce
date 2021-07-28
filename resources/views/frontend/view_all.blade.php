@@ -12,7 +12,7 @@
         <section class="ps-component ps-component--category">
             <div class="container">
 
-                <div class="component__content category_list">
+                <div class="component__content category_list_view_all">
 
                 </div>
             </div>
@@ -33,7 +33,7 @@
 
                 </div>
             </div>
-            <div class="ps-pagination blog--pagination">
+            {{-- <div class="ps-pagination blog--pagination">
                 <ul class="pagination" style="justify-content: center">
                     <li class="chevron"><a href="#"><i class="icon-chevron-left"></i></a></li>
                     <li class="active"><a href="#">1</a></li>
@@ -41,7 +41,7 @@
                     <li><a href="#">3</a></li>
                     <li class="chevron"><a href="#"><i class="icon-chevron-right"></i></a></li>
                 </ul>
-            </div>
+            </div> --}}
         </div>
     </section>
 

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/skin.css?{{time()}}">
     @yield('page_css')
 </head>
-<body></body>
+<body>
 
     <!--*******************
         Preloader start

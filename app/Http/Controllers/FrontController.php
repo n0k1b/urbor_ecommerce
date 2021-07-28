@@ -643,7 +643,7 @@ class FrontController extends Controller
                                 <button class="plus inc_view_cart_package" onclick=""><i class="icon-plus"></i></button>
                             </div><span class="ps-product__total">Total: <span>TK '.$details['price']*$details['quantity'].' </span></span>
                         </div>
-                        <div class="ps-product__remove"><i class="icon-trash2"></i></div>
+                        <div class="ps-product__remove" onclick="delete_cart_view_cart('.$details['package_id'].')"><i class="icon-trash2"></i></div>
                     </div>
                 </div>
                     <div class="cart-price"><span class="ps-product__price">TK '.$details['price'].'</span>
@@ -659,7 +659,7 @@ class FrontController extends Controller
                     </div>
                     <div class="cart-total"> <span class="ps-product__total">TK '.$details['price']*$details['quantity'].'</span>
                     </div>
-                    <div class="cart-action"> <i class="icon-trash2"></i></div>
+                    <div class="cart-action" onclick="delete_cart_view_cart('.$details['package_id'].')> <i class="icon-trash2"></i></div>
                 </div>
                 ';
                 }
@@ -800,9 +800,9 @@ class FrontController extends Controller
     {
         if (strpos($type, 'section') !== false) {
 
-        $section_category = homepage_section::get();
-        file_put_contents('test.txt',json_encode($section_category));
-        $data = ' <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="3000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="5" data-owl-item-lg="8" data-owl-duration="1000"
+        $section_category = homepage_section::where('delete_status',0)->get();
+        //file_put_contents('test.txt',json_encode($section_category));
+        $data = ' <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="3000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="8" data-owl-duration="1000"
         data-owl-mousedrag="on">';
         foreach($section_category as $category)
         {
@@ -818,9 +818,9 @@ class FrontController extends Controller
 
         $category = explode('-',$type);
         $category_id = $category[1];
-        $sub_category = sub_category::where('category_id',$category_id)->get();
+        $sub_category = sub_category::where('delete_status',0)->where('category_id',$category_id)->get();
       //  file_put_contents('test.txt',json_encode($section_category));
-        $data = ' <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="3000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="5" data-owl-item-lg="8" data-owl-duration="1000"
+        $data = ' <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="3000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="8" data-owl-duration="1000"
         data-owl-mousedrag="on">';
         foreach( $sub_category as $category)
         {
@@ -839,9 +839,9 @@ class FrontController extends Controller
         $sub_category = explode('-',$type);
         $sub_category_id = $sub_category[1];
         $category_id = sub_category::where('id',$sub_category_id)->first()->category_id;
-        $sub_category = sub_category::where('category_id',$category_id)->get();
+        $sub_category = sub_category:: where('delete_status',0)->where('category_id',$category_id)->get();
       //  file_put_contents('test.txt',json_encode($section_category));
-        $data = ' <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="3000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="5" data-owl-item-lg="8" data-owl-duration="1000"
+        $data = ' <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="3000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="true" data-owl-item="8" data-owl-item-xs="3" data-owl-item-sm="3" data-owl-item-md="4" data-owl-item-lg="8" data-owl-duration="1000"
         data-owl-mousedrag="on">';
         foreach( $sub_category as $category)
         {
@@ -862,7 +862,7 @@ class FrontController extends Controller
         if (strpos($type, 'section') !== false) {
             $homepage_section = explode('-',$type);
             $homepage_section_id = $homepage_section[1];
-            $home_page_product = homepage_product_list::where('homepage_section_id',$homepage_section_id)->get();
+            $home_page_product = homepage_product_list::where('delete_status',0)->where('homepage_section_id',$homepage_section_id)->get();
             //file_put_contents('test.txt',$homepage_section_id);
 
             foreach($home_page_product as $product)
@@ -903,7 +903,7 @@ class FrontController extends Controller
 
             $category = explode('-',$type);
             $category_id = $category[1];
-            $sub_category = sub_category::where('category_id',$category_id)->get();
+            $sub_category = sub_category::where('delete_status',0)->where('category_id',$category_id)->get();
            // file_put_contents('test3.txt',json_encode($sub_category[0]->product));
 
 
@@ -969,7 +969,7 @@ class FrontController extends Controller
 
             $sub_category = explode('-',$type);
             $sub_category_id = $sub_category[1];
-            $product_list = product::where('sub_category_id',$sub_category_id)->get();
+            $product_list = product::where('delete_status',0)->where('sub_category_id',$sub_category_id)->get();
            // file_put_contents('test3.txt',json_encode($sub_category[0]->product));
 
 

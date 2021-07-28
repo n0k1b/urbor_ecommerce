@@ -1,5 +1,7 @@
 $( document ).ready(function() {
 
+    $('#preloader').fadeOut(1500);
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -348,7 +350,7 @@ function updateValue_package(obj, delta) {
     var product_id = $(obj).parent().find("input[name='hidden_product_id_package']");
 
     var newValue = parseInt(item.val(), 10) + delta;
-    //alert(newValue)
+
     item.val(Math.max(newValue, 0));
     //var product_id = $('#input_quantity').val();
     $("#quantity_package-"+product_id.val()).val(newValue);
