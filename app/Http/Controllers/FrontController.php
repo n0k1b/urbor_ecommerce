@@ -878,7 +878,7 @@ class FrontController extends Controller
                         <p class="ps-product-price-block"><span class="ps-product__sale">'.$discount_price.'</span><span class="ps-product__price">TK '.$product->product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span>
                         </p>
 
-                        <p class="ps-product__sold">Stock in Unit: '.$product->product->stock->stock_amount.'</p>
+
                     </div>
                     <div class="ps-product__footer">
                                     <div class="def-number-input number-input safari_only">
@@ -940,7 +940,7 @@ class FrontController extends Controller
                         <p class="ps-product-price-block"><span class="ps-product__sale">'.$product->price.'</span><span class="ps-product__price">TK '.$product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span>
                         </p>
 
-                        <p class="ps-product__sold">Stock in Unit: '.$product->stock->stock_amount.'</p>
+
                     </div>
                     <div class="ps-product__footer">
                                     <div class="def-number-input number-input safari_only">
@@ -1003,7 +1003,7 @@ class FrontController extends Controller
                         <p class="ps-product-price-block"><span class="ps-product__sale">'.$product->price.'</span><span class="ps-product__price">TK '.$product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span>
                         </p>
 
-                        <p class="ps-product__sold">Stock in Unit: '.$product->stock->stock_amount.'</p>
+
                     </div>
                     <div class="ps-product__footer">
                                     <div class="def-number-input number-input safari_only">
@@ -1080,7 +1080,7 @@ class FrontController extends Controller
                                 $data.='
 
                                     <p class="product__unit">'.$unit.'.</p>
-                                    <div class="alert__success">Availability: <span>'.$product->stock->stock_amount.' in stock</span></div>
+
 
                                 </div>
                                 <div class="product__action">
