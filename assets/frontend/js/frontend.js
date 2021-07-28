@@ -156,7 +156,7 @@ function show_package_modal(id) {
         type: 'GET',
         url: 'show_package_modal/'+id,
         success: function (data) {
-            $("#package_modal").append(data);
+            $("#package_modal").html(data);
             $("#package_modal").modal('show');
 
         }
