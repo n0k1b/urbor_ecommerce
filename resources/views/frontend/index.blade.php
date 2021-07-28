@@ -113,16 +113,17 @@
                             <div class="ps-product__content" href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})">
 
                                 <h5><a class="ps-product__name" style="height: 40px" href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})">{{ $product_list->product->name }}</a></h5>
-                                <p class="ps-product__unit">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}</p>
                                 @if($product_list->discount_percentage>0)
+                                <p class="ps-product__unit">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}</p>
                                 <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span><span class="ps-product__price">TK {{ $product_list->product->price }}</span><span class="ps-product__off">{{ $product_list->discount_percentage }}% Off</span>
                                 </p>
                                 @else
-                                <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span>
+                                <p class="ps-product__unit">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}<span clas="ps-product-price-block"> Tk <span class="ps-product__sale">{{ $discount_price }}</span></span></p>
+                                {{-- <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span> --}}
                                 </p>
                                 @endif
 
-                                <p class="ps-product__sold">Stock in Unit: {{ $product_list->product->stock->stock_amount }}</p>
+                                {{-- <p class="ps-product__sold">Stock in Unit: {{ $product_list->product->stock->stock_amount }}</p> --}}
                             </div>
                             <div class="ps-product__footer">
                                 <div class="def-number-input number-input safari_only">

@@ -2773,10 +2773,19 @@ font-size: 19px !important;
     margin: 1.75rem auto;
 }
 }
+.ps-product--standard .ps-product__addcart{
+font-size: 26px !important;
+}
+.number-input{
+    height: 32px !important;
+}
 .package_thumbnail {
     height: 182px !important;
     width: 161px !important;
     margin-bottom: 21px;
+}
+.ps-product--standard .ps-product__footer{
+    display: block !important;
 }
 .ui-datepicker{
     top: 382px !important;
@@ -3142,8 +3151,8 @@ font-size: 19px !important;
         font-size: 47px !important;
     }
     .ps-product--standard .ps-product__name {
-        padding-bottom: 72px;
-        font-size: 30px;
+        padding-bottom: 35px;
+        font-size: 28px;
         overflow: unset;
     }
     body>main>section:nth-child(3)>div>div.component__content>div>div.owl-stage-outer>div {
@@ -3395,6 +3404,7 @@ font-size: 19px !important;
     text-decoration: line-through;
     margin: 0 5px;
 }
+
 
 .ps-product--vertical .ps-product__unit {
     margin-bottom: 5px;
