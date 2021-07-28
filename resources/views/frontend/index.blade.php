@@ -118,7 +118,7 @@
                                 <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span><span class="ps-product__price">TK {{ $product_list->product->price }}</span><span class="ps-product__off">{{ $product_list->discount_percentage }}% Off</span>
                                 </p>
                                 @else
-                                <p class="ps-product__unit">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}<span clas="ps-product-price-block"> Tk <span class="ps-product__sale">{{ $discount_price }}</span></span></p>
+                                <p class="ps-product__unit text-center">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}<span clas="ps-product-price-block"> Tk <span class="ps-product__sale">{{ $discount_price }}</span></span></p>
                                 {{-- <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span> --}}
                                 </p>
                                 @endif

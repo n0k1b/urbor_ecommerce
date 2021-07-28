@@ -873,10 +873,10 @@ class FrontController extends Controller
                     <div class="ps-product__content">
 
                         <h5><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->product->id.')" >'.$product->product->name.'</a></h5>
-                        <p class="ps-product__unit">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.'</p>
 
-                        <p class="ps-product-price-block"><span class="ps-product__sale">'.$discount_price.'</span><span class="ps-product__price">TK '.$product->product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span>
-                        </p>
+                        <p class="ps-product__unit text-center">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.'<span clas="ps-product-price-block"> Tk <span class="ps-product__sale">'.$discount_price.'</span></span></p>
+
+
 
 
                     </div>
@@ -935,10 +935,7 @@ class FrontController extends Controller
                     <div class="ps-product__content">
 
                         <h5><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')" >'.$product->name.'</a></h5>
-                        <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.'</p>
-
-                        <p class="ps-product-price-block"><span class="ps-product__sale">'.$product->price.'</span><span class="ps-product__price">TK '.$product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span>
-                        </p>
+                        <p class="ps-product__unit text-center">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.'<span clas="ps-product-price-block"> Tk <span class="ps-product__sale">'.$discount_price.'</span></span></p>
 
 
                     </div>
@@ -998,11 +995,7 @@ class FrontController extends Controller
                     <div class="ps-product__content">
 
                         <h5><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')" >'.$product->name.'</a></h5>
-                        <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.'</p>
-
-                        <p class="ps-product-price-block"><span class="ps-product__sale">'.$product->price.'</span><span class="ps-product__price">TK '.$product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span>
-                        </p>
-
+                        <p class="ps-product__unit text-center">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.'<span clas="ps-product-price-block"> Tk <span class="ps-product__sale">'.$discount_price.'</span></span></p>
 
                     </div>
                     <div class="ps-product__footer">
