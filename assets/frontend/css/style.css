@@ -3224,7 +3224,7 @@ font-size: 26px !important;
 
 .ps-product--standard .ps-product__footer {
     transition: all .3s ease-in-out;
-    display: none;
+    display: block;
     overflow: hidden;
     margin-top: 20px;
 }
@@ -3248,6 +3248,7 @@ font-size: 26px !important;
     width: 100%;
     font-size: 14px;
     padding: 5px;
+    margin-bottom: 10px;
 }
 
 .ps-product--standard .ps-product__addcart i {
