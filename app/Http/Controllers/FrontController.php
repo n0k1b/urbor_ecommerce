@@ -1049,8 +1049,14 @@ class FrontController extends Controller
             </div>
             <div class="modal-body">
                 <div class="container-fluid quickview-body">
+
                     <div class="row">
+
+                            <div class="col-12 col-lg-12 col-md-12 text-center alert-danger" style="top:41px">
+                            <p>'.$product->category->description.'</p>
+                            </div>
                         <div class="col-12 col-lg-5">
+
                             <div >
                                 <div class="quickview-carousel" style="margin-top:50px"><img class="carousel__thumbnail" src="'.$product->thumbnail_image.'" alt="alt" /></div>
 

@@ -136,7 +136,7 @@ function show_cart_modal(id) {
         type: 'GET',
         url: 'show_cart_modal/'+id,
         success: function (data) {
-            $("#cart_modal").append(data);
+            $("#cart_modal").html(data);
             $("#cart_modal").modal('show');
 
         }
