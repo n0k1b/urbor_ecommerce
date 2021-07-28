@@ -891,7 +891,7 @@ class FrontController extends Controller
                                     </div>
                         <div class="ps-product__total"></span> </div>
                         <button class="ps-product__addcart" onclick="cart_add('.$product->product->id.')"><i class="icon-cart"></i>Add to cart</button>
-                        <div class="ps-product__box"><a class="ps-product__wishlist" href="wishlist.html">Wishlist</a><a class="ps-product__compare" href="wishlist.html">Compare</a></div>
+
                     </div>
                 </div>
             </div>
@@ -950,7 +950,7 @@ class FrontController extends Controller
                                     </div>
                         <div class="ps-product__total"></span> </div>
                         <button class="ps-product__addcart" onclick="cart_add('.$product->id.')"><i class="icon-cart"></i>Add to cart</button>
-                        <div class="ps-product__box"><a class="ps-product__wishlist" href="wishlist.html">Wishlist</a><a class="ps-product__compare" href="wishlist.html">Compare</a></div>
+
                     </div>
                 </div>
             </div>
@@ -1010,7 +1010,7 @@ class FrontController extends Controller
                                     </div>
                         <div class="ps-product__total"></span> </div>
                         <button class="ps-product__addcart" onclick="cart_add('.$product->id.')"><i class="icon-cart"></i>Add to cart</button>
-                        <div class="ps-product__box"><a class="ps-product__wishlist" href="wishlist.html">Wishlist</a><a class="ps-product__compare" href="wishlist.html">Compare</a></div>
+
                     </div>
                 </div>
             </div>
