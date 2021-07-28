@@ -141,7 +141,7 @@ function updateValue_view_cart_package(obj, delta) {
 
     var newValue = parseInt(item.val(), 10) + delta;
     //alert(newValue)
-    item.val(Math.max(newValue, 0));
+    item.val(Math.max(newValue, 1));
     //var product_id = $('#input_quantity').val();
     $(".quantity_package-"+product_id.val()).val(newValue);
 
@@ -179,7 +179,7 @@ function updateValue_view_cart(obj, delta) {
 
    var newValue = parseInt(item.val(), 10) + delta;
    //alert(newValue)
-   item.val(Math.max(newValue, 0));
+   item.val(Math.max(newValue, 1));
    //var product_id = $('#input_quantity').val();
    $(".quantity-"+product_id.val()).val(newValue);
 

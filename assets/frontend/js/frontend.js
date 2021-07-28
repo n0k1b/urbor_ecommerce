@@ -261,6 +261,8 @@ function modal_close()
     //$(".cart_modal").modal('hide');
 }
 
+
+
 function cart_add(id)
 {
 
@@ -351,7 +353,7 @@ function updateValue_package(obj, delta) {
 
     var newValue = parseInt(item.val(), 10) + delta;
 
-    item.val(Math.max(newValue, 0));
+    item.val(Math.max(newValue, 1));
     //var product_id = $('#input_quantity').val();
     $("#quantity_package-"+product_id.val()).val(newValue);
 
@@ -368,7 +370,7 @@ function updateValue(obj, delta) {
 
     var newValue = parseInt(item.val(), 10) + delta;
     //alert(newValue)
-    item.val(Math.max(newValue, 0));
+    item.val(Math.max(newValue, 1));
     //var product_id = $('#input_quantity').val();
     $("#quantity-"+product_id.val()).val(newValue);
 
