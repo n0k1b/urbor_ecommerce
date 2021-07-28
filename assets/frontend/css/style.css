@@ -2811,6 +2811,9 @@ font-size: 19px !important;
 .section--checkout label {
     font-size:30px !important;
 }
+.ps-product--standard:hover:before{
+    border:none !important;
+}
     .checkout__form{
         padding:24px !important;
     }
@@ -4732,6 +4735,7 @@ font-size: 19px !important;
         position: relative;
     }
 }
+
 .ps-quickview .quickview__product{
     padding: 63px 0 !important;
 }
@@ -6227,13 +6231,13 @@ font-size: 19px !important;
 
 @media (min-width: 992px) {
     .ps-component--flash .ps-product--standard:hover {
-        height: 440px !important;
+        height: 410px !important;
     }
 }
 
 @media (min-width: 1200px) {
     .ps-component--flash .ps-product--standard:hover {
-        height: 470px !important;
+        height: 410px !important;
     }
 }
 

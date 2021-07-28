@@ -65,6 +65,13 @@
 
 
                             </div>
+                            <div class="ps-product__footer">
+
+
+
+                                <button class="ps-product__addcart" onclick="show_package_modal({{$package->id}})">View Details</button>
+                                {{-- <div class="ps-product__box"><a class="ps-product__wishlist" href="#">Wishlist</a></div> --}}
+                            </div>
 
                         </div>
                     </div>
