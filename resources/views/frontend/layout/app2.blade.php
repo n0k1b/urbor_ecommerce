@@ -219,7 +219,7 @@
                     <div class="col-12 col-lg-4 col-md-6">
                         <p class="contact__title">Contact Us</p>
                         <p><b><i class="icon-telephone"> </i>Hotline: </b></p>
-                        <p class="telephone">{{ $company_info->contact_no1 }}<br><p>{{ $company_info->contact_no1 }}</p>
+                        <p class="telephone">{{ $company_info->contact_no1 }}<br><p>{{ $company_info->contact_no2 }}</p>
                         <p> <b>Head office: </b>{{ $company_info->address }}</p>
                         <p> <b>Email us: </b><a href="http://nouthemes.net/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fa898f8a8a95888eba9c9b88979b888ed4999597">{{ $company_info->email }}</a></p>
                     </div>

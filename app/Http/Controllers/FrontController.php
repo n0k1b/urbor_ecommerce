@@ -937,7 +937,8 @@ class FrontController extends Controller
                     <div class="ps-product__content">
 
                         <h5><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')" >'.$product->name.'</a></h5>
-                        <p class="ps-product__unit">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">'.$discount_price.'</span><span class="ps-product__price">TK '.$product->product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span> </span></p>
+                        <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
+                        '.$product->price.'</span> </span></p>
 
 
                     </div>
@@ -969,7 +970,8 @@ class FrontController extends Controller
             $sub_category = explode('-',$type);
             $sub_category_id = $sub_category[1];
             $product_list = product::where('delete_status',0)->where('sub_category_id',$sub_category_id)->get();
-           // file_put_contents('test3.txt',json_encode($sub_category[0]->product));
+
+          // file_put_contents('test3.txt',json_encode($product_list));
 
 
             // return $category[1]->sub_category;
@@ -986,8 +988,7 @@ class FrontController extends Controller
 
                 foreach($product_list as $product)
                 {
-                    //   $myfile = fopen("test3.txt", "a+") or die("Unable to open file!");
-                    //   fwrite($myfile,json_encode($product)."\n");
+
 
 
                // file_put_contents('test2.txt',json_encode($product->product));
@@ -997,7 +998,8 @@ class FrontController extends Controller
                     <div class="ps-product__content">
 
                         <h5><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')" >'.$product->name.'</a></h5>
-                        <p class="ps-product__unit">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">'.$discount_price.'</span><span class="ps-product__price">TK '.$product->product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span> </span></p>
+                        <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
+                        '.$product->price.'</span> </span></p>
 
 
                     </div>
@@ -1255,7 +1257,7 @@ class FrontController extends Controller
     }
     public function checkout()
     {
-        $areas = area::where('status',1)->get();
+        $areas = area::where('status',1)->where('delete_status',0)->get();
 
             $sub_total = 0;
             $cart = session()->get('cart');

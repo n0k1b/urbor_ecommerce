@@ -44,7 +44,7 @@
             </div>
             <div class="component__content">
 
-                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="4000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
+                <div class="owl-carousel" data-owl-auto="false" data-owl-loop="false" data-owl-speed="4000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
                     data-owl-duration="1000" data-owl-mousedrag="on">
 
 
