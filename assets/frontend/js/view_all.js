@@ -37,8 +37,8 @@ function get_product()
             setTimeout(() => {
                 $(".screen_overlay").css("display", "none");
                 $("#product_list").html(data);
-                get_homepage_section();//get homepage category    
-            }, 1000)            
+                get_homepage_section();//get homepage category
+            }, 1000)
         }
     })
 }

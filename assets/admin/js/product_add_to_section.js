@@ -71,6 +71,7 @@ function show_all_product()
 
         url: '../get_all_homepage_section_product/' + homepage_section_id,
         success: function(data) {
+
             var all_data = JSON.parse(data);
             $("#all_section_product").html(all_data.section_product);
             $("#product_list").html(all_data.all_product);

@@ -110,12 +110,12 @@ class FrontController extends Controller
 
 
         $data = '';
-        $category = category::where('status',1)->get();
+        $category = category::where('status',1)->where('delete_status',0)->get();
       // return $category[1]->sub_category;
 
         foreach($category as $cat)
            {
-              $sub_cat_avail = sub_category::where('status',1)->where('category_id',$cat->id)->first();
+              $sub_cat_avail = sub_category::where('status',1)->where('delete_status',0)->where('category_id',$cat->id)->first();
               if($sub_cat_avail)
               {
             $data.='
@@ -172,12 +172,12 @@ class FrontController extends Controller
         //$data2 = "hello";
         $data="";
 
-        $category = category::where('status',1)->get();
+        $category = category::where('status',1)->where('delete_status',0)->get();
       // return $category[1]->sub_category;
 
         foreach($category as $cat)
            {
-              $sub_cat_avail = sub_category::where('status',1)->where('category_id',$cat->id)->first();
+              $sub_cat_avail = sub_category::where('status',1)->where('delete_status',0)->where('category_id',$cat->id)->first();
               if($sub_cat_avail)
               {
             $data.='
