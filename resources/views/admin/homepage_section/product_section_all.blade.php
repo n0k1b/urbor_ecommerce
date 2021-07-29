@@ -58,7 +58,7 @@
                 <div class="form-group" style="padding-right: 10px;">
                     <label>Discount Percentage</label>
                     <input type="text" class="form-control" name="discount_percentage" id="product_percentage" />
-                    <input type="hidden" id="product_id" >
+                    <input type="hidden" class="product_id"  >
                 </div>
             </div>
             <div class="modal-footer">

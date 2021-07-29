@@ -25,15 +25,18 @@ function get_product_list()
 
 function edit_discount_price_modal(product_percentagge,id)
 {
+    //alert(id)
     $("#product_percentage").val(product_percentagge);
-    $("#product_id").val(id);
+    $(".product_id").val(id);
+    //alert($(".product_id").val())
     $("#edit_discount_price_modal").modal('show');
 }
 
 function update_discount_percentage()
 {
-    var product_id  = $("#product_id").val();
+    var product_id  = $(".product_id").val();
     var product_percentage = $("#product_percentage").val();
+    //alert(product_id+" "+product_percentage)
     var formdata = new FormData();
     formdata.append('product_id', product_id);
     formdata.append('product_percentage', product_percentage);
