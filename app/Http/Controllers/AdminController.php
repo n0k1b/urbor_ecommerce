@@ -457,7 +457,7 @@ class AdminController extends Controller
     //User Start
     public function show_all_user()
     {
-        $datas = user::where('role','<>','')->where('role','<>','courier_man')->get();
+        $datas = user::where('role','<>','customer')->where('role','<>','courier_man')->get();
         $i=1;
         foreach($datas as $data)
         {
