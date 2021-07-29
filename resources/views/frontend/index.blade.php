@@ -37,6 +37,9 @@
     </section>
 
 
+@if(count($packages)>0)
+
+
     <section class="ps-component ps-component--flash">
         <div class="container">
             <div class="component__header">
@@ -88,6 +91,8 @@
             </div>
         </div>
     </section>
+
+@endif
 
 
     @foreach($homepage_section_content as $section_product)

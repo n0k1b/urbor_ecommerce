@@ -2703,6 +2703,7 @@ font-size: 19px !important;
     overflow: hidden;
     font-weight: bold;
     padding-bottom: 25px;
+    height: 46px !important;
 }
 
 .ps-product--standard .ps-product__sale {
