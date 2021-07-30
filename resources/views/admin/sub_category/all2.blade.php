@@ -67,7 +67,7 @@
                                             <th>Image</th>
                                             <th>Active Status</th>
                                             <th>Action</th>
-                                            <th>Image Edit</th>
+                                            {{-- <th>Image Edit</th> --}}
 
                                         </tr>
                                     </thead>
@@ -130,10 +130,10 @@
                 name:'action',
             },
 
-            {
-                data:'image_edit',
-                name:'image_edit',
-            },
+            // {
+            //     data:'image_edit',
+            //     name:'image_edit',
+            // },
 
 
 

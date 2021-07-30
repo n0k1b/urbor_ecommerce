@@ -302,6 +302,8 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
     Route::get('edit_user_content/{id}','AdminController@edit_user_content_ui')->name('edit_user_content');
     Route::post('update_user_content','AdminController@update_user_content')->name('update_user_content');
     Route::get('user_delete/{id}','AdminController@user_content_delete')->name('user_delete');
+    Route::get('reset_user_password/{id}','AdminController@reset_user_password_ui');
+    Route::post('update_user_password','AdminController@update_user_password')->name('update_user_password');
 
    //All User end
 

@@ -65,6 +65,7 @@
 
                                                         <th>Active Status</th>
                                                         <th>Action</th>
+                                                        <th>Reset Password</th>
                                                         {{-- <th>Reset Password</th> --}}
 
 													</tr>
@@ -91,6 +92,11 @@
 														<td>
 															<a href="edit_user_content/{{$data->id}}" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
 															<a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="user_delete({{$data->id}})"><i class="la la-trash-o"></i></a>
+                                                        </td>
+
+                                                        <td>
+															<a href="reset_user_password/{{$data->id}}" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>
+
                                                         </td>
                                                         {{-- <td>
 															<a href="edit_user_content/{{$data->id}}" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>

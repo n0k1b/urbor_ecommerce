@@ -495,6 +495,27 @@ class AdminController extends Controller
 
 
     }
+    public function update_user_password(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'password' => ['required','confirmed'],
+         ]);
+
+    if($validator->fails())
+    {
+        return redirect()->back()->with('errors',collect($validator->errors()->all()));
+    }
+
+    user::where('id',$request->id)->update(['password'=>Hash::make($request->password)]);
+    return redirect()
+            ->route('show-all-user')
+            ->with('success', "Data Updated Successfully");
+
+    }
+    public function reset_user_password_ui($id)
+    {
+        return view('admin.user.reset_password',compact('id'));
+    }
 
     public function user_active_status(Request $request)
     {
