@@ -4783,6 +4783,15 @@ font-size: 26px !important;
     }
 }
 
+
+.section--shopping-cart .cart-product {
+    flex-grow: 5;
+    border-bottom: 1px solid #dddddd;
+    padding: 20px 0px;
+    width: auto !important;
+}
+
+
 .section-slide--default .ps-banner .ps-content {
     position: absolute;
     top: 0;
