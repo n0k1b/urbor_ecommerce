@@ -40,10 +40,18 @@
 									<div class="row">
 
 
-									 <div class="col-lg-12 col-md-12 col-sm-12">
+									    <div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="form-group">
 												<label class="form-label">Category Name</label>
 												<input type="text" class="form-control" name="name" value="{{ old('name') }}">
+											</div>
+										</div>
+
+
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Description(Optional)</label>
+												<input type="text" class="form-control" name="description" value="{{ old('description') }}">
 											</div>
 										</div>
 

@@ -74,6 +74,7 @@
 
 
 														<th>Image</th>
+                                                        <th>Description</th>
 														<th>Active Status</th>
 
                                                         <th>Action</th>
@@ -128,6 +129,10 @@
                 return "<img src=../" + data + " width='100px' class='img-thumbnail' />";
                 },
                 orderable: false
+            },
+            {
+                data:'description',
+                name:'description'
             },
 
             {

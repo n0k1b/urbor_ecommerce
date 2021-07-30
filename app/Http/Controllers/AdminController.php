@@ -347,11 +347,11 @@ class AdminController extends Controller
         ->image
         ->move(public_path('../image/category_image') , $image);
     $image = "image/category_image/" . $image;
-    category::create(['name'=>$request->name,'image'=>$image]);
+    category::create(['name'=>$request->name,'image'=>$image,'description'=>$request->description]);
         }
         else
         {
-            category::create(['name'=>$request->name,'image'=>$image]);
+            category::create(['name'=>$request->name]);
         }
        //file_put_contents('test.txt',$request->name." ".$request->image);
 
@@ -398,7 +398,7 @@ class AdminController extends Controller
     {
         $id = $request->id;
 
-        category::where('id', $id)->update(['name' => $request->name]);
+        category::where('id', $id)->update(['name' => $request->name,'description'=>$request->description]);
 
         return redirect()
             ->route('show-all-category')

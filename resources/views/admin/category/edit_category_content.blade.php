@@ -33,7 +33,13 @@
 											</div>
 										</div>
 
-
+                                        <div class="col-lg-12 col-md-12 col-sm-12">
+											<div class="form-group">
+												<label class="form-label">Description(Optional)</label>
+                                                <input type="text" class="form-control" name="description" value="{{ $data->description }}" >
+                                                <input type="hidden" name='id'  value="{{ $data->id }}">
+											</div>
+										</div>
 
 
 
