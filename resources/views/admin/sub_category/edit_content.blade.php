@@ -1,4 +1,9 @@
 @extends('admin.layout.app')
+@section('page_css')
+
+<link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2.min.css?{{time()}}" />
+<link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2_custom.css?{{time()}}" />
+@endsection
 @section('content')
 <div class="container-fluid">
 
@@ -22,15 +27,15 @@
                         <div class="card">
 
 							<div class="card-body">
-                                <form action="{{route('update_category_with_domain_content')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{route('update_sub_category_content')}}" method="post" enctype="multipart/form-data">
                                 @csrf
 									<div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12">
                                             <div class="form-group">
                                                 <label>Category Name</label>
-                                                <select class="form-control" id="sel1" name="domain_id">
+                                                <select class="form-control select2" id="sel1" name="category_id">
                                                     @foreach($datas as $data)
-                                                    @if($data->id == $content->domain_id)
+                                                    @if($data->id == $content->category_id)
                                                     <option value="{{$data->id}}" selected>{{$data->name}}</option>
                                                     @else
                                                     <option value="{{$data->id}}">{{$data->name}}</option>
@@ -66,4 +71,9 @@
 				</div>
 
             </div>
+@endsection
+@section('page_js')
+
+<script src="{{asset('assets')}}/admin/js/select2.full.js"></script>
+<script src="{{asset('assets')}}/admin/js/advanced-form-element.js"></script>
 @endsection

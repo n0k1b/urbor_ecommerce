@@ -1886,7 +1886,7 @@ class AdminController extends Controller
     {
         $id = $request->id;
 
-        sub_category::where('id', $id)->update(['name' => $request->name,'domain_id'=>$request->domain_id]);
+        sub_category::where('id', $id)->update(['name' => $request->name,'category_id'=>$request->category_id]);
 
         return redirect()
             ->route('show-all-sub-category')
