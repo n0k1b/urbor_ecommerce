@@ -11190,7 +11190,8 @@ font-size: 26px !important;
 .section--shopping-cart .cart-product {
     flex-grow: 5;
     border-bottom: 1px solid #dddddd;
-    padding: 20px 15px;
+    padding: 20px 0px;
+    width: 270px;
 }
 
 .section--shopping-cart .cart-quantity {
