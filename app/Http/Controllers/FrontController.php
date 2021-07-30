@@ -1308,16 +1308,23 @@ class FrontController extends Controller
 
             $sub_total = 0;
             $cart = session()->get('cart');
-
+            $description = '';
+            $category_name='';
             foreach( $cart as $id => $details)
             {
+                $description = product::find($id)->category->description;
+                if($description)
+                {
+                    $category_name = product::find($id)->category->name;
+                }
 
+               // file_put_contents('test.txt',$description);
                 $sub_total += $details['price'] * $details['quantity'];
             }
             $delivery_charge = 20;
             $total = $sub_total+$delivery_charge;
 
-        return view('frontend.checkout',compact('areas','cart','delivery_charge','total','sub_total'));
+        return view('frontend.checkout',compact('areas','cart','delivery_charge','total','sub_total','description','category_name'));
     }
 
     public function add_address(Request $request)

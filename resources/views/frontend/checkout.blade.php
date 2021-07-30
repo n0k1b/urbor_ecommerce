@@ -244,8 +244,10 @@
                         </div>
                         <h3 class="checkout__title">Pick a delivery date & time </h3>
                         <div class="col col-12 col-lg-12" style="background-color:#F7F9F9; margin-top:25px;padding-bottom:30px;padding:17px">
+                            @if($description)
 
-
+                            <p class="alert alert-danger">Since you have ordered product from {{ $category_name }} category, {{ $description }} </p>
+                            @endif
                             <div class="row">
                                 <div class="col">
                                     <label>Select Date</label>
