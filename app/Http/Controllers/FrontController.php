@@ -28,6 +28,7 @@ use App\Models\order;
 use App\Models\order_details;
 use App\Models\package;
 use App\Models\package_product;
+use App\Models\delivery_charge;
 
 
 use DB;
@@ -57,7 +58,7 @@ class FrontController extends Controller
            // array_push($order_details,['id'=>$order_detail[$j]->id,'price'=>$order_detail[$j]->price,'count'=>$order_detail[$j]->count,'unit'=>$order_detail[$j]->unit_quantity,'name'=>$order_detail[$j]->product->name,'image'=>$this->base_url.$order_detail[$j]->product->thumbnail_image,'total'=>$order_detail[$j]->price*$order_detail[$j]->count]);
 
         }
-        $delivery_charge = 60;
+        $delivery_charge = delivery_charge::first()->unit_charge;
         $total = $sub_total+$delivery_charge;
 
 
@@ -518,7 +519,7 @@ class FrontController extends Controller
            // array_push($order_details,['id'=>$order_detail[$j]->id,'price'=>$order_detail[$j]->price,'count'=>$order_detail[$j]->count,'unit'=>$order_detail[$j]->unit_quantity,'name'=>$order_detail[$j]->product->name,'image'=>$this->base_url.$order_detail[$j]->product->thumbnail_image,'total'=>$order_detail[$j]->price*$order_detail[$j]->count]);
 
         }
-        $delivery_charge = 60;
+        $delivery_charge = delivery_charge::first()->unit_charge;
         $total = $sub_total+$delivery_charge;
         session()->forget('cart');
         return view('frontend.order_tracking',compact('status','order_no','order_date','delivery_address','delivery_charge','total','sub_total','order_detail'));
@@ -583,7 +584,7 @@ class FrontController extends Controller
             {
                 $total += $details['price'] * $details['quantity'];
             }
-            $delivery_charge = 20;
+            $delivery_charge = delivery_charge::first()->unit_charge ;
             $sub_total = $total+$delivery_charge;
             foreach($cart as $id =>$details)
             {
@@ -1321,7 +1322,7 @@ class FrontController extends Controller
                // file_put_contents('test.txt',$description);
                 $sub_total += $details['price'] * $details['quantity'];
             }
-            $delivery_charge = 20;
+            $delivery_charge = delivery_charge::first()->unit_charge;
             $total = $sub_total+$delivery_charge;
 
         return view('frontend.checkout',compact('areas','cart','delivery_charge','total','sub_total','description','category_name'));

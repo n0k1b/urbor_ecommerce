@@ -8,14 +8,14 @@
 				<div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Company Info</h4>
+                            <h4>Delivery Charge</h4>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
 
-                            <li class="breadcrumb-item active"><a href="javascript:void(0);">Add Category</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0);">Delivery Charge</a></li>
                         </ol>
                     </div>
                 </div>
@@ -30,35 +30,17 @@
 									<div class="row">
 
 
-									 <div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Unit Weight(In Gram)</label>
-												<input type="text" class="form-control" name="unit_weight" value="{{ $data->unit_weight ?? '' }}">
-											</div>
-										</div>
 
                                         <div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="form-group">
-												<label class="form-label">Unit Charge(In Gram)</label>
+												<label class="form-label">Delivery Charge</label>
 												<input type="text" class="form-control" name="unit_charge" value="{{ $data->unit_charge ?? '' }}" }}>
 											</div>
 										</div>
 
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Variable Weight(In Gram)</label>
-												<input type="text" class="form-control" name="variable_weight" value="{{ $data->variable_weight ?? '' }}">
-											</div>
-										</div>
 
 
 
-                                        <div class="col-lg-12 col-md-12 col-sm-12">
-											<div class="form-group">
-												<label class="form-label">Variable Charge(In Gram)</label>
-												<input type="text" class="form-control" name="variable_charge" value="{{ $data->variable_charge ?? '' }}">
-											</div>
-										</div>
 
 
 										<div class="col-lg-12 col-md-12 col-sm-12">

@@ -2753,6 +2753,12 @@ font-size: 19px !important;
     font-size: 15px;
 }
 
+/*
+
+    for mobile device
+
+*/
+
 @media screen and (orientation: portrait) {
     @media (min-width: 768px){
         .container, .container-md, .container-sm {
@@ -2785,6 +2791,14 @@ font-size: 26px !important;
     width: 161px !important;
     margin-bottom: 21px;
 }
+
+.section--shopping-cart .cart-product {
+    flex-grow: 5;
+    border-bottom: 1px solid #dddddd;
+    padding: 20px 0px;
+    width: auto !important;
+}
+
 .ps-product--standard .ps-product__footer{
     display: block !important;
 }
@@ -4784,12 +4798,6 @@ font-size: 26px !important;
 }
 
 
-.section--shopping-cart .cart-product {
-    flex-grow: 5;
-    border-bottom: 1px solid #dddddd;
-    padding: 20px 0px;
-    width: auto !important;
-}
 
 
 .section-slide--default .ps-banner .ps-content {
