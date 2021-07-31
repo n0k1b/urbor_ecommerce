@@ -14,7 +14,7 @@ class sub_category extends Model
     }
     public function product()
         {
-            return $this->hasMany('App\Models\product','sub_category_id','id');
+            return $this->hasMany('App\Models\product','sub_category_id','id')->where('status',1)->where('delete_status',0);
         }
 
 

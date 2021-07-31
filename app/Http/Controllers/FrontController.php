@@ -988,7 +988,7 @@ class FrontController extends Controller
 
             $sub_category = explode('-',$type);
             $sub_category_id = $sub_category[1];
-            $product_list = product::where('delete_status',0)->where('sub_category_id',$sub_category_id)->get();
+            $product_list = product::where('delete_status',0)->where('status',1)->where('sub_category_id',$sub_category_id)->get();
 
           // file_put_contents('test3.txt',json_encode($product_list));
 
