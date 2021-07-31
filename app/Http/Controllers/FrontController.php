@@ -498,6 +498,10 @@ class FrontController extends Controller
         foreach( $cart as $id => $details)
         {
            $total += $details['price'] * $details['quantity'];
+           $remaining_stock = product_stock::where('product_id',$id)->first()->stock_amount;
+           $stock = $remaining_stock-$details['quantity'];
+           product_stock::where('product_id',$id)->update(['stock_amount'=>$stock]);
+
            if($details['type'] == 'product')
            order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price'],'product_type'=>'regular']);
            else
