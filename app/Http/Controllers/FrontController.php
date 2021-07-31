@@ -863,7 +863,7 @@ class FrontController extends Controller
         if (strpos($type, 'section') !== false) {
             $homepage_section = explode('-',$type);
             $homepage_section_id = $homepage_section[1];
-            $home_page_product = homepage_product_list::where('delete_status',0)->where('homepage_section_id',$homepage_section_id)->get();
+            $home_page_product = homepage_product_list::where('delete_status',0)->where('status',1)->where('homepage_section_id',$homepage_section_id)->get();
             //file_put_contents('test.txt',$homepage_section_id);
 
             foreach($home_page_product as $product)
