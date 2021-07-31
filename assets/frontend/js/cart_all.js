@@ -172,7 +172,7 @@ function updateValue_view_cart_package(obj, delta) {
  }
 
 function updateValue_view_cart(obj, delta) {
-    alert('hello');
+
 
    var item = $(obj).parent().find("input[type=number]");
    var product_id = $(obj).parent().find("input[name='hidden_product_id']");
