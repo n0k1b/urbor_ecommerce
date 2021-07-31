@@ -2951,6 +2951,11 @@ class AdminController extends Controller
 
 
         ]);
+
+        $remaining_stock = product_stock::where('product_id',$product_id)->first()->stock_amount;
+        $stock = $remaining_stock+$purchase_quantity;
+        product_stock::where('product_id',$product_id)->update(['stock_amount'=>$stock]);
+
             return back()->with('success','Data Addess Successfully');
 
 
