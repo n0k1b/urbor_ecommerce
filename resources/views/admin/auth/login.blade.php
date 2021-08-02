@@ -11,7 +11,7 @@
     <meta name="description" content="Urrbor Admin">
     <title>Urrbor Admin </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets')}}/admin/images/logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('image')}}/logo2.jpg?{{time()}}">
     <link rel="stylesheet" href="{{asset('assets')}}/admin/css/style.css?{{time()}}">
 
 </head>
