@@ -3,14 +3,15 @@
 <link rel="stylesheet" href="{{asset('assets')}}/admin/css/single_and_multiple_image_preview.css?{{time()}}" />
 <link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2.min.css?{{time()}}" />
 <link rel="stylesheet" href="{{asset('assets')}}/admin/css/select2_custom.css?{{time()}}" />
-
-
+<link rel="stylesheet" href="{{asset('assets')}}/admin/vendor/jquery-preloader/css/style.min.css?{{time()}}" />
 
 @endsection
 
 @section('content')
-<div class="container-fluid">
 
+    
+<div class="container-fluid">
+    
     <div class="row page-titles mx-0">
         <div class="col-sm-6 col-md-6 col-lg-6 p-md-0">
             <div class="form-group" style="padding-right: 10px;" id="product_list">
@@ -37,11 +38,13 @@
     </div>
 
     <div class="row" id="all_section_product">
-
-
-
-
-
+        <div id="jquery_preloader" class="preloader js-preloader flex-center">
+            <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            </div>
+        </div>
     </div>
 
 </div>
@@ -79,5 +82,9 @@
 <script src="{{asset('assets')}}/admin/js/advanced-form-element.js"></script>
 
 <script src="{{asset('assets')}}/admin/js/product_add_to_section.js?{{time()}}"></script>
+<script src="{{asset('assets')}}/admin/vendor/jquery-preloader/js/jquery.preloadinator.min.js?{{time()}}"></script>
+<script>
+    $('#jquery_preloader').preloadinator();
+</script>
 
 @endsection
