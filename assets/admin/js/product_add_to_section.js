@@ -10,8 +10,7 @@ $(function() {
 
 });
 
-function get_product_list()
-{
+function get_product_list() {
     $.ajax({
         processData: false,
         contentType: false,
@@ -23,8 +22,7 @@ function get_product_list()
     })
 }
 
-function edit_discount_price_modal(product_percentagge,id)
-{
+function edit_discount_price_modal(product_percentagge, id) {
     //alert(id)
     $("#product_percentage").val(product_percentagge);
     $(".product_id").val(id);
@@ -32,9 +30,8 @@ function edit_discount_price_modal(product_percentagge,id)
     $("#edit_discount_price_modal").modal('show');
 }
 
-function update_discount_percentage()
-{
-    var product_id  = $(".product_id").val();
+function update_discount_percentage() {
+    var product_id = $(".product_id").val();
     var product_percentage = $("#product_percentage").val();
     //alert(product_id+" "+product_percentage)
     var formdata = new FormData();
@@ -59,11 +56,7 @@ function update_discount_percentage()
 
 }
 
-function show_all_product()
-{
-
-
-
+function show_all_product() {
     $.ajax({
         processData: false,
         contentType: false,
@@ -71,17 +64,17 @@ function show_all_product()
 
         url: '../get_all_homepage_section_product/' + homepage_section_id,
         success: function(data) {
-
             var all_data = JSON.parse(data);
             $("#all_section_product").html(all_data.section_product);
             $("#product_list").html(all_data.all_product);
+
+
 
         }
     })
 }
 
-function delete_product_from_section(id)
-{
+function delete_product_from_section(id) {
     var conf = confirm('Are you sure?');
     if (conf == true) {
         $.ajax({
@@ -98,11 +91,10 @@ function delete_product_from_section(id)
 
 }
 
-function add_product_to_section()
-{
+function add_product_to_section() {
 
 
-    var product_id =  $('#product_id').val();
+    var product_id = $('#product_id').val();
     var discount_percentage = $('#discount_percentage').val();
 
     var formdata = new FormData();
