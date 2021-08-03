@@ -3925,7 +3925,7 @@ class AdminController extends Controller
             $data['sl_no'] = $i++;
         }
        // file_put_contents('test.txt',$order_no." ".json_encode($order_details));
-        return view('admin.order.show_product',['datas'=>$order_details]);
+        return view('admin.order.show_product',['datas'=>$order_details,'order_no'=>$order_no]);
     }
     public function update_order_status(Request $request)
     {
