@@ -1030,7 +1030,7 @@ class FrontController extends Controller
                             $discount_price =$product->price- floor(($product->price*$discount_avail->discount_percentage)/100);
                         $data.='
                         <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.
-                        '<span class="ps-product-price-block"> Tk <span class="ps-product__sale">'. $discount_price.'</span><span class="ps-product__price">TK  '.$product->price.'/span><span class="ps-product__off">{{ $product_list->discount_percentage }}% Off</span></span></p>
+                        '<span class="ps-product-price-block"> Tk <span class="ps-product__sale">'. $discount_price.'</span><span class="ps-product__price">TK  '.$product->price.'/span><span class="ps-product__off">'.$product_list->discount_percentage.'% Off</span></span></p>
                         <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
                         '.$product->price.'</span> </span></p>
                         ';
