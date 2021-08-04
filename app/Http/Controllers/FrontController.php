@@ -412,7 +412,7 @@ class FrontController extends Controller
                 </div>
             </div>
         </li>
-        <script src="assets/frontend/js/frontend.js?{{ time() }}"></script>
+
         ';
         echo $data;
     }
@@ -835,7 +835,7 @@ class FrontController extends Controller
         }
         $data.=' </div>';
         $data.='<script src="assets/frontend/js/main.js?'.time().'"></script>
-        <script src="assets/frontend/js/frontend.js?'.time().'"></script>';
+       ';
     }
 
     if (strpos($type, 'sub_category') !== false) {
