@@ -59,7 +59,7 @@
 
 									<div class="card-body">
 										<div class="table-responsive">
-											<table  id="category_table" class="display table table-bordered table-striped" style="min-width: 845px">
+											<table  id="order_report_table" class="display table table-bordered table-striped" style="min-width: 845px">
 												<thead class="thead-dark">
 													<tr>
 														<th>#</th>
@@ -71,6 +71,7 @@
 
                                                         <th>Contact No</th>
                                                         <th>Total Price</th>
+                                                        <th>Order Status</th>
                                                         <th>Order Date</th>
                                                         <th></th>
 													</tr>
@@ -107,7 +108,7 @@
 <script type="text/javascript">
     $(function () {
 
-      var table = $('#category_table').DataTable({
+      var table = $('#order_report_table').DataTable({
           processing: true,
           serverSide: true,
           ajax: "{{ route('show_order_report') }}",
@@ -138,6 +139,11 @@
             {
                 data:'total_price',
                 name:'total_price',
+            },
+
+            {
+                data:'status',
+                name:'status',
             },
 
 
