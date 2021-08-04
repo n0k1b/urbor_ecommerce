@@ -116,20 +116,42 @@ function delete_cart_view_cart(id)
 
 $(document).on("click", '.inc_view_cart', function(event) {
     //alert('hello');
+
+   // item.val(Math.max(newValue, 1));
     updateValue_view_cart(this, 1);
 });
 
 $(document).on("click", '.dec_view_cart', function(event) {
+    var item = $(this).parent().find("input[type=number]");
+    //var product_id = $(this).parent().find("input[name='hidden_product_id']");
+
+    var newValue = parseInt(item.val(), 10) - 1;
+    //alert(newValue)
+    if(newValue>0)
+    {
     updateValue_view_cart(this, -1);
+    }
 });
 
 $(document).on("click", '.inc_view_cart_package', function(event) {
     //alert('hello');
+
     updateValue_view_cart_package(this, 1);
 });
 
 $(document).on("click", '.dec_view_cart_package', function(event) {
-    updateValue_view_cart_package(this, -1);
+
+    var item = $(this).parent().find("input[type=number]");
+    //var product_id = $(this).parent().find("input[name='hidden_product_id']");
+
+    var newValue = parseInt(item.val(), 10) - 1;
+    //alert(newValue)
+    if(newValue>0)
+    {
+        updateValue_view_cart_package(this, -1);
+    }
+
+
 });
 
 
@@ -173,7 +195,7 @@ function updateValue_view_cart_package(obj, delta) {
 
 function updateValue_view_cart(obj, delta) {
 
-
+ //alert('hello');
    var item = $(obj).parent().find("input[type=number]");
    var product_id = $(obj).parent().find("input[name='hidden_product_id']");
 

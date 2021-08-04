@@ -334,7 +334,16 @@ $(document).on("click", '.inc', function(event) {
 });
 
 $(document).on("click", '.dec', function(event) {
-    updateValue(this, -1);
+    var item = $(this).parent().find("input[type=number]");
+    //var product_id = $(this).parent().find("input[name='hidden_product_id']");
+
+    var newValue = parseInt(item.val(), 10) - 1;
+    //alert(newValue)
+    if(newValue>0)
+    {
+        updateValue(this, -1);
+    }
+   // updateValue(this, -1);
 });
 
 $(document).on("click", '.inc_package', function(event) {
@@ -343,7 +352,16 @@ $(document).on("click", '.inc_package', function(event) {
 });
 
 $(document).on("click", '.dec_package', function(event) {
-    updateValue_package(this, -1);
+    var item = $(this).parent().find("input[type=number]");
+    //var product_id = $(this).parent().find("input[name='hidden_product_id']");
+
+    var newValue = parseInt(item.val(), 10) - 1;
+    //alert(newValue)
+    if(newValue>0)
+    {
+        updateValue_package(this, -1);
+    }
+
 });
 
 
