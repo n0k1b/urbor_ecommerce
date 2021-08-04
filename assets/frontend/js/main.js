@@ -301,7 +301,11 @@
         // });
 
         $('.btn-cart-header').on('click', function(e) {
+           var count =  $(".cart_itemt_count").text();
+          // alert(count);
+           if(count>0){
             $('.mini-cart').toggleClass('open');
+           }
         });
 
         $('.mini-cart').on('mouseleave', function (e) {

@@ -9,8 +9,12 @@ $( document ).ready(function() {
     });
      get_all_category();
      get_all_category_mobile();
+
+
     get_cart_count();
+
     get_cart_box();
+
 
     // $(".inc").click(function() {
     //     updateValue(this, 1);
@@ -188,6 +192,9 @@ function delete_cart(id)
 
 function get_cart_box()
 {
+    var count =  $(".cart_itemt_count").text();
+    if(count>-1){
+
 
     $.ajax({
     processData: false,
@@ -199,6 +206,7 @@ function get_cart_box()
         $("#cart_box").html(data);
     }
 })
+    }
 }
 function get_cart_count()
 {

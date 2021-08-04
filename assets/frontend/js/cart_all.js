@@ -38,7 +38,11 @@
         success: function (data) {
             $('.mini-cart').toggleClass('open');
             get_cart_count();
-             get_cart_box();
+            var count =  $(".cart_itemt_count").text();
+            if(count>0){
+            get_cart_box();
+            }
+
 
         }
     })
