@@ -1810,7 +1810,7 @@ class AdminController extends Controller
                  ->addColumn('image_edit', function($data){
 
 
-                    $button = ' <a href="javascript:void(0);" class="btn btn-sm btn-danger" onclick="sub_category_content_delete('.$data->id.')"><i class="la la-trash-o"></i></a>';
+                    $button = ' <a href="edit_sub_category_image/'.$data->id.'" class="btn btn-sm btn-primary"><i class="la la-pencil"></i></a>';
                     return $button;
              })
                     ->rawColumns(['status','action','image_edit'])

@@ -1438,7 +1438,7 @@ class FrontController extends Controller
     "type" => "text",
     "contacts" => $mobile_number,
     "senderid" => "8809601001329",
-    "msg" => "Your Urpor OTP is ".$otp,
+    "msg" => "Your Urbor OTP is ".$otp,
   ];
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
