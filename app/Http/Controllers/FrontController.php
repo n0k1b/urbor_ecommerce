@@ -834,7 +834,7 @@ class FrontController extends Controller
         </div>';
         }
         $data.=' </div>';
-        $data.='<script src="assets/frontend/js/main.js?'.time().'"></script>
+        $data.='<script src="assets/frontend/js/main2.js?'.time().'"></script>
        ';
     }
 
