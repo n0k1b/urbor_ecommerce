@@ -10,6 +10,7 @@
     <meta name="author" content="Arasari Studio">
 
     <title>Urbor</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('image')}}/logo2.jpg?{{ time() }}">
     <link href="{{asset('assets')}}/auth/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('assets')}}/auth/css/common.css" rel="stylesheet">
 
@@ -31,8 +32,8 @@
             @if(!empty($error))
             <div class="alert alert-danger"> {{ $error }}</div>
             @endif
-            
-           
+
+
 
        @if (Session::has('success'))
                   <div class="alert alert-success">{{ Session::get('success') }}</div>

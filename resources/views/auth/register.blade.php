@@ -10,6 +10,7 @@
     <meta name="author" content="Arasari Studio">
 
     <title>Urbor</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('image')}}/logo2.jpg?{{ time() }}">
     <link href="{{asset('assets')}}/auth/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{asset('assets')}}/auth/css/common.css" rel="stylesheet">
 
