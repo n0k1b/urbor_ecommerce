@@ -3917,7 +3917,7 @@ class AdminController extends Controller
     public function show_order_product(Request $request)
     {
         $order_no = $request->order_no;
-
+        $order = order::where('order_no',$order_no)->first();
         $order_details = order_details::where('order_no',$order_no)->get();
         $i=1;
           foreach($order_details as $data)
@@ -3925,7 +3925,7 @@ class AdminController extends Controller
             $data['sl_no'] = $i++;
         }
        // file_put_contents('test.txt',$order_no." ".json_encode($order_details));
-        return view('admin.order.show_product',['datas'=>$order_details,'order_no'=>$order_no]);
+        return view('admin.order.show_product',['datas'=>$order_details,'order'=>$order]);
     }
     public function update_order_status(Request $request)
     {

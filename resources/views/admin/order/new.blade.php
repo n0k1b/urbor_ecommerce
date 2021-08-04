@@ -77,7 +77,7 @@
                                                         <td style="color:#4AB50B; font-weight:bold">{{ strtoupper($data->status) }}</td>
                                                         @endif
 														<td>{{$data->user->name}}</td>
-														<td>{{$data->address->address}}</td>
+														<td>{{$data->address->address}}, {{ $data->address->area->name }}</td>
 														<td>{{$data->address->contact_no}}</td>
 														<td>{{date('d/m/Y h:i A',strtotime($data->created_at))}}</td>
                                                         <td>{{$data->delivery_date." ".$data->delivery_time}}</td>

@@ -82,8 +82,8 @@
                                                         <td>{{$data->package->package_name}}</td>
                                                         @endif
 														<td>{{ $data->count }} x {{$data->unit_quantity}}</td>
+                                                        {{-- <td>{{ $data->price }}</td> --}}
                                                         <td>{{ $data->price }}</td>
-
                                                         <td>{{ $data->count*$data->price }}</td>
 
 
@@ -131,7 +131,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
 
 <script>
-    // var order_no = {{ $order_no}};
+
     $("#example3").DataTable({
        ordering: false,
        dom: 'Bfrtip',
@@ -139,7 +139,14 @@
             { extend: 'print', footer: true,  stripHtml:false,
 
             title: 'Invoice',
-            // messageTop: order_no,
+             messageTop:"<b>Order Number</b>: "+"{{ $order->order_no }}"+'<br>'+
+             "<b>Customer Name</b>: "+"{{ $order->user->name }}"+'<br>'+
+            "<b>Contact No</b>: "+ "{{ $order->user->contact_no }}"+'<br>'+
+            "<b>Address</b>: "+"{{ $order->address->address }}"+','+"{{ $order->address->area->name }}"+'<br>'+
+            "<b>Deliver date & time</b>: "+"{{ $order->delivery_date }}"+' '+"{{ $order->delivery_time }}<br>"
+
+
+            ,
             customize: function ( win ) {
 
                         $(win.document.body).find('h1').css('text-align', 'center').css('font-size','25px');
