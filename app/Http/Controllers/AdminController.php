@@ -3696,6 +3696,7 @@ class AdminController extends Controller
             </div>
     ';
         }
+
         $all_product = '<label>Select Product</label>
         <select class="form-control select2" id="product_id" name="product_id">
             <option>Select Product</option>';
