@@ -25,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route::view('abc'');
 // Route::get('abc','FrontController@abc_func');
-Route::get('/','FrontController@index');
+Route::get('home','FrontController@index');
+Route::get('/','FrontController@index')->name('home');
 Route::get('get_all_category','FrontController@get_all_category')->name('get_all_category');
 Route::get('get_all_category_mobile','FrontController@get_all_category_mobile')->name('get_all_category_mobile');
 Route::post('cart_add','FrontController@cart_add')->name('cart_add');
