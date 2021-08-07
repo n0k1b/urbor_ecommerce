@@ -3571,9 +3571,11 @@ class AdminController extends Controller
     public function update_package_content(Request $request)
     {
         $id = $request->id;
-        file_put_contents('test.txt',$id);
-
-        package::where('id', $id)->update(['package_name' => $request->name,'discount_percentage'=>$request->discount_percentage]);
+        //file_put_contents('test.txt',$id);
+        $package = package::where('id',$id)->first();
+        $total_price = $package->total_price;
+        $discount_price = $total_price-floor(($total_price*$request->discount_percentage)/100);
+        package::where('id', $id)->update(['package_name' => $request->name,'discount_percentage'=>$request->discount_percentage,'discount_price'=>$discount_price]);
 
         return redirect()
             ->route('show_all_package')
