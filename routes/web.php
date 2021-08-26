@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -400,4 +401,5 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
 
 Route::view('error','error');
+URL::forceScheme('https');
 
