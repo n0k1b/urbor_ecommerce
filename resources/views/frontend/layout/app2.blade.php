@@ -16,18 +16,18 @@
     <title>Urbor</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('image')}}/logo2.jpg?{{ time() }}">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/fonts/Linearicons/Font/demo-files/demo.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/fonts/Linearicons/Font/demo-files/demo.css">
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/plugins/bootstrap/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/select2/dist/css/select2.min.css">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/owl-carousel/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/slick/slick.css">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/plugins/lightGallery/dist/css/lightgallery.min.css">
-    <link rel="stylesheet" href="{{asset('assets')}}/frontend/css/style.css?{{ time() }}">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/plugins/jquery-bar-rating/dist/themes/fontawesome-stars.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/plugins/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/plugins/owl-carousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/plugins/slick/slick.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/plugins/lightGallery/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="{{asset('assets',true)}}/frontend/css/style.css?{{ time() }}">
     <style>
         .ps-header--center .header-inner {
             padding: 6px 0;
@@ -240,9 +240,9 @@
             <div class="ps-footer--service">
                 <div class="row">
                     <div class="col-12 col-lg-4">
-                        <div class="service__payment"><img src="{{asset('assets')}}/frontend/img/promotion/payment_paypal.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_visa.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_mastercart.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_electron.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_skrill.jpg" alt></div>
+                        <div class="service__payment"><img src="{{asset('assets',true)}}/frontend/img/promotion/payment_paypal.jpg" alt><img src="{{asset('assets',true)}}/frontend/img/promotion/payment_visa.jpg" alt><img src="{{asset('assets',true)}}/frontend/img/promotion/payment_mastercart.jpg" alt><img src="{{asset('assets',true)}}/frontend/img/promotion/payment_electron.jpg" alt><img src="{{asset('assets',true)}}/frontend/img/promotion/payment_skrill.jpg" alt></div>
                         <p class="service__app">Get Urbor App </p>
-                        <div class="service__download"><a href="#"><img src="{{asset('assets')}}/frontend/img/promotion/appStore.jpg" alt></a><a href="#"><img src="{{asset('assets')}}/frontend/img/promotion/googlePlay.jpg" alt></a></div>
+                        <div class="service__download"><a href="#"><img src="{{asset('assets',true)}}/frontend/img/promotion/appStore.jpg" alt></a><a href="#"><img src="{{asset('assets',true)}}/frontend/img/promotion/googlePlay.jpg" alt></a></div>
                     </div>
 
                     <div class="col-12 col-lg-4">
@@ -340,30 +340,30 @@
     </nav>
 
 
-    <script src="{{asset('assets')}}/frontend/plugins/jquery.min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 
-    <script src="{{asset('assets')}}/frontend/plugins/popper.min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/popper.min.js"></script>
 
-    <script src="{{asset('assets')}}/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="{{asset('assets')}}/frontend/plugins/owl-carousel/owl.carousel.min.js"></script>
-    <script src="{{asset('assets')}}/frontend/plugins/jquery.matchHeight-min.js"></script>
-    <script src="{{asset('assets')}}/frontend/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
-    <script src="{{asset('assets')}}/frontend/plugins/select2/dist/js/select2.min.js"></script>
-    <script src="{{asset('assets')}}/frontend/plugins/slick/slick.js"></script>
-    <script src="{{asset('assets')}}/frontend/plugins/lightGallery/dist/js/lightgallery-all.min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/jquery.matchHeight-min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/jquery-bar-rating/dist/jquery.barrating.min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/select2/dist/js/select2.min.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/slick/slick.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/plugins/lightGallery/dist/js/lightgallery-all.min.js"></script>
 
 
 
     <!-- custom code-->
-    <script src="{{asset('assets')}}/frontend/js/main.js?{{ time() }}"></script>
-    <script src="{{asset('assets')}}/frontend/js/sweetalert.js?{{ time() }}"></script>
-    <script src="{{asset('assets')}}/frontend/js/custom.js"></script>
-    <script src="{{asset('assets')}}/frontend/js/frontend.js?{{ time() }}" async></script>
+    <script src="{{asset('assets',true)}}/frontend/js/main.js?{{ time() }}"></script>
+    <script src="{{asset('assets',true)}}/frontend/js/sweetalert.js?{{ time() }}"></script>
+    <script src="{{asset('assets',true)}}/frontend/js/custom.js"></script>
+    <script src="{{asset('assets',true)}}/frontend/js/frontend.js?{{ time() }}" async></script>
 
-    {{-- <script src="{{asset('assets')}}/frontend/js/cart.js?{{ time() }}"></script> --}}
+    {{-- <script src="{{asset('assets',true)}}/frontend/js/cart.js?{{ time() }}"></script> --}}
     @yield('page_js')
 
 

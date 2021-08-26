@@ -507,8 +507,8 @@ class FrontController extends Controller
            else
            order_details::create(['order_no'=>$order_no,'package_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price'],'product_type'=>'package']);
         }
-        $delivery_fee = 60;
-        $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee,'delivery_date'=>$delivery_date,'delivery_time'=>$delivery_time]);
+        $delivery_fee =delivery_charge::first()->unit_charge ;
+        $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee]);
 
         $status = $order->status;
         $order_no = $order->order_no;
