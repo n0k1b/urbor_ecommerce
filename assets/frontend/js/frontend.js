@@ -9,11 +9,9 @@ $( document ).ready(function() {
     });
      get_all_category();
      get_all_category_mobile();
-
-
     get_cart_count();
 
-    get_cart_box();
+  // get_cart_box();
 
 
     // $(".inc").click(function() {
