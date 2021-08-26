@@ -10033,6 +10033,7 @@ font-size: 26px !important;
 
 .mini-cart {
     position: fixed;
+    display: none;
     right: 0;
     top: 0;
     width: 0;
@@ -10063,7 +10064,6 @@ font-size: 26px !important;
     position: relative;
     padding: 0;
     transform: scale(1, 1);
-    -webkit-transform: scale(1, 1);
 }
 
 .mini-cart__header {
@@ -10169,8 +10169,6 @@ font-size: 26px !important;
         top: 120%;
         height: 500px;
         transform: scale3d(1, 1, 0) translateY(30px);
-        -webkit-transform: scale3d(1, 1, 0) translateY(30px);
-
     }
     .mini-cart .mini-cart--overlay {
         display: none;
@@ -10189,8 +10187,8 @@ font-size: 26px !important;
     }
     .mini-cart.open {
         transform: scale3d(1, 1, 1) translateY(0);
-        -webkit-transform:scale3d(1, 1, 1) translateY(0);
         width: 370px;
+        display: block;
     }
 }
 
