@@ -1280,7 +1280,16 @@ class FrontController extends Controller
     {
         $id = $request->id;
         $product = product::where('id',$id)->first();
-        return view('frontend.product_details',compact('product'));
+        $homepage_avail = homepage_product_list::where('product_list',$id)->first();
+        $discount_percentage = 0;
+        $discount_price = 0;
+        if($homepage_avail)
+        {
+            $discount_percentage  = $homepage_avail->discount_percentage;
+            $discount_price =$product->price- floor(($product->price*$homepage_avail->discount_percentage)/100);
+        }
+        $company_info = company_info::first();
+        return view('frontend.product_details',compact('product','company_info','discount_percentage','discount_price'));
 
     }
 

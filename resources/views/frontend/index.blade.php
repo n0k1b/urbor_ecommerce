@@ -57,10 +57,10 @@
 
                     <div class="ps-flash__product">
                         <div class="ps-product--standard">
-                            <a href="javascript:void(0);" ><img class="ps-product__thumbnail" height="150px"  src="{{ $package->package_image }}" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" ><i class="icon-expand"></i></a>
-                            <div class="ps-product__content" href="javascript:void(0);" >
+                            <a href="package_product/{{$package->id}}" ><img class="ps-product__thumbnail" height="150px"  src="{{ $package->package_image }}" alt="alt" /></a><a class="ps-product__expand" href="package_product/{{$package->id}}" ><i class="icon-expand"></i></a>
+                            <div class="ps-product__content" href="package_product/{{$package->id}}" >
 
-                                <h5><a class="ps-product__name" style="height: 40px" href="javascript:void(0);" >{{$package->package_name }}</a></h5>
+                                <h5><a class="ps-product__name" style="height: 40px" href="package_product/{{$package->id}}" >{{$package->package_name }}</a></h5>
 
 
                                 <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $package->discount_price }}</span><span class="ps-product__price">TK {{ $package->total_price }}</span><span class="ps-product__off">{{ $package->discount_percentage }}% Off</span>
@@ -114,10 +114,10 @@
                     ?>
                     <div class="ps-flash__product">
                         <div class="ps-product--standard">
-                            <a href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})"><img class="ps-product__thumbnail" height="150px"  src="{{ $product_list->product->thumbnail_image }}" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})"><i class="icon-expand"></i></a>
-                            <div class="ps-product__content" href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})">
+                            <a href="product_details/{{ $product_list->product->id }}" ><img class="ps-product__thumbnail" height="150px"  src="{{ $product_list->product->thumbnail_image }}" alt="alt" /></a><a class="ps-product__expand" href="product_details/{{ $product_list->product->id }}" ><i class="icon-expand"></i></a>
+                            <div class="ps-product__content" href="product_details/{{ $product_list->product->id }}" >
 
-                                <h5><a class="ps-product__name" style="height: 40px" href="javascript:void(0);" onclick="show_cart_modal({{$product_list->product->id}})">{{ $product_list->product->name }}</a></h5>
+                                <h5><a class="ps-product__name" style="height: 40px" href="product_details/{{ $product_list->product->id }}" >{{ $product_list->product->name }}</a></h5>
 
                                 @if($product_list->discount_percentage>0)
                                 <p class="ps-product__unit">{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}<span class="ps-product-price-block"> Tk <span class="ps-product__sale">{{ $discount_price }}</span><span class="ps-product__price">TK {{ $product_list->product->price }}</span><span class="ps-product__off">{{ $product_list->discount_percentage }}% Off</span></span></p>
