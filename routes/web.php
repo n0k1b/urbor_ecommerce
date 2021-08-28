@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\URL;
+//use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Route::get('/','FrontController@index')->name('home');
 Route::get('get_all_category','FrontController@get_all_category')->name('get_all_category');
 Route::get('get_all_category_mobile','FrontController@get_all_category_mobile')->name('get_all_category_mobile');
 Route::post('cart_add','FrontController@cart_add')->name('cart_add');
-Route::post('cart_add_package','FrontController@cart_add_package');;
+Route::post('cart_add_package','FrontController@cart_add_package')->name('cart_add_package');;
 Route::get('get_cart_count','FrontController@get_cart_count')->name('get_cart_count');
 Route::get('get_cart_box','FrontController@get_cart_box')->name('get_cart_box');
 Route::get('get_cart_data','FrontController@get_cart_data')->name('get_cart_data');
@@ -42,6 +42,7 @@ Route::post('cart_update','FrontController@cart_update');
 Route::post('cart_update_package','FrontController@cart_update_package');
 Route::get('show_cart_modal/{id}','FrontController@show_cart_modal')->name('show_cart_modal');
 Route::get('show_package_modal/{id}','FrontController@show_package_modal');
+Route::get('product_details/{id}','FrontController@product_details');
 Route::get('send_otp', function() {
     return view('auth.otp');
     // return what you want
@@ -63,17 +64,19 @@ Route::get('login', function () {
 Route::get('order_tracking', function () {
     return view('frontend.order_tracking');
 });
-
+Route::get('package_product/{id}','FrontController@package_product');
 Route::get('view_all/{type}','FrontController@view_all_product')->name('view_all');
 Route::get('get_all_product_view_all/{type}','FrontController@get_all_product_view_all');
 Route::get('view_all','FrontController@view_alll_category_product')->name('view_all_product');
 Route::post('search_product','FrontController@search_product')->name('search_product');
 Route::get('get_all_homepage_section/{type}','FrontController@get_all_homepage_section');
 
+Route::post('checkout','FrontController@checkout')->name('checkout');
 
 Route::group(['middleware' => 'IsLoggedIn'], function()
 {
-   Route::get('checkout','FrontController@checkout');
+    Route::get('checkout','FrontController@checkout_from');
+   //Route::get('checkout','FrontController@checkout');
    Route::get('get_all_address','FrontController@get_all_address');
    Route::post('add_address','FrontController@add_address');
    Route::get('delete_address/{id}','FrontController@delete_address');
@@ -398,8 +401,9 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 
 
 
-
+Route::get('update_unit','AdminController@update_unit');
+Route::get('update_stock','AdminController@update_stock');
 
 Route::view('error','error');
-URL::forceScheme('https');
+//URL::forceScheme('https');
 

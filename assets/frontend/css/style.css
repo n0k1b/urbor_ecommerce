@@ -13114,7 +13114,7 @@ font-size: 26px !important;
 }
 
 .section--flashSale {
-    //background-color: #f7f7f7;
+    background-color: #f7f7f7;
 }
 
 .section--flashSale .flashSale__banner {
@@ -13229,7 +13229,7 @@ font-size: 26px !important;
 }
 
 .section--flashSale .flashSale__product .ps-product--standard:hover {
-    height: 480px !important;
+height: 480px !important;
 }
 
 .section--flashSale .flashSale__product .ps-product--standard:hover .ps-product__rating,

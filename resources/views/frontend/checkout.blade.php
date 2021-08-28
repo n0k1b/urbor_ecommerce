@@ -278,16 +278,16 @@
                                     </div>
                                 </div>
                                 <div class="checkout__list">
-                                    @foreach($cart as $id =>$details)
+                                    @foreach($cart as $product)
 
                                     <div class="checkout__product__item">
                                         <div class="checkout-product">
-                                            <div class="product__name">{{ $details['name'] }}<span>(x{{ $details['quantity'] }})</span></div>
-                                            @if($details['type'] =='product')
-                                            <div class="product__unit">{{ $details['unit'] }}</div>
+                                            <div class="product__name">{{$product->name }}<span>(x{{ $product->count }})</span></div>
+                                            @if($product->type =='product')
+                                            <div class="product__unit">{{ $product->unit }}</div>
                                             @endif
                                         </div>
-                                        <div class="checkout-price">{{ $details['price']*$details['quantity'] }}</div>
+                                        <div class="checkout-price">{{ $product->price*$product->count }}</div>
                                     </div>
                                     @endforeach
                                 </div>

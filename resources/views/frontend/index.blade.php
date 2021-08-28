@@ -57,10 +57,10 @@
 
                     <div class="ps-flash__product">
                         <div class="ps-product--standard">
-                            <a href="javascript:void(0);" onclick="show_package_modal({{$package->id}})"><img class="ps-product__thumbnail" height="150px"  src="{{ $package->package_image }}" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" onclick="show_package_modal({{$package->id}})"><i class="icon-expand"></i></a>
-                            <div class="ps-product__content" href="javascript:void(0);" onclick="show_package_modal({{$package->id}})">
+                            <a href="javascript:void(0);" ><img class="ps-product__thumbnail" height="150px"  src="{{ $package->package_image }}" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" ><i class="icon-expand"></i></a>
+                            <div class="ps-product__content" href="javascript:void(0);" >
 
-                                <h5><a class="ps-product__name" style="height: 40px" href="javascript:void(0);" onclick="show_package_modal({{$package->id}})">{{$package->package_name }}</a></h5>
+                                <h5><a class="ps-product__name" style="height: 40px" href="javascript:void(0);" >{{$package->package_name }}</a></h5>
 
 
                                 <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $package->discount_price }}</span><span class="ps-product__price">TK {{ $package->total_price }}</span><span class="ps-product__off">{{ $package->discount_percentage }}% Off</span>
@@ -72,7 +72,7 @@
 
 
 
-                                <button class="ps-product__addcart" onclick="show_package_modal({{$package->id}})">View Details</button>
+                                <button class="ps-product__addcart" onclick="window.location.href='package_product/{{$package->id}}'" >View Details</button>
                                 {{-- <div class="ps-product__box"><a class="ps-product__wishlist" href="#">Wishlist</a></div> --}}
                             </div>
 
@@ -106,7 +106,7 @@
                 <h3 class="component__title">{{ $section_product->section_name }}</h3><a class="component__view" href="view_all/section_prodcut-{{$section_product->id}}">View all <i class="icon-chevron-right"></i></a>
             </div>
             <div class="component__content">
-                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="true" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
+                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="false" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
                     data-owl-duration="1000" data-owl-mousedrag="on">
                     @foreach($section_product->product_list as $product_list)
                     <?php
@@ -139,7 +139,11 @@
                                     <button class="plus inc"><i class="icon-plus"></i></button>
                                 </div>
                                 <div class="ps-product__total"></div>
-                                <button class="ps-product__addcart" onclick="cart_add({{ $product_list->product->id }})"><i class="icon-cart"></i>Add to cart</button>
+                                @if($product_list->discount_percentage>0)
+                                <button class="add-to-cart  ps-product__addcart"  data-type='product'  data-unit= '{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}' data-id = '{{ $product_list->product->id }}' data-image='{{ $product_list->product->thumbnail_image }}' data-name="{{ $product_list->product->name }}" data-price="{{ $discount_price}}" ><i class="icon-cart"></i>Add to cart</button>
+                                @else
+                                <button class="add-to-cart  ps-product__addcart"  data-type='product' data-unit= '{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}' data-id = '{{ $product_list->product->id }}' data-image='{{ $product_list->product->thumbnail_image }}' data-name="{{ $product_list->product->name }}" data-price="{{ $product_list->product->price }}" ><i class="icon-cart"></i>Add to cart</button>
+                                @endif
                                 {{-- <div class="ps-product__box"><a class="ps-product__wishlist" href="#">Wishlist</a></div> --}}
                             </div>
                         </div>

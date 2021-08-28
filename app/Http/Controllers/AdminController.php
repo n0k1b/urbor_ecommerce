@@ -47,10 +47,34 @@ use App\Models\product_required_filed;
 class AdminController extends Controller
 {
 
+
+
     protected function guard()
 {
     return Auth::guard('admin');
 }
+
+
+public function update_unit()
+{
+    $product = product::get();
+    foreach($product as $data)
+    {
+        $unit_id = product_unit::where('product_id',$data->id)->first()->id;
+        product::where('id',$data->id)->update(['unit_id'=>$unit_id]);
+    }
+}
+
+public function update_stock()
+{
+    $product = product::get();
+    foreach($product as $data)
+    {
+        $stock = product_stock::where('product_id',$data->id)->first()->stock_amount;
+        product::where('id',$data->id)->update(['stock'=>$stock]);
+    }
+}
+
    // public $role_permissions;
     public function permission ()
 {

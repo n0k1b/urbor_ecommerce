@@ -26,13 +26,13 @@ class product extends Model
     }
     public function unit()
     {
-        return $this->belongsTo('App\Models\product_unit','id','product_id')->withDefault();
+        return $this->belongsTo('App\Models\product_unit','unit_id','id')->withDefault();
     }
 
-    public function stock()
-    {
-        return $this->belongsTo('App\Models\product_stock','id','product_id')->withDefault();
-    }
+    // public function stock()
+    // {
+    //     return $this->belongsTo('App\Models\product_stock','id','product_id')->withDefault();
+    // }
 
     public function warehouse()
     {

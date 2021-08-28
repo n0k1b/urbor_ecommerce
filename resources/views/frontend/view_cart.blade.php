@@ -10,6 +10,7 @@
             </ul>
         </div>
     </div>
+
     <section class="section--shopping-cart">
         <div class="container shopping-container">
             <h3 class="page__title" style="padding:14px">Shopping Cart</h3>
@@ -27,7 +28,7 @@
                                         <div class="cart-action"> </div>
                                     </div>
                                 </div>
-                                <div class="shopping-cart-body" id="cart_all">
+                                <div class="shopping-cart-body show-cart-all" >
 
 
 
@@ -39,7 +40,29 @@
                         </div>
                     </div>
                     <div class="col-12 col-lg-4" id="cart_total">
+                        <div class="shopping-cart__right">
+                            <div class="shopping-cart__total">
+                                <p class="shopping-cart__subtotal"><span>Subtotal</span><span class="price total-cart"></span></p>
+                                <p class="shopping-cart__shipping"><span>Delivery Charge</span><span class="price delivery_charge" style="float: right;font-weight:bold">{{ $delivery_charge }}</span></p>
 
+
+
+                                <p class="shopping-cart__subtotal"><span><b>TOTAL</b></span><span class="price-total"></span></p>
+
+                            </div>
+                            <div class="col-12 col-lg-12">
+                                <div class="shopping-cart__block" style="padding: 0px">
+                                    <h3 class="block__title" style="font-size:14px; padding-bottom:5px">Do you have a promo code?</h3>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" placeholder="Coupon code">
+                                        <div class="input-group-append">
+                                            <button class="btn">Apply</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn shopping-cart__checkout" href="javascript:" onclick="checkout()">Proceed to Checkout</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -48,5 +71,5 @@
 </main>
 @endsection
 @section('page_js')
-<script src="{{asset('assets')}}/frontend/js/cart_all.js?{{ time() }}"></script>
+{{-- <script src="{{asset('assets')}}/frontend/js/cart_all.js?{{ time() }}"></script> --}}
 @endsection

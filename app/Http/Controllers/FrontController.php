@@ -376,9 +376,9 @@ class FrontController extends Controller
 
     public function view_cart()
     {
+        $delivery_charge = delivery_charge::first()->unit_charge;
 
-
-        return view('frontend.view_cart');
+        return view('frontend.view_cart',compact('delivery_charge'));
     }
     public function search_product(Request $request)
     {
@@ -486,7 +486,7 @@ class FrontController extends Controller
         $delivery_date = $request->delivery_date;
         $delivery_time = $request->delivery_time;
         $cart = session()->get('cart');
-        $total = 0;
+        $total = session()->get('sub_total'); ;
 
         $user_id = auth()->user()->id;
         $order_no = 'UB'.$user_id.mt_rand(10000,99999);
@@ -495,17 +495,20 @@ class FrontController extends Controller
 
 
 
-        foreach( $cart as $id => $details)
+        foreach( $cart as $product)
         {
-           $total += $details['price'] * $details['quantity'];
-           $remaining_stock = product_stock::where('product_id',$id)->first()->stock_amount;
-           $stock = $remaining_stock-$details['quantity'];
-           product_stock::where('product_id',$id)->update(['stock_amount'=>$stock]);
+            $id = $product->id;
+           //$total += $details['price'] * $details['quantity'];
 
-           if($details['type'] == 'product')
-           order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price'],'product_type'=>'regular']);
+
+           if($product->type == 'product'){
+           $remaining_stock = product_stock::where('product_id',$id)->first()->stock_amount;
+           $stock = $remaining_stock-$product->count;
+           product_stock::where('product_id',$id)->update(['stock_amount'=>$stock]);
+           order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$product->unit,'count'=>$product->count,'price'=>$product->count,'product_type'=>'regular']);
+           }
            else
-           order_details::create(['order_no'=>$order_no,'package_id'=>$id,'unit_quantity'=>$details['unit'],'count'=>$details['quantity'],'price'=>$details['price'],'product_type'=>'package']);
+           order_details::create(['order_no'=>$order_no,'package_id'=>$id,'unit_quantity'=>$product->unit,'count'=>$product->count,'price'=>$product->count,'product_type'=>'package']);
         }
         $delivery_fee =delivery_charge::first()->unit_charge ;
         $order = order::create(['address_id'=>$address_id,'user_id'=>$user_id,'order_no'=>$order_no,'status'=>'pending','total_price'=>$total,'delivery_fee'=>$delivery_fee]);
@@ -516,16 +519,18 @@ class FrontController extends Controller
         $delivery_address = $order->address->address;
 
         $order_detail = order_details::where('order_no',$order_no)->get();
-        $sub_total = 0;
-        for($j=0;$j<sizeof($order_detail);$j++)
-        {
-            $sub_total+=$order_detail[$j]->price*$order_detail[$j]->count;
-           // array_push($order_details,['id'=>$order_detail[$j]->id,'price'=>$order_detail[$j]->price,'count'=>$order_detail[$j]->count,'unit'=>$order_detail[$j]->unit_quantity,'name'=>$order_detail[$j]->product->name,'image'=>$this->base_url.$order_detail[$j]->product->thumbnail_image,'total'=>$order_detail[$j]->price*$order_detail[$j]->count]);
+        $sub_total = $total;
+        // for($j=0;$j<sizeof($order_detail);$j++)
+        // {
+        //     $sub_total+=$order_detail[$j]->price*$order_detail[$j]->count;
+        //    // array_push($order_details,['id'=>$order_detail[$j]->id,'price'=>$order_detail[$j]->price,'count'=>$order_detail[$j]->count,'unit'=>$order_detail[$j]->unit_quantity,'name'=>$order_detail[$j]->product->name,'image'=>$this->base_url.$order_detail[$j]->product->thumbnail_image,'total'=>$order_detail[$j]->price*$order_detail[$j]->count]);
 
-        }
+        // }
         $delivery_charge = delivery_charge::first()->unit_charge;
         $total = $sub_total+$delivery_charge;
         session()->forget('cart');
+        session()->forget('sub_total');
+
         return view('frontend.order_tracking',compact('status','order_no','order_date','delivery_address','delivery_charge','total','sub_total','order_detail'));
        // $order_no = $order->order_no;
 
@@ -723,63 +728,64 @@ class FrontController extends Controller
 
     public function get_cart_box()
     {
+
         $total = 0;
         $cart =session()->get('cart');
 
 
-        $data =' <div class="mini-cart__products">
-        <div class="out-box-cart">
-            <div class="triangle-box">
-                <div class="triangle"></div>
-            </div>
-        </div>
-        <ul class="list-cart">';
+//         $data =' <div class="mini-cart__products">
+//         <div class="out-box-cart">
+//             <div class="triangle-box">
+//                 <div class="triangle"></div>
+//             </div>
+//         </div>
+//         <ul class="list-cart">';
 
 
-       foreach( $cart as $id => $details)
-       {
-        $total += $details['price'] * $details['quantity'];
+//        foreach( $cart as $id => $details)
+//        {
+//         $total += $details['price'] * $details['quantity'];
 
-        $data.='
-        <li class="cart-item">
-        <div class="ps-product--mini-cart"><a href="product-default.html"><img style="min-width:60px" class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
-            <div class="ps-product__content"><a class="ps-product__name" href="product-default.html">'.$details['name'].'</a>
-               ';
-               if($details['type']=='product')
-               {
-               $data.='
-                <p class="ps-product__unit">'.$details['unit'].'</p>
-                ';
-               }
-                $data.='
+//         $data.='
+//         <li class="cart-item">
+//         <div class="ps-product--mini-cart"><a href="product-default.html"><img style="min-width:60px" class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
+//             <div class="ps-product__content"><a class="ps-product__name" href="product-default.html">'.$details['name'].'</a>
+//                ';
+//                if($details['type']=='product')
+//                {
+//                $data.='
+//                 <p class="ps-product__unit">'.$details['unit'].'</p>
+//                 ';
+//                }
+//                 $data.='
 
-                <p class="ps-product__meta"> <span class="ps-product__price">TK '.$details['price'].'</span><span class="ps-product__quantity">(x'.$details['quantity'].')</span>
-                </p>
-            </div>
-            <div class="ps-product__remove"  onclick = "delete_cart('.$id.')" ><i class="icon-trash2"></i></div>
-        </div>
-    </li>
-
-
-        ';
+//                 <p class="ps-product__meta"> <span class="ps-product__price">TK '.$details['price'].'</span><span class="ps-product__quantity">(x'.$details['quantity'].')</span>
+//                 </p>
+//             </div>
+//             <div class="ps-product__remove"  onclick = "delete_cart('.$id.')" ><i class="icon-trash2"></i></div>
+//         </div>
+//     </li>
 
 
-       }
-       $data.=' </ul>
-       </div>';
-
-       $data.='
-       <div class="mini-cart__footer row">
-       <div class="col-6 title">TOTAL</div>
-       <div class="col-6 text-right total">TK '.$total.'</div>
-       <div class="col-12 d-flex"><a class="checkout" href="view_cart">View cart</a></div>
-   </div>
-
-       ';
+//         ';
 
 
+//        }
+//        $data.=' </ul>
+//        </div>';
 
-            echo $data;
+//        $data.='
+//        <div class="mini-cart__footer row">
+//        <div class="col-6 title">TOTAL</div>
+//        <div class="col-6 text-right total">TK '.$total.'</div>
+//        <div class="col-12 d-flex"><a class="checkout" href="view_cart">View cart</a></div>
+//    </div>
+
+//        ';
+
+
+
+//             echo $data;
 
     }
     public function view_all_product($type)
@@ -859,6 +865,15 @@ class FrontController extends Controller
     }
 
         echo $data;
+    }
+    public function package_product(Request $request)
+    {
+        $package_id = $request->id;
+        $package_info = package::where('id',$package_id)->first();
+        $package_product = package_product::where('package_id',$package_id)->where('status',1)->where('delete_status',0)->get();
+        return view('frontend.package_product',compact('package_product','package_info'));
+
+
     }
     public function get_all_product_view_all($type)
     {
@@ -1192,7 +1207,8 @@ class FrontController extends Controller
 
     public function show_package_modal($id)
     {
-        file_put_contents('test.txt',$id);
+       // file_put_contents('test.txt',$id);
+       $package = package::where('id',$id)->first();
         $package_product = package_product::where('package_id',$id)->where('delete_status',0)->get();
       //  $product_in_section = homepage_product_list::where('product_list',$id)->where('status',1)->first();
         // $discount_percentage = 0;
@@ -1242,7 +1258,7 @@ class FrontController extends Controller
                 <input type="hidden" name="hidden_product_id_package" value="'.$product->package_id.'">
                 <button class="plus inc_package"><i class="icon-plus"></i></button>
             </div>
-            <button class="btn product__addcart"  onclick="cart_add_package('.$product->package_id.')"> <i class="icon-cart"></i>Add to cart</button>
+            <button class="add-to-cart ps-product__addcart"  data-type="package" data-unit= "1 package" data-id = "'.$package->id.'" data-image="'.$package->package_image.'" data-name="'.$package->package_names.'" data-price="'.$package->discount_price.'" ><i class="icon-cart"></i>Add to cart</button>
 
 
         </div>
@@ -1258,6 +1274,14 @@ class FrontController extends Controller
         ';
         echo $data;
         exit;
+    }
+
+    public function product_details(Request $request)
+    {
+        $id = $request->id;
+        $product = product::where('id',$id)->first();
+        return view('frontend.product_details',compact('product'));
+
     }
 
     function str_random($length = 16)
@@ -1323,29 +1347,45 @@ class FrontController extends Controller
 
         //return response($response, 200);
     }
-    public function checkout()
+    public function checkout_from()
     {
+        $cart = session()->get('cart');
+        //file_put_contents('test.txt',$cart[0]->name);
+
         $areas = area::where('status',1)->where('delete_status',0)->get();
 
-            $sub_total = 0;
-            $cart = session()->get('cart');
+            $sub_total = session()->get('sub_total');
+           // $cart = session()->get('cart');
             $description = '';
             $category_name='';
-            foreach( $cart as $id => $details)
+            foreach( $cart as $product)
             {
-                $description = product::find($id)->category->description;
+                //file_put_contents('test.txt',$product->id);
+                if($product->type=='product'){
+               $description = product::find($product->id)->category->description;
                 if($description)
                 {
-                    $category_name = product::find($id)->category->name;
+                    $category_name = product::find($product->id)->category->name;
                 }
+            }
 
                // file_put_contents('test.txt',$description);
-                $sub_total += $details['price'] * $details['quantity'];
+            // $sub_total += $details['price'] * $details['quantity'];
             }
             $delivery_charge = delivery_charge::first()->unit_charge;
             $total = $sub_total+$delivery_charge;
+            //$data=  array('areas'=>$areas,'cart'=>$cart,'delivery_charge'=>$delivery_charge,'total'=>$total,'sub_total'=>$sub_total,'description'=>$description,'category_name'=>$category_name);
+            return view('frontend.checkout',compact('areas','cart','delivery_charge','total','sub_total','description','category_name'));
+       //return response()->json($data);
+    }
+    public function checkout(Request $request)
+    {
 
-        return view('frontend.checkout',compact('areas','cart','delivery_charge','total','sub_total','description','category_name'));
+        $cart = json_decode($request->cart);
+        session()->put('cart',$cart);
+        session()->put('sub_total',$request->sub_total);
+
+
     }
 
     public function add_address(Request $request)

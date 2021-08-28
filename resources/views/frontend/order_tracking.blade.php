@@ -283,7 +283,11 @@
                                         @endif
                                         <div class="product__unit">{{ $data->unit_quantity }}</div>
                                     </div>
-                                    <div class="checkout-price">{{ $data->price*$data->count }}</div>
+                                    @if($data->product_type =='regular')
+                                    <div class="checkout-price">{{ $data->product->price*$data->count }}</div>
+                                    @else
+                                    <div class="checkout-price">{{ $data->package->discount_price*$data->count }}</div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
@@ -336,5 +340,13 @@
 @endsection
 
 @section('page_js')
+<script>
+        $(function() {
+
+            shoppingCart.clearCart();
+            displayCart();
+            //alert('hello')
+});
+</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 @endsection
