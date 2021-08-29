@@ -2089,26 +2089,34 @@ public function update_stock()
 
     public function get_all_product(Request $request)
     {
+        //file_put_contents('test.txt',$request." ".time());
         if ($request->ajax()) {
-            $datas = product::where('delete_status',0)->get();
+            $datas = product::with('category:id,name','sub_category:id,category_id,name','unit:id,unit_type,unit_quantity')->where('delete_status',0)->select(['*']);
+
+
             $i=1;
                 foreach($datas as $data)
                 {
-                    $checked = $data->status=='1'?'checked':'';
-                    $data['sl_no'] = $i++;
+                  $checked = $data->status=='1'?'checked':'';
+                    $data->sl_no= $i++;
                    // $data['category_name'] = $data->sub_category->category->name;
 
-
-
-                    $data['checked'] =$checked;
+                    $data->chekced =$checked;
 
                 }
 
-            return Datatables::of($datas)
+              //  file_put_contents('test.txt',$datas);
+
+            return Datatables::eloquent($datas)
+
                     ->addIndexColumn()
+
                     ->addColumn('status', function($datas){
 
-                           $switch = "<label class='switch'> <input onclick='product_active_status(".$datas->id.")' type='checkbox'".$datas->checked."  /> <span class='slider round'></span> </label>";
+                            if($datas->status == 1)
+                           $switch = "<label class='switch'> <input onclick='product_active_status(".$datas->id.")' type='checkbox' checked /> <span class='slider round'></span> </label>";
+                           else
+                           $switch = "<label class='switch'> <input onclick='product_active_status(".$datas->id.")' type='checkbox' /> <span class='slider round'></span> </label>";
 
                             return $switch;
                     })
@@ -2146,16 +2154,7 @@ public function update_stock()
                      return $column;
                  })
 
-                 ->addColumn('warehouse', function($datas){
 
-                    $permission = $this->permission();
-
-                    if(in_array('product_edit',$permission))
-                    $column = '<p onclick='.'edit('. $datas->id.',"warehouse")'.'>'. $datas->warehouse->warehouse->name .'</p>';
-                    else
-                    $column = '<p >'. $datas->warehouse->warehouse->name .'</p>';
-                     return $column;
-                 })
 
                 //  ->addColumn('warehouse', function($datas){
 
@@ -2166,17 +2165,17 @@ public function update_stock()
 
                  ->addColumn('product_image', function($datas){
                     $permission = $this->permission();
-                    // $url = $datas->thumbnail_image;
-                    // $type = pathinfo($url, PATHINFO_EXTENSION);
-                    // $image = file_get_contents($url);
-                    // $base64 = 'data:image/' . $type . ';base64,' . base64_encode($image);
+                    $url = $datas->thumbnail_image;
+                    $type = pathinfo($url, PATHINFO_EXTENSION);
+                    $image = file_get_contents($url);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($image);
 
                     if(in_array('product_edit',$permission))
                     {
-                    $column = '<img onclick='.'edit('. $datas->id.',"product_image")'.'  src="../'.$datas->thumbnail_image.'"  width="100px" class="img-thumbnail product-image" />';
+                    $column = '<img  onclick='.'edit('. $datas->id.',"product_image")'.'  src="'.$base64.'"  width="100px" class="img-thumbnail product-image lazy" />';
                     }
                     else
-                    $column = '<img   src="../'.$datas->thumbnail_image.'" width="100px" class="img-thumbnail" />';
+                    $column = '<img   src="../'.$datas->thumbnail_image.'" width="100px" class="img-thumbnail lazy" />';
                      return $column;
                  })
                  ->addColumn('product_price', function($datas){
@@ -2209,9 +2208,9 @@ public function update_stock()
                     $permission = $this->permission();
 
                     if(in_array('product_edit',$permission))
-                    $column = '<p >'. $datas->stock->stock_amount .'</p>';
+                    $column = '<p >'. $datas->stock .'</p>';
                     else
-                    $column = '<p >'. $datas->stock->stock_amount .'</p>';
+                    $column = '<p >'. $datas->stock .'</p>';
                      return $column;
                  })
                  ->addColumn('action', function($data){
@@ -2229,7 +2228,7 @@ public function update_stock()
 
 
 
-                    ->rawColumns(['status','category_name','sub_category_name','product_name','warehouse','product_image','product_price','product_unit_type','product_unit_quantity','produc_stock_amount','action'])
+                    ->rawColumns(['status','category_name','sub_category_name','product_name','product_image','product_price','product_unit_type','product_unit_quantity','produc_stock_amount','action'])
                     ->make(true);
         }
 

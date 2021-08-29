@@ -502,9 +502,9 @@ class FrontController extends Controller
 
 
            if($product->type == 'product'){
-           $remaining_stock = product_stock::where('product_id',$id)->first()->stock_amount;
+           $remaining_stock = product::where('id',$id)->first()->stock;
            $stock = $remaining_stock-$product->count;
-           product_stock::where('product_id',$id)->update(['stock_amount'=>$stock]);
+           product::where('id',$id)->update(['stock'=>$stock]);
            order_details::create(['order_no'=>$order_no,'product_id'=>$id,'unit_quantity'=>$product->unit,'count'=>$product->count,'price'=>$product->count,'product_type'=>'regular']);
            }
            else

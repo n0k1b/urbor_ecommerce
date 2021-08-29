@@ -88,7 +88,7 @@
                 </ul>
             </div>
      @endif
-				<div class="row page-titles mx-0">
+    			<div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
                             <h4>All Product</h4>
@@ -110,7 +110,8 @@
 							<div id="list-view" class="tab-pane fade active show col-lg-12">
 								<div class="card">
 									<div class="card-header">
-										<h4 class="card-title"></h4>
+
+                                        <a href="#" data-toggle="modal" data-target="#importModal" class="btn btn-primary" style="float: left;">Import Product</a>
                                         @if(in_array('product_add',$role_permission))
                                         <a href="{{ route('add-product') }}" class="btn btn-primary">+ Add new</a>
                                         @else
@@ -124,12 +125,12 @@
 											<table id="product" class="display" style="min-width: 845px">
 												<thead>
 													<tr>
-														<th>#</th>
+														{{-- <th>#</th> --}}
 														<th>Category Name</th>
                                                         <th>Sub Category Name</th>
 
                                                         <th>Product Name</th>
-                                                        <th>Warehouse</th>
+                                                        {{-- <th>Warehouse</th> --}}
                                                         <th>Image</th>
                                                         <th>Unit Price</th>
 
@@ -160,6 +161,52 @@
 
             </div>
 
+            <div class="modal fade bd-example-modal-lg" id="importModal">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Import Product</h5>
+                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="italic"><small>The field labels marked with * are required input fields.</small></p>
+           <p> The correct column order is (image, name*, code*, type*, brand, category*, unit_code*, cost*, price*, product_details, variant_name, item_code, additional_price) {{trans('file.and you must follow this')}}.</p>
+
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Upload CSV File*</label>
+                                        <div class="input-group form-group">
+
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input">
+                                                <label class="custom-file-label">Choose file</label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label> Sample File</label>
+                                            <a href="{{ asset('public') }}/sample_file/sample_product.csv" class="btn btn-info btn-block btn-md"><i class="dripicons-download"></i>Download</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-primary">Sumbit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
 @endsection
 @section('page_js')
 
@@ -167,6 +214,23 @@
 
 <script src="{{asset('assets')}}/admin/js/select2.full.js"></script>
 <script src="{{asset('assets')}}/admin/js/advanced-form-element.js"></script>
+
+<script src="{{asset('assets')}}/admin/js/single_image_preview.js?{{time()}}"></script>
+<script src="{{asset('assets')}}/admin/js/select2.full.js"></script>
+<script src="{{asset('assets')}}/admin/js/advanced-form-element.js"></script>
+{{--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.bootstrap.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.js"></script>
+<script type="text/javascript" src="{{asset('assets')}}/admin/js/lazyloader/jquery.lazy.min.js"></script>
 
 {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -177,6 +241,9 @@
 
 <script type="text/javascript">
     $(function () {
+
+        // var lazy = $("table img").Lazy({chainable: false});
+
 
         var buttonCommon = {
     //         format: {
@@ -190,6 +257,9 @@
     };
 
       var table = $('#product').DataTable({
+
+
+
         //dom: '<"row"lfB>rtip',
        //dom: 'Blfrtip',
         // buttons: [
@@ -234,43 +304,40 @@
 
         //     ],
 
-          pageLength: 20,
-          processing: true,
+
+
+
+            processing: true,
          language: {
             processing: '<i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span> '
-},
+        },
           serverSide: true,
 
           ajax: "{{ route('get_all_product') }}",
+        //   drawCallback: function() {
+        //     // update the images shown on table changes
+        //     lazy.update();
+        // },
           deferRender: true,
           columns: [
-              {data: 'sl_no', name: 'sl_no'},
+            //   {data: 'sl_no'},
 
-              {data:'category_name',name:'category_name'},
+            {data:'category_name',name:'category_name'},
               {data:'sub_category_name',name:'sub_category_name'},
-              {data:'product_name',name:'product_name'},
-              {data:'warehouse',name:'warehouse'},
-              {data:'product_image',name:'product_image'},
+              {data:'product_name',name:'name'},
+            //   {data:'warehouse',name:'warehouse'},
+            {data:'product_image',name:'product_image'},
               {data:'product_price',name:'product_price'},
               {data:'product_unit_type',name:'product_unit_type'},
               {data:'product_unit_quantity',name:'product_unit_quantity'},
               {data:'produc_stock_amount',name:'produc_stock_amount'},
-
-
             {
-
                 data: 'status',
                 name: 'status',
-
-
             },
-
                 {
-
                 data: 'action',
                 name: 'action',
-
-
                 },
 
           ],
@@ -292,20 +359,6 @@
 
 
 
-<script src="{{asset('assets')}}/admin/js/single_image_preview.js?{{time()}}"></script>
-<script src="{{asset('assets')}}/admin/js/select2.full.js"></script>
-<script src="{{asset('assets')}}/admin/js/advanced-form-element.js"></script>
-{{--
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> --}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.18/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
-
-<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.bootstrap.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.html5.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.2.4/js/buttons.print.js"></script>
 
 @endsection

@@ -128,6 +128,7 @@
                                 {{-- <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span> --}}
                                 </p>
                                 @endif
+                                <p class="ps-product__sold text-center">Stock: {{ $product_list->product->stock }} Unit</p>
 
                                 {{-- <p class="ps-product__sold">Stock in Unit: {{ $product_list->product->stock->stock_amount }}</p> --}}
                             </div>

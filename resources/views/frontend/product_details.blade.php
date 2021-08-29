@@ -54,7 +54,7 @@
                                         {{ $product->unit->unit_quantity }} {{ $product->unit->unit_type }}
                                     </div>
 
-                                    <div class="ps-product__avai alert__success">Availability: <span>{{ $product->stock }}</span>
+                                    <div class="ps-product__avai alert__success">Product Stock: <span>{{ $product->stock }} Unit</span>
                                     </div>
 
                                     <div class="ps-product__shopping">
