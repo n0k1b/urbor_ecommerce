@@ -51,7 +51,8 @@ class ProductImport implements ToModel, WithStartRow
             'price'=>(int)$row['5'],
             'unit_quantity'=>(int)$row['6'],
             'unit_type'=>$row['7'],
-            'net_weight'=>(int)$row['8']
+            'net_weight'=>(int)$row['8'],
+            'status'=>0
 
         ]);
     }
