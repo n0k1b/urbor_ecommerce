@@ -2202,7 +2202,7 @@ public function update_stock()
                     $permission = $this->permission();
 
                     if(in_array('product_edit',$permission))
-                    $column = '<p onclick='.'edit('. $datas->id.',"product_unit_type")'.'>'. $datas->unit->unit_type .'</p>';
+                    $column = '<p onclick='.'edit('. $datas->id.',"product_unit_type")'.'>'. $datas->unit_type .'</p>';
                     else
                     $column = '<p >'. $datas->unit->unit_type .'</p>';
 
@@ -2210,7 +2210,7 @@ public function update_stock()
                  })
                  ->addColumn('product_unit_quantity', function($datas){
 
-                    $column = '<p onclick='.'edit('. $datas->id.',"product_unit_quantity")'.'>'. $datas->unit->unit_quantity .'</p>';
+                    $column = '<p onclick='.'edit('. $datas->id.',"product_unit_quantity")'.'>'. $datas->unit_quantity .'</p>';
 
                      return $column;
                  })
@@ -2400,12 +2400,12 @@ public function update_stock()
 
         if($user_role == 'Admin' || $user_role == 'admin')
         {
-            $product = product::create(['category_id'=>$request->category_id,'sub_category_id'=>$request->sub_category_id,'brand_id'=>$request->brand_id,'name'=>$request->name,'price'=>$request->price,'thumbnail_image'=>$image,'description'=>$description,'net_weight'=>$request->net_weight]);
+            $product = product::create(['category_id'=>$request->category_id,'sub_category_id'=>$request->sub_category_id,'brand_id'=>$request->brand_id,'name'=>$request->name,'price'=>$request->price,'thumbnail_image'=>$image,'description'=>$description,'net_weight'=>$request->net_weight,'unit_type'=>$request->unit_type,'unit_quantity'=>$request->unit_quantity]);
 
         }
         else
         {
-            $product = product::create(['category_id'=>$request->category_id,'sub_category_id'=>$request->sub_category_id,'brand_id'=>$request->brand_id,'name'=>$request->name,'price'=>$request->price,'thumbnail_image'=>$image,'description'=>$description,'net_weight'=>$request->net_weight,'status'=>0]);
+            $product = product::create(['category_id'=>$request->category_id,'sub_category_id'=>$request->sub_category_id,'brand_id'=>$request->brand_id,'name'=>$request->name,'price'=>$request->price,'thumbnail_image'=>$image,'description'=>$description,'net_weight'=>$request->net_weight,'status'=>0,'unit_type'=>$request->unit_type,'unit_quantity'=>$request->unit_quantity]);
         }
 
         //$product = product::create(['category_id'=>$request->category_id,'sub_category_id'=>$request->sub_category_id,'brand_id'=>$request->brand_id,'name'=>$request->name,'price'=>$request->price,'thumbnail_image'=>$image,'description'=>$description,'net_weight'=>$request->net_weight]);
@@ -2418,9 +2418,9 @@ public function update_stock()
        {
        product_size::create(['product_id'=>$product_id,'size'=>$request->size]);
        }
-       product_unit::create(['product_id'=>$product_id,'unit_quantity'=>$request->unit_quantity,'unit_type'=>$request->unit_type]);
-      product_stock::create(['product_id'=>$product_id,'stock_amount'=>'0']);
-       warehouse_product::create(['product_id'=>$product_id,'warehouse_id'=>$request->warehouse_id]);
+       //product_unit::create(['product_id'=>$product_id,'unit_quantity'=>$request->unit_quantity,'unit_type'=>$request->unit_type]);
+     // product_stock::create(['product_id'=>$product_id,'stock_amount'=>'0']);
+       //warehouse_product::create(['product_id'=>$product_id,'warehouse_id'=>$request->warehouse_id]);
 
 
 
@@ -2851,17 +2851,19 @@ public function update_stock()
 
         if($column_name == 'product_price')
         {
+
             product::where('id',$product_id)->update(['price'=>$input_value]);
         }
 
         if($column_name == 'product_unit_type')
         {
-            product_unit::where('product_id',$product_id)->update(['unit_type'=>$input_value]);
+            product::where('id',$product_id)->update(['unit_type'=>$input_value]);
         }
 
         if($column_name == 'product_unit_quantity')
         {
-            product_unit::where('product_id',$product_id)->update(['unit_quantity'=>$input_value]);
+            file_put_contents('test.txt',$input_value.' '.$product_id);
+            product::where('id',$product_id)->update(['unit_quantity'=>$input_value]);
         }
 
         if($column_name == 'produc_stock_amount')
