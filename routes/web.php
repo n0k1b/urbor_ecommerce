@@ -185,6 +185,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
       Route::post('get_product_update_modal','AdminController@get_product_update_modal');
       Route::post('update_product_value','AdminController@update_product_value')->name('update_product_value');
       Route::get('product_content_delete/{id}','AdminController@product_content_delete')->name('product_content_delete');
+      Route::post('product_import','AdminController@product_import')->name('product_import');
 
       //product end
 

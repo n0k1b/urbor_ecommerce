@@ -171,16 +171,17 @@
                         </div>
                         <div class="modal-body">
                             <p class="italic"><small>The field labels marked with * are required input fields.</small></p>
-           <p> The correct column order is (image, name*, code*, type*, brand, category*, unit_code*, cost*, price*, product_details, variant_name, item_code, additional_price) {{trans('file.and you must follow this')}}.</p>
+           <p> The correct column order is (Cateogry*, Sub Category*, Product Name*, Product Description, Image Name*, Price*, Unit quantity*, Unit Type*, Net Weight(In GM)).</p>
 
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Upload CSV File*</label>
                                         <div class="input-group form-group">
-
+                                            <form action="{{ route('product_import') }}" enctype="multipart/form-data" method="POST">
+                                                @csrf
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input">
+                                                <input type="file"   name="products" class="custom-file-input">
                                                 <label class="custom-file-label">Choose file</label>
                                             </div>
 
@@ -199,7 +200,8 @@
                         </div>
                         <div class="modal-footer">
 
-                            <button type="button" class="btn btn-primary">Sumbit</button>
+                            <button type="submit" class="btn btn-primary">Sumbit</button>
+                        </form>
                         </div>
                     </div>
                 </div>

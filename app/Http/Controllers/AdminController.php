@@ -36,6 +36,8 @@ use App\Models\package;
 use App\Models\package_product;
 use Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Imports\ProductImport;
+use Maatwebsite\Excel\Facades\Excel;
 use DB;
 use DataTables;
 use Auth;
@@ -2165,17 +2167,24 @@ public function update_stock()
 
                  ->addColumn('product_image', function($datas){
                     $permission = $this->permission();
-                    $url = $datas->thumbnail_image;
-                    $type = pathinfo($url, PATHINFO_EXTENSION);
-                    $image = file_get_contents($url);
-                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($image);
+                    // $url = $datas->thumbnail_image;
+                    // $type = pathinfo($url, PATHINFO_EXTENSION);
+                    // if($url)
+                    // {
+                    // $image = file_get_contents($url);
+                    // $base64 = 'data:image/' . $type . ';base64,' . base64_encode($image);
+                    // }
+                    // else
+                    // {
+                    //     $base64 = '';
+                    // }
 
                     if(in_array('product_edit',$permission))
                     {
-                    $column = '<img  onclick='.'edit('. $datas->id.',"product_image")'.'  src="'.$base64.'"  width="100px" class="img-thumbnail product-image lazy" />';
+                    $column = '<img  onclick='.'edit('. $datas->id.',"product_image")'.' alt="image not found" src="../'.$datas->thumbnail_image.'"  width="100px" class="img-thumbnail product-image lazy" />';
                     }
                     else
-                    $column = '<img   src="../'.$datas->thumbnail_image.'" width="100px" class="img-thumbnail lazy" />';
+                    $column = '<img alt="image not found"  src="../'.$datas->thumbnail_image.'" width="100px" class="img-thumbnail lazy" />';
                      return $column;
                  })
                  ->addColumn('product_price', function($datas){
@@ -2285,6 +2294,14 @@ public function update_stock()
         return view('admin.product.all2');
 
 
+    }
+
+    public function product_import(Request $request)
+    {
+
+        Excel::import(new ProductImport, $request->file('products'));
+
+        return redirect()->back()->with('success', 'Product Update Successfully');
     }
 
 

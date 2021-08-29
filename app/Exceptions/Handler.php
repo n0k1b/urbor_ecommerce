@@ -13,13 +13,16 @@ use Symfony\Component\Routing\Exception\MethodNotAllowedException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\ErrorHandler\Exception\FlattenException;
+use Illuminate\Session\TokenMismatchException;
 use InvalidArgumentException;
 use Throwable;
 use CustomException;
 use Error;
 use ErrorException;
 use Illuminate\Database\QueryException;
+
 
 class Handler extends ExceptionHandler
 {
@@ -57,10 +60,13 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception)
     {
-        if ($exception instanceof NotFoundHttpException || $exception instanceof MethodNotAllowedHttpException || $exception instanceof ModelNotFoundException || $exception instanceof InvalidArgumentException || $exception instanceof ErrorException || $exception instanceof QueryException || $exception instanceof Error ||$exception instanceof BadMethodCallException ) {
+        if ($exception instanceof NotFoundHttpException || $exception instanceof MethodNotAllowedHttpException || $exception instanceof ModelNotFoundException ||$exception instanceof TokenMismatchException|| $exception instanceof InvalidArgumentException || $exception instanceof ErrorException || $exception instanceof QueryException || $exception instanceof Error ||$exception instanceof BadMethodCallException ) {
 
             return response()->view('error', [], 500);
         }
+
+
+
         return parent::render($request, $exception);
     }
 
