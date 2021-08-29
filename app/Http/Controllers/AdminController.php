@@ -62,8 +62,9 @@ public function update_unit()
     $product = product::get();
     foreach($product as $data)
     {
-        $unit_id = product_unit::where('product_id',$data->id)->first()->id;
-        product::where('id',$data->id)->update(['unit_id'=>$unit_id]);
+        $unit_type = product_unit::where('product_id',$data->id)->first()->unit_type;
+        $unit_quantity = product_unit::where('product_id',$data->id)->first()->unit_quantity;
+        product::where('id',$data->id)->update(['unit_type'=>$unit_type,'unit_quantity'=>$unit_quantity]);
     }
 }
 
