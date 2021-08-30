@@ -1,1 +1,1 @@
-4 1077
+[{"id":1,"area_id":1,"name":"Salek Garden","address":"42\/a Salek Garden,Moulovi Salek Road, Zigatola Dhaka -1209.","contact_no":"01730806526","status":1,"delete_status":0,"created_at":"2021-03-29T11:03:05.000000Z","updated_at":"2021-07-17T06:33:58.000000Z"}]
