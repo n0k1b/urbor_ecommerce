@@ -106,7 +106,7 @@
                 <h3 class="component__title">{{ $section_product->section_name }}</h3><a class="component__view" href="view_all/section_prodcut-{{$section_product->id}}">View all <i class="icon-chevron-right"></i></a>
             </div>
             <div class="component__content">
-                <div class="owl-carousel" data-owl-auto="true" data-owl-loop="false" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
+                <div class="owl-carousel" data-owl-auto="false" data-owl-loop="false" data-owl-speed="5000" data-owl-gap="0" data-owl-nav="true" data-owl-dots="false" data-owl-item="5" data-owl-item-xs="5" data-owl-item-sm="2" data-owl-item-md="3" data-owl-item-lg="5"
                     data-owl-duration="1000" data-owl-mousedrag="on">
                     @foreach($section_product->product_list as $product_list)
                     <?php
@@ -128,7 +128,8 @@
                                 {{-- <p class="ps-product-price-block">Tk <span class="ps-product__sale">{{ $discount_price }}</span> --}}
                                 </p>
                                 @endif
-                                <p class="ps-product__sold text-center">Stock: {{ $product_list->product->stock }} Unit</p>
+
+                                <p class="ps-product__unit text-center">Stock: {{ $product_list->product->stock }} Unit</p>
 
                                 {{-- <p class="ps-product__sold">Stock in Unit: {{ $product_list->product->stock->stock_amount }}</p> --}}
                             </div>
