@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-//use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\URL;
 
 /*
 |--------------------------------------------------------------------------
@@ -365,5 +365,5 @@ Route::get('update_unit','AdminController@update_unit');
 Route::get('update_stock','AdminController@update_stock');
 
 Route::view('error','error');
-//URL::forceScheme('https');
+URL::forceScheme('https');
 
