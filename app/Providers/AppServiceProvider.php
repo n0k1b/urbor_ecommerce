@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //test
 
-      //  \Illuminate\Support\Facades\URL::forceScheme('https');
+       \Illuminate\Support\Facades\URL::forceScheme('https');
 
     }
 }
