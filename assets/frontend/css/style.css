@@ -2786,6 +2786,9 @@ font-size: 26px !important;
 .number-input{
     height: 32px !important;
 }
+.product_unit{
+    height: 90px !important;
+}
 .package_thumbnail {
     height: 182px !important;
     width: 161px !important;

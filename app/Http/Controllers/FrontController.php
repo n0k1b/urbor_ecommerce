@@ -604,7 +604,7 @@ class FrontController extends Controller
                     <div class="ps-product--mini-cart"><a href="product-default.html"><img class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
                         <div class="ps-product__content">
                             <h5><a class="ps-product__name" href="#">'.$details['name'].'</a></h5>
-                            <p class="ps-product__unit">'.$details['unit'].'</p>
+                            <p class="ps-product__unit product_unit">'.$details['unit'].'</p>
 
                             <p class="ps-product__meta">Price: <span class="ps-product__price">TK '.$details['price'].'</span></p>
                             <div class="def-number-input number-input safari_only">
@@ -896,7 +896,7 @@ class FrontController extends Controller
 
 
 
-                        <p class="ps-product__unit">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">'.$discount_price.'</span><span class="ps-product__price">TK '.$product->product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span> </span></p>
+                        <p class="ps-product__unit product_unit">'.$product->product->unit->unit_quantity .$product->product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">'.$discount_price.'</span><span class="ps-product__price">TK '.$product->product->price.' </span><span class="ps-product__off">'.$product->discount_percentage.'% Off</span> </span></p>
 
 
 
@@ -966,7 +966,7 @@ class FrontController extends Controller
                             {
                             $discount_price =$product->price- floor(($product->price*$discount_avail->discount_percentage)/100);
                         $data.='
-                        <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.
+                        <p class="ps-product__unit product_unit">'.$product->unit->unit_quantity .$product->unit->unit_type.
                         '<span class="ps-product-price-block"> Tk <span class="ps-product__sale">'. $discount_price.'</span><span class="ps-product__price">TK  '.$product->price.'</span><span class="ps-product__off">'.$discount_avail->discount_percentage.'% Off</span></span></p>
 
                         ';
@@ -974,7 +974,7 @@ class FrontController extends Controller
                         else
                         {
                             $data.='
-                            <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
+                            <p class="ps-product__unit product_unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
                             '.$product->price.'</span> </span></p>
                             ';
                         }
@@ -984,7 +984,7 @@ class FrontController extends Controller
                         else
                         {
                             $data.='
-                            <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
+                            <p class="ps-product__unit product_unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
                             '.$product->price.'</span> </span></p>
                             ';
                         }
@@ -1057,7 +1057,7 @@ class FrontController extends Controller
                             {
                             $discount_price =$product->price- floor(($product->price*$discount_avail->discount_percentage)/100);
                         $data.='
-                        <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.
+                        <p class="ps-product__unit product_unit">'.$product->unit->unit_quantity .$product->unit->unit_type.
                         '<span class="ps-product-price-block"> Tk <span class="ps-product__sale">'. $discount_price.'</span><span class="ps-product__price">TK  '.$product->price.'</span><span class="ps-product__off">'.$discount_avail->discount_percentage.'% Off</span></span></p>
 
                         ';
@@ -1065,7 +1065,7 @@ class FrontController extends Controller
                         else
                         {
                             $data.='
-                            <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
+                            <p class="ps-product__unit product_unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
                             '.$product->price.'</span> </span></p>
                             ';
                         }
@@ -1073,7 +1073,7 @@ class FrontController extends Controller
                         else
                         {
                             $data.='
-                            <p class="ps-product__unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
+                            <p class="ps-product__unit product_unit">'.$product->unit->unit_quantity .$product->unit->unit_type.' <span class="ps-product-price-block"><span class="ps-product__sale">
                             '.$product->price.'</span> </span></p>
                             ';
                         }
@@ -1169,7 +1169,7 @@ class FrontController extends Controller
                                 }
                                 $data.='
 
-                                    <p class="product__unit">'.$unit.'.</p>
+                                    <p class="product__unit product_unit">'.$unit.'.</p>
 
 
                                 </div>
