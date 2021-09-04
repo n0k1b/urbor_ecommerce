@@ -14,7 +14,7 @@
     {{-- <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content=""> --}}
-    <title>Urbor</title>
+    <title>Urborbd</title>
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('image')}}/logo2.jpg?{{ time() }}">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600,700&amp;amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('assets')}}/frontend/fonts/Linearicons/Font/demo-files/demo.css">
@@ -260,7 +260,7 @@
                 <div class="row">
                     {{-- <div class="col-12 col-lg-4">
                         <div class="service__payment"><img src="{{asset('assets')}}/frontend/img/promotion/payment_paypal.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_visa.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_mastercart.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_electron.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_skrill.jpg" alt></div>
-                        <p class="service__app">Get Urbor App </p>
+                        <p class="service__app">Get Urborbd App </p>
                         <div class="service__download"><a href="#"><img src="{{asset('assets')}}/frontend/img/promotion/appStore.jpg" alt></a><a href="#"><img src="{{asset('assets')}}/frontend/img/promotion/googlePlay.jpg" alt></a></div>
                     </div> --}}
 
