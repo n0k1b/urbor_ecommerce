@@ -889,10 +889,10 @@ class FrontController extends Controller
             {
                 $discount_price =$product->product->price- floor(($product->product->price*$product->discount_percentage)/100);
                 $data.='<div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                <div class="ps-product--standard"><a  href="javascript:void(0);" onclick="show_cart_modal('.$product->product->id.')"><img class="ps-product__thumbnail" height="150px"   src="'.$product->product->thumbnail_image.'" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" onclick="show_cart_modal('.$product->product->id.')"><i class="icon-expand"></i></a>
+                <div class="ps-product--standard"><a  href="product_details/'.$product->product->id.'"><img class="ps-product__thumbnail" height="150px"   src="'.$product->product->thumbnail_image.'" alt="alt" /></a><a class="ps-product__expand" href="product_details/'.$product->product->id.'"><i class="icon-expand"></i></a>
                     <div class="ps-product__content">
 
-                        <h5><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->product->id.')" >'.$product->product->name.'</a></h5>
+                        <h5><a class="ps-product__name" href="product_details/'.$product->product->id.'" >'.$product->product->name.'</a></h5>
 
 
 
@@ -954,10 +954,11 @@ class FrontController extends Controller
                // file_put_contents('test2.txt',json_encode($product->product));
                 // $discount_price =$product->product->price- floor(($product->product->price*$product->discount_percentage)/100);
                 $data.='<div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                <div class="ps-product--standard"><a  href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')"><img class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')"><i class="icon-expand"></i></a>
+                <div class="ps-product--standard"><a href="product_details/'.$product->id.'"><img class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a>
+                <a class="ps-product__expand" href="product_details/'.$product->id.'"><i class="icon-expand"></i></a>
                     <div class="ps-product__content">
 
-                        <h5><a class="ps-product__name" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')" >'.$product->name.'</a></h5>
+                        <h5><a class="ps-product__name" href="product_details/'.$product->id.'" >'.$product->name.'</a></h5>
                         ';
                         if($discount_avail)
                         {
@@ -1046,10 +1047,11 @@ class FrontController extends Controller
                // file_put_contents('test2.txt',json_encode($product->product));
                 // $discount_price =$product->product->price- floor(($product->product->price*$product->discount_percentage)/100);
                 $data.='<div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                <div class="ps-product--standard"><a  href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')"><img class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a><a class="ps-product__expand" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')"><i class="icon-expand"></i></a>
+                <div class="ps-product--standard"><a  href="product_details/'.$product->id.'"><img class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a>
+                <a class="ps-product__expand" href="product_details/'.$product->id.'"><i class="icon-expand"></i></a>
                     <div class="ps-product__content">
 
-                        <h5><a class="ps-product__name" style="height:48px" href="javascript:void(0);" onclick="show_cart_modal('.$product->id.')" >'.$product->name.'</a></h5>';
+                        <h5><a class="ps-product__name" style="height:48px" href="product_details/'.$product->id.'" >'.$product->name.'</a></h5>';
 
                         if($discount_avail)
                         {
