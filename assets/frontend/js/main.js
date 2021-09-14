@@ -41,8 +41,8 @@
             e.preventDefault();
             var current = $(this).parent('.menu-item-has-children')
             $(this).toggleClass('active');
-            current.siblings().find('.sub-toggle').removeClass('active');
-            current.children('.sub-menu').slideToggle(350);
+            // current.siblings().find('.sub-toggle').removeClass('active');
+            // current.children('.sub-menu').slideToggle(350);
             current.siblings().find('.sub-menu').slideUp(350);
             $(this).parent().find('a').toggleClass('active');
         });
@@ -296,39 +296,27 @@
         $('#inputSearchMobile').on('click', function(e) {
             $('.mobile-search__result').addClass('open');
         });
-        // $('#inputSearchMobile').on('mouseleave', function (e) {
-        //     $('.mobile-search__result').removeClass('open');
-        // });
-
-        $('.btn-cart-header').on('click', function(e) {
-           var count =  $(".cart_itemt_count").text();
-          // alert(count);
-           if(count>0){
-            $('.mini-cart').toggleClass('open');
-           }
+        $('#inputSearchMobile').on('mouseleave', function (e) {
+            $('.mobile-search__result').removeClass('open');
         });
 
+        $('.btn-cart-header').on('click', function(e) {
+            $('.mini-cart').toggleClass('open');
+        });
         $('.mini-cart').on('mouseleave', function (e) {
             $(this).removeClass('open');
         });
-
-
-
 
         $('.close-cart').on('click', function (e) {
             $('.mini-cart').removeClass('open');
         });
 
-
-
         $('.input-search').on('click', function(e) {
-
-            // $('.result-search').toggleClass('open');
+            $('.result-search').toggleClass('open');
         });
 
         $('.header-inner__center').on('mouseleave', function (e) {
             $('.result-search').removeClass('open');
-            $("#toggle_state").val('close');
         });
     }
 
@@ -787,6 +775,5 @@
 })(jQuery);
 
 $(window).on('load', function() {
-    $('#preloader').fadeOut(500);
     $("#preloader").addClass('deactive');
 });

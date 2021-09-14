@@ -43,6 +43,7 @@ Route::post('cart_update_package','FrontController@cart_update_package');
 Route::get('show_cart_modal/{id}','FrontController@show_cart_modal')->name('show_cart_modal');
 Route::get('show_package_modal/{id}','FrontController@show_package_modal');
 Route::get('product_details/{id}','FrontController@product_details');
+Route::get('shop','FrontController@shop');
 
 
 //User Auth Start

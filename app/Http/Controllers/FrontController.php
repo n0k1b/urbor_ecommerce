@@ -225,13 +225,30 @@ class FrontController extends Controller
        // session()->forget('cart');
         $banners = banner::where('status',1)->orderBy('order')->get();
         $categories = category::where('status',1)->get();
+        foreach($categories as $category)
+        {
+            $url = $category->image;
+            $type = pathinfo($url, PATHINFO_EXTENSION);
+            if($url)
+                {
+                    $image = file_get_contents($url);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($image);
+                    }
+                    else
+                    {
+                        $base64 = '';
+                    }
+
+            $category->image = $base64;
+        }
         $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
         $company_info = company_info::first();
 
         $packages = package::where('status',1)->where('delete_status',0)->get();
 
-
-        return view ('frontend.index',compact('banners','categories','homepage_section_content','company_info','packages'));
+        $response = ["banner" =>$banners,'categories'=>$categories,'homepage_section_content'=>$homepage_section_content,'packages'=>$packages];
+       // return response($response, 200);
+       return view ('frontend.index',compact('banners','categories','homepage_section_content','company_info','packages'));
     }
 
 
@@ -1384,6 +1401,15 @@ class FrontController extends Controller
         return $response;
 
     }
+
+    public function shop()
+    {
+        $categories = category::where('delete_status',0)->where('status',1)->get();
+        $products = product::where('delete_status',0)->where('status',1)->paginate(16);
+        return view('frontend.shop',compact('products','categories'));
+    }
+
+
     public function delete_address($id)
     {
         user_address::where('id',$id)->delete();
@@ -1398,6 +1424,9 @@ class FrontController extends Controller
         $data = user_address::where('id',$id)->first();
         echo json_encode($data);
     }
+
+
+
 
 
 }
