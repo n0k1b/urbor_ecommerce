@@ -44,7 +44,7 @@ Route::get('show_cart_modal/{id}','FrontController@show_cart_modal')->name('show
 Route::get('show_package_modal/{id}','FrontController@show_package_modal');
 Route::get('product_details/{id}','FrontController@product_details');
 Route::get('shop','FrontController@shop');
-
+Route::get('update_image','FrontController@update_image');
 
 //User Auth Start
 Route::get('send_otp', function() {

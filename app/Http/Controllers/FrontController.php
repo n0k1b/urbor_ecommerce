@@ -1410,7 +1410,16 @@ class FrontController extends Controller
         echo json_encode($data);
     }
 
+    public function update_image()
+    {
+        $images = product::get();
+        foreach($images as $image)
+        {
+            $update_image = str_replace("jpg","webp",$image->thumbnail_image);
+            product::where('id',$image->id)->update(['thumbnail_image'=>$update_image]);
+        }
 
+    }
 
 
 
