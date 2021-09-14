@@ -26,7 +26,7 @@
                     data-owl-mousedrag="on">
                     @foreach ($categories as $category)
                     <div class="ps-category__item">
-                        <a href="view_all/category_prodcut-{{$category->id}}"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="{{ $category->image }}" alt></a><a class="ps-categories__name" href="view_all/category_prodcut-{{$category->id}}">{{ $category->name }} </a>
+                        <a href="view_all/category_prodcut-{{$category->id}}"><img class="ps-categories__thumbnail" height="100px" width="100px" src="{{ $category->image }}" alt></a><a class="ps-categories__name" href="view_all/category_prodcut-{{$category->id}}">{{ $category->name }} </a>
                     </div>
                     @endforeach
 

@@ -222,33 +222,18 @@ class FrontController extends Controller
     }
     public function index()
     {
-       // session()->forget('cart');
-        $banners = banner::where('status',1)->orderBy('order')->get();
-        $categories = category::where('status',1)->get();
-        foreach($categories as $category)
-        {
-            $url = $category->image;
-            $type = pathinfo($url, PATHINFO_EXTENSION);
-            if($url)
-                {
-                    $image = file_get_contents($url);
-                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($image);
-                    }
-                    else
-                    {
-                        $base64 = '';
-                    }
+     // session()->forget('cart');
+     $banners = banner::where('status',1)->orderBy('order')->get();
+     $categories = category::where('status',1)->get();
 
-            $category->image = $base64;
-        }
-        $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
-        $company_info = company_info::first();
+     $homepage_section_content = homepage_section::where('status',1)->where('delete_status',0)->orderBy('section_order')->get();
+     $company_info = company_info::first();
 
-        $packages = package::where('status',1)->where('delete_status',0)->get();
+     $packages = package::where('status',1)->where('delete_status',0)->get();
 
-        $response = ["banner" =>$banners,'categories'=>$categories,'homepage_section_content'=>$homepage_section_content,'packages'=>$packages];
-       // return response($response, 200);
-       return view ('frontend.index',compact('banners','categories','homepage_section_content','company_info','packages'));
+     $response = ["banner" =>$banners,'categories'=>$categories,'homepage_section_content'=>$homepage_section_content,'packages'=>$packages];
+    // return response($response, 200);
+    return view ('frontend.index',compact('banners','categories','homepage_section_content','company_info','packages'));
     }
 
 
