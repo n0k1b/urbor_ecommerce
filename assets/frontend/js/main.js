@@ -301,6 +301,8 @@
         });
 
         $('.btn-cart-header').on('click', function(e) {
+            var count = $('.total-count').html();
+            if(count>0)
             $('.mini-cart').toggleClass('open');
         });
         $('.mini-cart').on('mouseleave', function (e) {

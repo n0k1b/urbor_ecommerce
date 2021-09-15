@@ -185,7 +185,7 @@ var shoppingCart = (function() {
     var cartArray = shoppingCart.listCart();
     var output = "";
     for(var i in cartArray) {
-      output += '<div class="shopping-cart-row">'
+      output += '<div class="show-cart shopping-cart-row">'
       +'<div class="cart-product">'
       +'<div class="ps-product--mini-cart"><a href="product-default.html"><img class="ps-product__thumbnail" src='+ cartArray[i].image +' alt="alt" /></a>'
       +'<div class="ps-product__content">'
@@ -256,7 +256,7 @@ var shoppingCart = (function() {
 
   $('.show-cart').on("click", ".delete-item", function(event) {
 
-    var id = $(this).data('id')
+    var id = $(this).data('id');
     //alert(id);
     shoppingCart.removeItemFromCartAll(id);
     $('.mini-cart').toggleClass('open');
@@ -265,13 +265,83 @@ var shoppingCart = (function() {
 
   })
 
+  $('.show-cart-all').on("click", ".delete-item", function(event) {
+
+    var count = $('.total-count').html();
+    if(count>1)
+    {
+        var id = $(this).data('id');
+        //alert(id);
+        shoppingCart.removeItemFromCartAll(id);
+
+        //$('.mini-cart').toggleClass('open');
+        displayCart();
+        displayAll();
+    }
+    else
+    {
+        swal({
+            title: "Are you sure?",
+            text: "This is the last item of your cart. If you remove it,you will redirect to homepage",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+
+                var id = $(this).data('id');
+                shoppingCart.removeItemFromCartAll(id);
+                displayCart();
+                displayAll();
+                document.location.href='home';
+
+            }
+          })
+    }
+
+
+  })
+
+
 
   // -1
   $('.show-cart-all').on("click", ".minus-item", function(event) {
-    var id = $(this).data('id')
-    shoppingCart.removeItemFromCart(id);
-    //displayCart();
-    displayAll();
+
+
+    var count = $('.total-count').html();
+    if(count>1)
+    {
+        var id = $(this).data('id');
+        //alert(id);
+        shoppingCart.removeItemFromCart(id);
+
+        //$('.mini-cart').toggleClass('open');
+        displayCart();
+        displayAll();
+    }
+    else
+    {
+        swal({
+            title: "Are you sure?",
+            text: "This is the last item of your cart. If you remove it,you will redirect to homepage",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+
+                var id = $(this).data('id');
+                shoppingCart.removeItemFromCart(id);
+                displayCart();
+                displayAll();
+                document.location.href='home';
+
+            }
+          })
+    }
+
 
   })
   // +1

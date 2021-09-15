@@ -150,7 +150,7 @@ Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
       Route::post('update_sub_category_image','SubCategoryController@update_sub_category_image')->name('update_sub_category_image');
 
       //sub category end
-    //test
+
       //prodcut start
       Route::get('get_category','ProductController@get_category')->name('get_category');
       Route::post('get_sub_category','ProductController@get_sub_category')->name('get_sub_category');
