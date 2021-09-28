@@ -68,9 +68,9 @@
                                             </div>
                                         </div>
                                         @if($discount_percentage>0)
-                                        <button class="add-to-cart  ps-product__addcart"  data-type='product'  data-unit= '{{ $product->unit->unit_quantity }} {{ $product->unit->unit_type }}' data-id = '{{ $product->id }}' data-image='{{ $product->thumbnail_image }}' data-name="{{ $product->name }}" data-price="{{ $discount_price}}" ><i class="icon-cart"></i>Add to cart</button>
+                                        <button class="add-to-cart  ps-product__addcart"  data-type='product'  data-unit= '{{ $product->unit_quantity }} {{ $product->unit_type }}' data-id = '{{ $product->id }}' data-image='{{ $product->thumbnail_image }}' data-name="{{ $product->name }}" data-price="{{ $discount_price}}" ><i class="icon-cart"></i>Add to cart</button>
                                         @else
-                                        <button class="add-to-cart  ps-product__addcart"  data-type='product' data-unit= '{{ $product->unit->unit_quantity }} {{ $product->unit->unit_type }}' data-id = '{{ $product->id }}' data-image='{{ $product->thumbnail_image }}' data-name="{{ $product->name }}" data-price="{{ $product->price }}" ><i class="icon-cart"></i>Add to cart</button>
+                                        <button class="add-to-cart  ps-product__addcart"  data-type='product' data-unit= '{{ $product->unit_quantity }} {{ $product->unit_type }}' data-id = '{{ $product->id }}' data-image='{{ $product->thumbnail_image }}' data-name="{{ $product->name }}" data-price="{{ $product->price }}" ><i class="icon-cart"></i>Add to cart</button>
                                         @endif
                                     </div>
 

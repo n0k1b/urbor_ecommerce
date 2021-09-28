@@ -142,9 +142,9 @@
                                 </div>
                                 <div class="ps-product__total"></div>
                                 @if($product_list->discount_percentage>0)
-                                <button class="add-to-cart  ps-product__addcart"  data-type='product'  data-unit= '{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}' data-id = '{{ $product_list->product->id }}' data-image='{{ $product_list->product->thumbnail_image }}' data-name="{{ $product_list->product->name }}" data-price="{{ $discount_price}}" ><i class="icon-cart"></i>Add to cart</button>
+                                <button class="add-to-cart  ps-product__addcart"  data-type='product'  data-unit= '{{ $product_list->product->unit_quantity }} {{ $product_list->product->unit_type }}' data-id = '{{ $product_list->product->id }}' data-image='{{ $product_list->product->thumbnail_image }}' data-name="{{ $product_list->product->name }}" data-price="{{ $discount_price}}" ><i class="icon-cart"></i>Add to cart</button>
                                 @else
-                                <button class="add-to-cart  ps-product__addcart"  data-type='product' data-unit= '{{ $product_list->product->unit->unit_quantity }} {{ $product_list->product->unit->unit_type }}' data-id = '{{ $product_list->product->id }}' data-image='{{ $product_list->product->thumbnail_image }}' data-name="{{ $product_list->product->name }}" data-price="{{ $product_list->product->price }}" ><i class="icon-cart"></i>Add to cart</button>
+                                <button class="add-to-cart  ps-product__addcart"  data-type='product' data-unit= '{{ $product_list->product->unit_quantity }} {{ $product_list->product->unit_type }}' data-id = '{{ $product_list->product->id }}' data-image='{{ $product_list->product->thumbnail_image }}' data-name="{{ $product_list->product->name }}" data-price="{{ $product_list->product->price }}" ><i class="icon-cart"></i>Add to cart</button>
                                 @endif
                                 {{-- <div class="ps-product__box"><a class="ps-product__wishlist" href="#">Wishlist</a></div> --}}
                             </div>

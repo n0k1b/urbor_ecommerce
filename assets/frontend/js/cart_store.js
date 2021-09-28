@@ -156,7 +156,11 @@ var shoppingCart = (function() {
   // Add item
   //shoppingCart.clearCart();
 
-  $('.add-to-cart').click(function(event) {
+
+
+
+ $(document).on("click", '.add-to-cart', function(event) {
+
 
     event.preventDefault();
     var name = $(this).data('name');
@@ -254,7 +258,8 @@ var shoppingCart = (function() {
 
   // Delete item button
 
-  $('.show-cart').on("click", ".delete-item", function(event) {
+  $(document).on("click", '.show-cart', function(event) {
+
 
     var id = $(this).data('id');
     //alert(id);
@@ -356,6 +361,7 @@ var shoppingCart = (function() {
   })
 
   // Item count input
+
   $('.show-cart').on("change", ".item-count", function(event) {
      var id = $(this).data('id');
      var count = Number($(this).val());

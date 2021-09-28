@@ -233,7 +233,10 @@
             $(target).siblings('.ps-tab').removeClass('active');
         });
 
-        $('.ps-tab-list.owl-slider .owl-item a').on('click', function(e) {
+
+        $(document).on("click", '.ps-tab-list.owl-slider .owl-item a', function(event) {
+
+
             e.preventDefault();
             var target = $(this).attr('href');
             $(this).closest('.owl-item').siblings('.owl-item').removeClass('active');
@@ -299,8 +302,8 @@
         $('#inputSearchMobile').on('mouseleave', function (e) {
             $('.mobile-search__result').removeClass('open');
         });
+        $(document).on("click", '.btn-cart-header', function(event) {
 
-        $('.btn-cart-header').on('click', function(e) {
             var count = $('.total-count').html();
             if(count>0)
             $('.mini-cart').toggleClass('open');
