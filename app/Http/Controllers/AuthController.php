@@ -7,7 +7,7 @@ use Auth;
 use Illuminate\Support\Facades\Validator;
 use Session;
 use App\Models\user_otp;
-use App\Models\user;
+use App\Models\User as user;
 
 class AuthController extends Controller
 {
