@@ -521,6 +521,33 @@ class RoleController extends Controller
             role_permisiion::where('content_name','dashboard_view')->where('role_id',$role_id)->delete();
         }
 
+        if($request->has('order_view'))
+        {
+            role_permisiion::updateOrCreate(['content_name'=>'order_view','role_id'=>$role_id]);
+        }
+        else
+        {
+            role_permisiion::where('content_name','order_view')->where('role_id',$role_id)->delete();
+        }
+
+        if($request->has('order_edit'))
+        {
+            role_permisiion::updateOrCreate(['content_name'=>'order_edit','role_id'=>$role_id]);
+        }
+        else
+        {
+            role_permisiion::where('content_name','order_edit')->where('role_id',$role_id)->delete();
+        }
+
+        if($request->has('report_view'))
+        {
+            role_permisiion::updateOrCreate(['content_name'=>'report_view','role_id'=>$role_id]);
+        }
+        else
+        {
+            role_permisiion::where('content_name','report_view')->where('role_id',$role_id)->delete();
+        }
+
         return redirect()->route('show-all-role')->with('success','Permission Updated Successfully');
 
 

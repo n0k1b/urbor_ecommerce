@@ -75,7 +75,7 @@
                 @endif
 
 
-                @if(in_array('product_view',$role_permission))
+                @if(in_array('purchase_view',$role_permission))
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="la la-dropbox"></i>
                     <span class="nav-text">Purchase</span>
@@ -87,7 +87,7 @@
                 </ul>
                  </li>
             @endif
-            @if(in_array('product_view',$role_permission))
+            @if(in_array('package_view',$role_permission))
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="la la-dropbox"></i>
                     <span class="nav-text">Package</span>
@@ -114,7 +114,7 @@
                     </a>
                      </li>
                      @endif
-
+                    @if(in_array('order_view',$role_permission))
                  	<li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
 						<i class="la la-shopping-cart"></i>
 						<span class="nav-text">Order</span>
@@ -129,6 +129,7 @@
 
                         </ul>
 			    	</li>
+                    @endif
                     {{-- @if(in_array('courier_man_view',$role_permission))
                     <li><a class="ai-icon" href="{{ route('show-all-courier') }}" aria-expanded="false">
                         <i class="la la-motorcycle"></i>
@@ -153,19 +154,8 @@
                 </li>
                 @endif
 
-                {{-- <li><a class="ai-icon" href="{{ route('show-all-deposit') }}" aria-expanded="false">
-                    <i class="la la-bank"></i>
-                    <span class="nav-text">Deposit</span>
-                </a>
-                </li> --}}
 
-
-                {{-- <li><a class="ai-icon" href="{{ route('show-all-expense') }}" aria-expanded="false">
-                    <i class="la la-bank"></i>
-                    <span class="nav-text">Expense</span>
-                </a>
-                </li> --}}
-
+                @if(in_array('report_view',$role_permission))
                 <li><a class="has-arrow" href="javascript:void()" aria-expanded="false">
                     <i class="la la-shopping-cart"></i>
                     <span class="nav-text">Report</span>
@@ -180,6 +170,7 @@
 
                     </ul>
                 </li>
+                @endif
 
 
 

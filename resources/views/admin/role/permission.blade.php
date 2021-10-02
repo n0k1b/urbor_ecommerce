@@ -215,6 +215,56 @@
                                                        </td>
                                                     </tr>
 
+                                                      <tr>
+                                                        <th>3</th>
+                                                        <td>Product</td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+                                                            @if(in_array('product_view',$role_permission))
+                                                            <input type="checkbox" class="form-check-input" name="product_view" id="check1" value="1" checked>
+                                                            @else
+                                                            <input type="checkbox" class="form-check-input" name="product_view" id="check1" value="0">
+                                                            @endif
+
+                                                        </div>
+                                                       </td>
+
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+
+                                                            @if(in_array('product_add',$role_permission))
+                                                            <input type="checkbox" class="form-check-input" name="product_add" id="check1" value="1" checked>
+                                                            @else
+                                                            <input type="checkbox" class="form-check-input" name="product_add" id="check1" value="0">
+                                                            @endif
+                                                        </div>
+                                                       </td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+                                                            @if(in_array('product_edit',$role_permission))
+                                                            <input type="checkbox" class="form-check-input" name="product_edit" id="check1" value="1" checked>
+                                                            @else
+                                                            <input type="checkbox" class="form-check-input" name="product_edit" id="check1" value="0">
+                                                            @endif
+
+                                                        </div>
+                                                       </td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+                                                            @if(in_array('product_delete',$role_permission))
+                                                            <input type="checkbox" class="form-check-input" name="product_delete" id="check1" value="1" checked>
+                                                            @else
+                                                            <input type="checkbox" class="form-check-input" name="product_delete" id="check1" value="0">
+                                                            @endif
+
+                                                        </div>
+                                                       </td>
+                                                    </tr>
+
                                                     <tr>
                                                         <th>4</th>
                                                         <td>Homepage Content</td>
@@ -612,6 +662,87 @@
 
                                                     <tr>
                                                         <th>13</th>
+                                                        <td>Order</td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+                                                            @if(in_array('order_view',$role_permission))
+                                                            <input type="checkbox" class="form-check-input" name="order_view" id="check1" value="1" checked>
+                                                            @else
+                                                            <input type="checkbox" class="form-check-input" name="order_view" id="check1" value="0">
+                                                            @endif
+
+                                                        </div>
+                                                       </td>
+
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+
+
+                                                        </div>
+                                                       </td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+                                                            @if(in_array('order_edit',$role_permission))
+                                                            <input type="checkbox" class="form-check-input" name="order_edit" id="check1" value="1" checked>
+                                                            @else
+                                                            <input type="checkbox" class="form-check-input" name="order_edit" id="check1" value="0">
+                                                            @endif
+
+                                                        </div>
+                                                       </td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+
+
+                                                        </div>
+                                                       </td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <th>14</th>
+                                                        <td>Report</td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+                                                            @if(in_array('report_view',$role_permission))
+                                                            <input type="checkbox" class="form-check-input" name="report_view" id="check1" value="1" checked>
+                                                            @else
+                                                            <input type="checkbox" class="form-check-input" name="report_view" id="check1" value="0">
+                                                            @endif
+
+                                                        </div>
+                                                       </td>
+
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+
+
+                                                        </div>
+                                                       </td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+
+
+                                                        </div>
+                                                       </td>
+                                                       <td style="text-align: center;
+                                                       padding-bottom: 33px">
+                                                        <div class="form-check">
+
+
+                                                        </div>
+                                                       </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <th>15</th>
                                                         <td>Dashboard</td>
                                                        <td style="text-align: center;
                                                        padding-bottom: 33px">
