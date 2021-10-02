@@ -197,7 +197,7 @@
                   <div class="header-inner__left">
                      <button class="navbar-toggler"><i class="icon-menu"></i></button>
                   </div>
-                  <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}"  style="height: 150px; width:100px"></a></div>
+                  <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}"  style="height: 150px; width:2100px"></a></div>
                   <div class="header-inner__right">
                      <button class="button-icon icon-sm search-mobile"><i class="icon-magnifier"></i></button>
                   </div>
