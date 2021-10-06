@@ -391,7 +391,7 @@ class FrontController extends Controller
         foreach($products as $product)
         {
             $data.='<li class="cart-item">
-            <div class="ps-product--mini-cart"><a href="product_details/'.$product->id.'"  "><img class="ps-product__thumbnail" src="'.$product->thumbnail_image.'" alt="alt" /></a>
+            <div class="ps-product--mini-cart"><a href="product_details/'.$product->id.'"  "><img loading="lazy" class="ps-product__thumbnail" src="'.$product->thumbnail_image.'" alt="alt" /></a>
                 <div class="ps-product__content"><a class="ps-product__name" href="product_details/'.$product->id.'" >'.$product->name.'</a>
                     <p class="ps-product__meta">Tk  <span class="ps-product__price">'.$product->price.'</span>
                     </p>
@@ -603,7 +603,7 @@ class FrontController extends Controller
                 {
                 $data.='   <div class="shopping-cart-row">
                 <div class="cart-product">
-                    <div class="ps-product--mini-cart"><a href="product-default.html"><img class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
+                    <div class="ps-product--mini-cart"><a href="product-default.html"><img loading="lazy" class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
                         <div class="ps-product__content">
                             <h5><a class="ps-product__name" href="#">'.$details['name'].'</a></h5>
                             <p class="ps-product__unit product_unit">'.$details['unit'].'</p>
@@ -641,7 +641,7 @@ class FrontController extends Controller
                 {
                     $data.='   <div class="shopping-cart-row">
                     <div class="cart-product">
-                    <div class="ps-product--mini-cart"><a href="product-default.html"><img class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
+                    <div class="ps-product--mini-cart"><a href="product-default.html"><img loading="lazy" class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
                         <div class="ps-product__content">
                             <h5><a class="ps-product__name" href="#">'.$details['name'].'</a></h5>
 
@@ -750,7 +750,7 @@ class FrontController extends Controller
 
 //         $data.='
 //         <li class="cart-item">
-//         <div class="ps-product--mini-cart"><a href="product-default.html"><img style="min-width:60px" class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
+//         <div class="ps-product--mini-cart"><a href="product-default.html"><img loading="lazy" style="min-width:60px" class="ps-product__thumbnail" src="'.$details['photo'].'" alt="alt" /></a>
 //             <div class="ps-product__content"><a class="ps-product__name" href="product-default.html">'.$details['name'].'</a>
 //                ';
 //                if($details['type']=='product')
@@ -820,7 +820,7 @@ class FrontController extends Controller
         foreach($section_category as $category)
         {
             $data.=' <div class="ps-category__item">
-            <a href="view_all/section_prodcut-'.$category->id.'"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/section_prodcut-'.$category->id.'">'.$category->section_name.'</a>
+            <a href="view_all/section_prodcut-'.$category->id.'"><img loading="lazy" class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/section_prodcut-'.$category->id.'">'.$category->section_name.'</a>
         </div>';
         }
         $data.=' </div>';
@@ -838,7 +838,7 @@ class FrontController extends Controller
         foreach( $sub_category as $category)
         {
             $data.=' <div class="ps-category__item">
-            <a href="view_all/sub_category-'.$category->id.'"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/sub_category-'.$category->id.'">'.$category->name.'</a>
+            <a href="view_all/sub_category-'.$category->id.'"><img loading="lazy" class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/sub_category-'.$category->id.'">'.$category->name.'</a>
         </div>';
         }
         $data.=' </div>';
@@ -859,7 +859,7 @@ class FrontController extends Controller
         foreach( $sub_category as $category)
         {
             $data.=' <div class="ps-category__item">
-            <a href="view_all/sub_category-'.$category->id.'"><img class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/sub_category-'.$category->id.'">'.$category->name.'</a>
+            <a href="view_all/sub_category-'.$category->id.'"><img loading="lazy" class="ps-categories__thumbnail" style="width:100px;height:100px" src="'.$category->image.'" alt></a><a class="ps-categories__name" href="view_all/sub_category-'.$category->id.'">'.$category->name.'</a>
         </div>';
         }
         $data.=' </div>';
@@ -891,7 +891,7 @@ class FrontController extends Controller
             {
                 $discount_price =$product->product->price- floor(($product->product->price*$product->discount_percentage)/100);
                 $data.='<div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                <div class="ps-product--standard"><a  href="product_details/'.$product->product->id.'"><img class="ps-product__thumbnail" height="150px"   src="'.$product->product->thumbnail_image.'" alt="alt" /></a><a class="ps-product__expand" href="product_details/'.$product->product->id.'"><i class="icon-expand"></i></a>
+                <div class="ps-product--standard"><a  href="product_details/'.$product->product->id.'"><img loading="lazy" class="ps-product__thumbnail" height="150px"   src="'.$product->product->thumbnail_image.'" alt="alt" /></a><a class="ps-product__expand" href="product_details/'.$product->product->id.'"><i class="icon-expand"></i></a>
                     <div class="ps-product__content">
 
                         <h5><a class="ps-product__name" href="product_details/'.$product->product->id.'" >'.$product->product->name.'</a></h5>
@@ -956,7 +956,7 @@ class FrontController extends Controller
                // file_put_contents('test2.txt',json_encode($product->product));
                 // $discount_price =$product->product->price- floor(($product->product->price*$product->discount_percentage)/100);
                 $data.='<div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                <div class="ps-product--standard"><a href="product_details/'.$product->id.'"><img class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a>
+                <div class="ps-product--standard"><a href="product_details/'.$product->id.'"><img loading="lazy" class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a>
                 <a class="ps-product__expand" href="product_details/'.$product->id.'"><i class="icon-expand"></i></a>
                     <div class="ps-product__content">
 
@@ -1053,7 +1053,7 @@ class FrontController extends Controller
                // file_put_contents('test2.txt',json_encode($product->product));
                 // $discount_price =$product->product->price- floor(($product->product->price*$product->discount_percentage)/100);
                 $data.='<div class="col-6 col-md-4 col-lg-2dot4 p-0">
-                <div class="ps-product--standard"><a  href="product_details/'.$product->id.'"><img class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a>
+                <div class="ps-product--standard"><a  href="product_details/'.$product->id.'"><img loading="lazy" class="ps-product__thumbnail" height="150px"   src="'.$product->thumbnail_image.'" alt="alt" /></a>
                 <a class="ps-product__expand" href="product_details/'.$product->id.'"><i class="icon-expand"></i></a>
                     <div class="ps-product__content">
 
@@ -1160,7 +1160,7 @@ class FrontController extends Controller
                         <div class="col-12 col-lg-5">
 
                             <div >
-                                <div class="quickview-carousel" style="margin-top:50px"><img class="carousel__thumbnail" src="'.$product->thumbnail_image.'" alt="alt" /></div>
+                                <div class="quickview-carousel" style="margin-top:50px"><img loading="lazy" class="carousel__thumbnail" src="'.$product->thumbnail_image.'" alt="alt" /></div>
 
                             </div>
                         </div>
@@ -1247,7 +1247,7 @@ class FrontController extends Controller
                <div class="col-12 col-lg-12 col-md-12 col-sm-12" style="margin-bottom:6px">
                   <div class="row">
                      <div class="col-4 col-md-4 col-lg-4 text-center">
-                        <img class="carousel__thumbnail package_thumbnail" src="'.$product->product->thumbnail_image.'" alt="alt" />
+                        <img loading="lazy" class="carousel__thumbnail package_thumbnail" src="'.$product->product->thumbnail_image.'" alt="alt" />
                      </div>
                      <div class="col-8 col-md-8 col-lg-8">
                         <div class="product__header">

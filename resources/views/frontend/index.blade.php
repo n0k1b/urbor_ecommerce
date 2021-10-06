@@ -7,8 +7,8 @@
             data-owl-duration="3000" data-owl-mousedrag="on">
             @foreach($banners as $banner)
             <div class="ps-banner">
-                <img class="mobile-only" src="{{ $banner->image }}" alt="alt" />
-                <img class="desktop-only" src="{{ $banner->image }}" alt="alt" />
+                <img loading="lazy" class="mobile-only" src="{{ $banner->image }}" alt="alt" />
+                <img loading="lazy" class="desktop-only" src="{{ $banner->image }}" alt="alt" />
 
             </div>
             @endforeach
@@ -26,7 +26,7 @@
                     data-owl-mousedrag="on">
                     @foreach ($categories as $category)
                     <div class="ps-category__item">
-                        <a href="view_all/category_prodcut-{{$category->id}}"><img class="ps-categories__thumbnail" height="100px" width="100px" src="{{ $category->image }}" alt></a><a class="ps-categories__name" href="view_all/category_prodcut-{{$category->id}}">{{ $category->name }} </a>
+                        <a href="view_all/category_prodcut-{{$category->id}}"><img loading="lazy" class="ps-categories__thumbnail" height="100px" width="100px" src="{{ $category->image }}" alt></a><a class="ps-categories__name" href="view_all/category_prodcut-{{$category->id}}">{{ $category->name }} </a>
                     </div>
                     @endforeach
 
@@ -57,7 +57,7 @@
 
                     <div class="ps-flash__product">
                         <div class="ps-product--standard">
-                            <a href="package_product/{{$package->id}}" ><img class="ps-product__thumbnail" height="150px"  src="{{ $package->package_image }}" alt="alt" /></a><a class="ps-product__expand" href="package_product/{{$package->id}}" ><i class="icon-expand"></i></a>
+                            <a href="package_product/{{$package->id}}" ><img loading="lazy" class="ps-product__thumbnail" height="150px"  src="{{ $package->package_image }}" alt="alt" /></a><a class="ps-product__expand" href="package_product/{{$package->id}}" ><i class="icon-expand"></i></a>
                             <div class="ps-product__content" href="package_product/{{$package->id}}" >
 
                                 <h5><a class="ps-product__name" style="height: 40px" href="package_product/{{$package->id}}" >{{$package->package_name }}</a></h5>
@@ -114,7 +114,7 @@
                     ?>
                     <div class="ps-flash__product">
                         <div class="ps-product--standard">
-                            <a href="product_details/{{ $product_list->product->id }}" ><img class="ps-product__thumbnail" height="150px"  src="{{ $product_list->product->thumbnail_image }}" alt="alt" /></a><a class="ps-product__expand" href="product_details/{{ $product_list->product->id }}" ><i class="icon-expand"></i></a>
+                            <a href="product_details/{{ $product_list->product->id }}" ><img loading="lazy" class="ps-product__thumbnail" height="150px"  src="{{ $product_list->product->thumbnail_image }}" alt="alt" /></a><a class="ps-product__expand" href="product_details/{{ $product_list->product->id }}" ><i class="icon-expand"></i></a>
                             <div class="ps-product__content" href="product_details/{{ $product_list->product->id }}" >
 
                                 <h5><a class="ps-product__name" style="height: 40px" href="product_details/{{ $product_list->product->id }}" >{{ $product_list->product->name }}</a></h5>

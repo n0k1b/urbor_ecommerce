@@ -18,6 +18,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+//shop api start
+Route::group(['middleware' => ['json.response']], function () {
+    Route::get('fetch_category','ShopController@get_category');
+    Route::post('fetch_product','ShopController@fetch_product');
+
+});
+
+//shop api end
+
+
+
 Route::group(['middleware' => ['json.response'],'middleware' => ['auth:api']], function ()  {
 
        Route::post('get_area','AndroidController@get_area');

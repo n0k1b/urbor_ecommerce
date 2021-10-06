@@ -197,7 +197,7 @@
                   <div class="header-inner__left">
                      <button class="navbar-toggler"><i class="icon-menu"></i></button>
                   </div>
-                  <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}"  style="height: 150px; width:210px"></a></div>
+                  <div class="header-inner__center"><a class="logo open" href="{{ url('/') }}"><img loading="lazy" loading="lazy" src="{{ asset('image') }}/logo2.png?{{ time() }}"  style="height: 150px; width:210px"></a></div>
                   <div class="header-inner__right">
                      <button class="button-icon icon-sm search-mobile"><i class="icon-magnifier"></i></button>
                   </div>
@@ -208,7 +208,7 @@
             <div class="container">
                <div class="header-inner">
                   <div class="header-inner__left">
-                     <a class="logo" href="{{ url('/') }}"><img src="{{ asset('image') }}/logo2.png?{{ time() }}" style="height: 70px"></a>
+                     <a class="logo" href="{{ url('/') }}"><img loading="lazy" loading="lazy" src="{{ asset('image') }}/logo2.png?{{ time() }}" style="height: 70px"></a>
                      <ul class="menu">
                         <li class="menu-item-has-children has-mega-menu">
                            <button class="category-toggler"><i class="icon-menu"></i></button>
@@ -328,9 +328,9 @@
                <div class="row">
                   {{--
                   <div class="col-12 col-lg-4">
-                     <div class="service__payment"><img src="{{asset('assets')}}/frontend/img/promotion/payment_paypal.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_visa.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_mastercart.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_electron.jpg" alt><img src="{{asset('assets')}}/frontend/img/promotion/payment_skrill.jpg" alt></div>
+                     <div class="service__payment"><img loading="lazy" loading="lazy" src="{{asset('assets')}}/frontend/img/promotion/payment_paypal.jpg" alt><img loading="lazy" loading="lazy" src="{{asset('assets')}}/frontend/img/promotion/payment_visa.jpg" alt><img loading="lazy" loading="lazy" src="{{asset('assets')}}/frontend/img/promotion/payment_mastercart.jpg" alt><img loading="lazy" loading="lazy" src="{{asset('assets')}}/frontend/img/promotion/payment_electron.jpg" alt><img loading="lazy" loading="lazy" src="{{asset('assets')}}/frontend/img/promotion/payment_skrill.jpg" alt></div>
                      <p class="service__app">Get Urborbd App </p>
-                     <div class="service__download"><a href="#"><img src="{{asset('assets')}}/frontend/img/promotion/appStore.jpg" alt></a><a href="#"><img src="{{asset('assets')}}/frontend/img/promotion/googlePlay.jpg" alt></a></div>
+                     <div class="service__download"><a href="#"><img loading="lazy" loading="lazy" src="{{asset('assets')}}/frontend/img/promotion/appStore.jpg" alt></a><a href="#"><img loading="lazy" loading="lazy" src="{{asset('assets')}}/frontend/img/promotion/googlePlay.jpg" alt></a></div>
                   </div>
                   --}}
                   <div class="col-12 col-lg-4">

@@ -96,7 +96,7 @@
                                     $discount_percentage = 0;
                                     $discount_price = 0;
                                     ?>
-                                    <div class="col-6 col-md-4 col-lg-3 p-0" style="height: 405px">
+                                    <div class="col-6 col-md-4 col-lg-3 p-0" style="height: 422px">
                                         <div class="ps-product--standard">
                                             <a href="product_details/{{ $product->id }}" ><img class="ps-product__thumbnail" height="150px"  src="{{ $product->thumbnail_image }}" alt="alt" /></a><a class="ps-product__expand" href="product_details/{{ $product->id }}" ><i class="icon-expand"></i></a>
                                             <div class="ps-product__content" href="product_details/{{ $product->id }}" >
