@@ -270,6 +270,27 @@ var shoppingCart = (function() {
 
   })
 
+
+  $('.mini-cart').on("click", ".delete-item", function(event) {
+
+
+    var count = $('.total-count').html();
+
+
+        var id = $(this).data('id');
+        //alert(id);
+        shoppingCart.removeItemFromCartAll(id);
+
+        //$('.mini-cart').toggleClass('open');
+        displayCart();
+
+
+
+
+
+  })
+
+
   $('.show-cart-all').on("click", ".delete-item", function(event) {
 
     var count = $('.total-count').html();

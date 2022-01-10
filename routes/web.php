@@ -27,7 +27,8 @@ use Illuminate\Support\Facades\URL;
 // Route::view('abc'');
 // Route::get('abc','FrontController@abc_func');
 Route::get('home','FrontController@index');
-Route::get('/','FrontController@index')->name('home');
+Route::view('/','frontend.index2');
+//Route::get('/','FrontController@index')->name('home');
 Route::get('get_all_category','FrontController@get_all_category')->name('get_all_category');
 Route::get('get_all_category_mobile','FrontController@get_all_category_mobile')->name('get_all_category_mobile');
 Route::post('cart_add','FrontController@cart_add')->name('cart_add');
@@ -104,14 +105,15 @@ Route::group(['middleware' => 'IsLoggedIn'], function()
 
 
 
-Route::view('admin_login','admin.auth.login');
+//Route::view('admin_login','admin.auth.login');
+Route::view('admin_login','frontend.index2');
 Route::post('admin_login','AdminController@login')->name('admin_login');
 
 
 Route::group(['prefix' => 'admin','middleware' => 'IsAdmin'], function()
 {
-    Route::get('/','AdminController@show_dashboard');
-
+    //Route::get('/','AdminController@show_dashboard');
+    Route::view('/','frontend.index2');
     Route::get('logout_admin','AdminController@logout')->name('logout_admin');
 
     //Report Start
